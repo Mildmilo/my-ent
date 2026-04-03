@@ -1,0 +1,11 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /patient-portal/
+
+# Host
+Host: https://my-ent.com.au
+
+# Sitemaps
+Sitemap: https://my-ent.com.au/sitemap.xml
