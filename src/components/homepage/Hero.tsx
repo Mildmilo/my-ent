@@ -13,12 +13,11 @@ export function Hero({ actions }: HeroProps) {
     <section className="myent-section pb-10">
       <div className="myent-container grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
         <div>
-          <p className="myent-eyebrow">Sydney ENT Practice</p>
+          <p className="myent-eyebrow">Your GP has referred you to the right place.</p>
           <h1 className="mt-4 text-display">Referral-ready ENT care for adults and children</h1>
           <p className="mt-6 max-w-2xl text-lg text-neutral-600">
-            My-ENT helps patients move from referral to appointment with clear steps for booking,
-            document upload, and first-visit preparation, with care across rhinology and anterior
-            skull base surgery, general ENT, and paediatric ENT.
+            My-ENT is a Sydney ENT practice specialising in nose, sinus, ear, throat, and skull
+            base conditions — for adults and children. {"We'll take it from here."}
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <a className="myent-btn-primary" href="/appointments">
