@@ -149,34 +149,59 @@ export default function Home() {
             <p className="myent-eyebrow">Location</p>
             <h2 className="mt-3 text-3xl lg:text-4xl">Visit My-ENT in Sydney CBD</h2>
           </div>
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-            <article className="myent-card">
-              <Image
-                src="/images/bma-house-myent.jpg"
-                alt="BMA House at 135 Macquarie Street, Sydney CBD"
-                width={800}
-                height={600}
-                className="h-auto w-full rounded-lg object-cover"
-              />
-              <p className="mt-4 text-sm text-neutral-500">
-                Suite 303, Level 3, BMA House, 135 Macquarie Street, Sydney CBD NSW 2000.
-              </p>
+          <div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2">
+            <article className="myent-card h-full lg:min-h-[38rem]">
+              <div className="flex h-full flex-col justify-center divide-y divide-neutral-200">
+                <div className="pb-6">
+                  <p className="font-serif text-3xl text-neutral-800">My-ENT</p>
+                </div>
+                <div className="py-6">
+                  <p className="text-lg text-neutral-700">
+                    Suite 303, Level 3, BMA House, 135 Macquarie Street, Sydney CBD NSW 2000
+                  </p>
+                </div>
+                <div className="py-6">
+                  <a
+                    href="tel:0292471762"
+                    className="text-xl font-medium text-teal-400 transition-colors duration-150 hover:text-teal-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-teal-400"
+                  >
+                    02 9247 1762
+                  </a>
+                </div>
+                <div className="py-6">
+                  <a
+                    href="mailto:contact@my-ent.com.au"
+                    className="text-lg text-teal-400 transition-colors duration-150 hover:text-teal-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-teal-400"
+                  >
+                    contact@my-ent.com.au
+                  </a>
+                </div>
+                <div className="pt-6">
+                  <p className="text-base text-neutral-500">Monday to Friday, 8:30am – 5:00pm</p>
+                </div>
+              </div>
             </article>
 
-            <article className="myent-card">
-              <iframe
-                title="My-ENT location map"
-                src="https://www.google.com/maps?q=135+Macquarie+Street+Sydney+NSW+2000&output=embed"
-                className="h-64 w-full rounded-lg lg:h-[300px]"
-                style={{ border: 0 }}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
-              />
-              <div className="mt-4 space-y-1 text-sm text-neutral-500">
-                <p>Phone: 02 9247 1762</p>
-                <p>Email: contact@my-ent.com.au</p>
-                <p>Opening hours: 8:30am to 5:00pm Monday to Friday</p>
+            <article className="myent-card h-full overflow-hidden p-0 lg:min-h-[38rem]">
+              <div className="grid h-full min-h-[32rem] grid-rows-[3fr_1fr] lg:min-h-0">
+                <div className="relative">
+                  <Image
+                    src="/images/bma-house-myent.jpg"
+                    alt="BMA House at 135 Macquarie Street, Sydney CBD"
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                  />
+                </div>
+                <iframe
+                  title="My-ENT location map"
+                  src="https://www.google.com/maps?q=135+Macquarie+Street+Sydney+NSW+2000&output=embed"
+                  className="h-full w-full"
+                  style={{ border: 0 }}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
               </div>
             </article>
           </div>

@@ -387,6 +387,16 @@ The website is responsible for the new patient intake form, referral and imaging
 
 Reception should be able to open a new appointment request from the website and have everything they need to create the Genie booking without making an outbound call. If the website form does not capture enough information to do that, the form is incomplete.
 
+### Homepage location section — confirmed design
+
+The homepage location section uses two equal-height cards side by side on desktop, stacked on mobile.
+
+Card 1 — Contact details card. Displays the following in prominent styling using myent-card: practice name "My-ENT" in font-serif text-3xl; address "Suite 303, Level 3, BMA House, 135 Macquarie Street, Sydney CBD NSW 2000" in text-lg text-neutral-700; phone "02 9247 1762" in text-xl font-medium text-teal-400 as a clickable tel: link; email "contact@my-ent.com.au" in text-lg text-teal-400 as a clickable mailto: link; opening hours "Monday to Friday, 8:30am – 5:00pm" in text-base text-neutral-500.
+
+Card 2 — Location visual card. A single myent-card with overflow-hidden and no internal padding. The BMA House photograph (public/images/bma-house-myent.jpg) occupies 75% of the card height using next/image with object-cover. The Google Maps iframe centred on 135 Macquarie Street Sydney NSW 2000 occupies the remaining 25% of the card height with no border. No text appears in this card. Do not alter this split without instruction.
+
+Both cards use CSS grid with items-stretch to maintain equal height on desktop.
+
 ### What Genie is not used for on this project
 
 Genie is not used for patient-facing web content, the public appointment request flow, or document upload. Do not attempt to build direct Genie API integrations in the website. The handoff from website to Genie is manual: reception receives a structured email or dashboard notification from the website form, reviews it, and creates the Genie booking.
