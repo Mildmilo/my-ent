@@ -17,6 +17,7 @@ const policySections: PolicySection[] = [
     content: [
       'We collect personal and health information needed to provide specialist ENT care and manage your appointments.',
       'This can include your name, date of birth, contact details, Medicare details, referral details, medical history, imaging and test results, consultation notes, and billing information.',
+      'Where clinically appropriate, patients attending My-ENT for assessment of nasal, sinus, or related conditions may be invited to complete a pre-appointment clinical questionnaire. This questionnaire uses validated patient-reported outcome measures to assist the clinical team in preparing for your consultation. Responses are transmitted securely to the treating clinician and are not shared with any third party. Completion of the questionnaire is voluntary, and declining to complete it will not affect your access to care. If you have questions about how this information is used, please contact the practice manager at contact@my-ent.com.au.',
       'If you contact us, we may also keep records of phone calls, emails, or forms you send to the practice.',
     ],
   },
