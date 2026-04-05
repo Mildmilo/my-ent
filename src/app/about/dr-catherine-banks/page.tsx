@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import { surgeons } from '@/content/surgeons'
 
 const biographyParagraphs: string[] = [
-  'Subspecialties: Rhinology, Skull Base Surgery, Adult and Paediatric ENT, General ENT.',
   'Qualifications: MBChB, FRACS (ORL-HNS).',
   'Dual fellowship certified: Harvard Medical School / Massachusetts Eye and Ear Hospital / Massachusetts General Hospital, Boston; University of Birmingham, Alabama.',
   'First Australasian surgeon to complete the Harvard/MEEI rhinology fellowship.',
@@ -29,6 +29,18 @@ export const metadata: Metadata = {
     'Verified profile for Dr Catherine Banks including qualifications, subspecialty scope, and confirmed public tertiary hospital appointments.',
 }
 
+function getRequiredSurgeonBySlug(slug: string) {
+  const surgeon = surgeons.find((item) => item.slug === slug)
+
+  if (!surgeon) {
+    throw new Error(`Surgeon content is missing for slug: ${slug}`)
+  }
+
+  return surgeon
+}
+
+const drCatherineBanks = getRequiredSurgeonBySlug('dr-catherine-banks')
+
 export default function DrCatherineBanksPage() {
   return (
     <section className="myent-section">
@@ -37,14 +49,18 @@ export default function DrCatherineBanksPage() {
       <div className="myent-container">
         <p className="myent-eyebrow">Team profile</p>
         <h1 className="mt-4 text-4xl lg:text-5xl">Dr Catherine Banks</h1>
+        <p className="mt-4 text-sm font-medium text-neutral-700">{drCatherineBanks.role}</p>
         <p className="mt-4 text-xl text-neutral-600">MBChB, FRACS</p>
+        <p className="mt-2 text-sm text-neutral-400">{drCatherineBanks.contextualNote}</p>
 
         <article className="myent-card mt-10 overflow-hidden p-0">
           <div className="grid gap-0 lg:grid-cols-[1fr_5rem_400px]">
             <div className="p-6 lg:p-8">
               <p className="myent-eyebrow">Team profile</p>
               <h2 className="mt-3 text-3xl">Dr Catherine Banks</h2>
+              <p className="mt-3 text-sm font-medium text-neutral-700">{drCatherineBanks.role}</p>
               <p className="mt-3 text-base text-neutral-600">MBChB, FRACS</p>
+              <p className="mt-2 text-sm text-neutral-400">{drCatherineBanks.contextualNote}</p>
 
               <div className="mt-6 space-y-4">
                 {biographyParagraphs.map((paragraph) => (

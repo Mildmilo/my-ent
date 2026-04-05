@@ -7,6 +7,7 @@ interface TeamCard {
   name: string
   role: string
   credentials: string
+  contextualNote?: string
   href: string
   imageSrc: string
 }
@@ -26,6 +27,7 @@ const teamCards: TeamCard[] = [
     name: surgeon.name,
     role: surgeon.role,
     credentials: surgeon.credentials,
+    contextualNote: surgeon.contextualNote,
     href: `/about/${surgeon.slug}`,
     imageSrc: `/images/Team/${surgeon.slug}-myent.jpg`,
   })),
@@ -58,6 +60,9 @@ export default function OurSurgeonsPage() {
                   <h2 className="mt-3 text-3xl lg:text-4xl">{person.name}</h2>
                   <p className="mt-4 text-sm font-medium text-neutral-700">{person.role}</p>
                   <p className="mt-3 text-sm text-neutral-600">{person.credentials}</p>
+                  {person.contextualNote ? (
+                    <p className="mt-2 text-sm text-neutral-400">{person.contextualNote}</p>
+                  ) : null}
 
                   <a className="mt-6 inline-block text-sm font-medium text-teal-500" href={person.href}>
                     View full profile

@@ -4,6 +4,7 @@ export interface Surgeon {
   slug: string
   role: string
   credentials: string
+  contextualNote?: string
   fellowships: string[]
   hospitals: string[]
   researchNote?: string

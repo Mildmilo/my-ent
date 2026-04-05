@@ -5,9 +5,10 @@ export const surgeons: Surgeon[] = [
     id: 'dr-catherine-banks',
     name: 'Dr Catherine Banks',
     slug: 'dr-catherine-banks',
-    role: 'Rhinology, Skull Base Surgery, Adult and Paediatric ENT, General ENT',
+    role: 'Rhinology and Anterior Skull Base · Paediatric and Adult General ENT',
     credentials:
       'MBChB, FRACS (ORL-HNS). First Australasian surgeon to complete the Harvard/MEEI rhinology fellowship. RACS Court of Examiners for ASOHNS. Co-founder, Base of Skull Service, Sydney Children\'s Hospital.',
+    contextualNote: "Consulting at Macquarie Street and Sydney Children's Hospital, Randwick.",
     fellowships: [
       'Harvard Medical School / Massachusetts Eye and Ear Hospital / Massachusetts General Hospital, Boston',
       'University of Birmingham, Alabama',

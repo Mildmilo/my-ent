@@ -18,6 +18,7 @@ interface SurgeonData {
   role: string
   credentials: string
   profileHref: string
+  imageSrc: string
 }
 
 interface ConditionData {
@@ -59,29 +60,38 @@ const subspecialties = [
 const surgeons: SurgeonData[] = [
   {
     name: 'Dr Catherine Banks',
-    role: 'Rhinology and anterior skull base, general ENT, paediatric ENT',
-    credentials:
-      "FRACS (ORL-HNS), NHMRC grant holder, PhD candidate at UNSW, research in sinus stem cell therapeutics. Also sees general ENT patients and holds a paediatric ENT appointment at Sydney Children's Hospital, a tertiary paediatric centre.",
+    role: 'Rhinology and Anterior Skull Base · Paediatric and Adult General ENT',
+    credentials: 'MBChB, FRACS (ORL-HNS), NHMRC grant holder, PhD candidate at UNSW.',
     profileHref: '/about/dr-catherine-banks',
+    imageSrc: '/images/Team/dr-catherine-banks-myent.jpg',
   },
   {
     name: 'Dr Lyndon Chan',
-    role: 'General and paediatric ENT',
-    credentials: 'MBBS, FRACS. Hospital affiliations: // TODO: INSERT [Dr Lyndon Chan affiliations].',
+    role: 'Sleep surgery, rhinology, skull base',
+    credentials: 'MBBS (Hons), FRACS (Otorhinolaryngologist), triple fellowship certified.',
     profileHref: '/about/dr-lyndon-chan',
+    imageSrc: '/images/Team/dr-lyndon-chan-myent.jpg',
   },
   {
     name: 'Dr June Huang',
-    role: 'Otology and general ENT',
-    credentials: 'FRACS, fellowship-trained. Hospital affiliations: // TODO: INSERT [Dr June Huang affiliations].',
+    role: 'Otology, general and paediatric ENT',
+    credentials: 'MBChB, FRACS (OHNS), otology fellowship at St Vincent\'s Hospital Sydney.',
     profileHref: '/about/dr-june-huang',
+    imageSrc: '/images/Team/dr-june-huang-myent.jpg',
   },
   {
     name: 'Dr Rithvik Reddy',
-    role: 'Complex otology, auditory implants, lateral skull base surgery, general and paediatric ENT',
-    credentials:
-      "FRACS (ORL-HNS). Fellowships: Guy's and St Thomas' NHS Trust, London; King's College London. Consultant appointments: Sydney Children's Hospital and Liverpool Hospital (adult and paediatric).",
+    role: 'Complex otology and auditory implants',
+    credentials: 'FRACS (ORL-HNS), advanced fellowship-trained in complex otology and lateral skull base surgery.',
     profileHref: '/about/dr-rithvik-reddy',
+    imageSrc: '/images/Team/dr-rithvik-reddy-myent.jpg',
+  },
+  {
+    name: 'Justine Oates',
+    role: 'Nurse practitioner',
+    credentials: 'Master of Nursing, Sydney University, Head and Neck / Rhinology Nurse Practitioner.',
+    profileHref: '/about/justine-oates',
+    imageSrc: '/images/Team/justine-oates-myent.jpg',
   },
 ]
 
@@ -120,7 +130,7 @@ const conditions: ConditionData[] = [
 
 const whyPoints = [
   {
-    title: 'Reception-first intake design',
+    title: 'Reception-first booking request design',
     body: 'Appointment requests are structured so reception can action bookings in Genie without a return call for missing details.',
   },
   {

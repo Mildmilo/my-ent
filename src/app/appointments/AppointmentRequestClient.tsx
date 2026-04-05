@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 type TriageState =
   | 'ready-to-book'
@@ -300,6 +300,34 @@ export function AppointmentRequestClient() {
   const canSubmit =
     triageState === 'ready-to-book' && allSectionsValid
 
+  useEffect(() => {
+    const targetHash = '#booking-request-form'
+
+    function syncTriageWithHash(): void {
+      if (window.location.hash === targetHash) {
+        setTriageState('ready-to-book')
+      }
+    }
+
+    syncTriageWithHash()
+    window.addEventListener('hashchange', syncTriageWithHash)
+
+    return () => {
+      window.removeEventListener('hashchange', syncTriageWithHash)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (triageState !== 'ready-to-book') {
+      return
+    }
+    if (window.location.hash !== '#booking-request-form') {
+      return
+    }
+    const target = document.getElementById('booking-request-form')
+    target?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }, [triageState])
+
   function updateForm<K extends keyof FormState>(key: K, value: FormState[K]): void {
     const nextForm = { ...form, [key]: value }
     setForm(nextForm)
@@ -498,7 +526,7 @@ export function AppointmentRequestClient() {
               Request an appointment
             </h1>
             <p className="text-lg leading-relaxed text-neutral-500">
-              This intake form helps reception action your booking request without follow-up calls
+              This booking request form helps reception action your booking request without follow-up calls
               for missing details. Need a number for another consulting room or a public hospital?{' '}
               <Link className="font-medium text-teal-400 underline hover:text-teal-500" href="/contact/finding-the-right-contact">
                 Find the right contact for your situation.
@@ -527,8 +555,8 @@ export function AppointmentRequestClient() {
             {triageCard(
               'ready-to-book',
               'I have a GP referral and I am ready to request an appointment',
-              'Complete the intake form so reception can action your booking request quickly.',
-              'Start intake form'
+              'Complete the booking request form so reception can action your booking request quickly.',
+              'Start booking request form'
             )}
             {triageCard(
               'questions',
@@ -547,7 +575,7 @@ export function AppointmentRequestClient() {
               <p className="myent-eyebrow">Patient information</p>
               <h2 className="mt-3 text-3xl leading-tight">Answers to common appointment questions</h2>
               <p className="mt-4 text-base leading-relaxed text-neutral-500">
-                If you are not ready to submit the intake form yet, please review our guidance on
+                If you are not ready to submit the booking request form yet, please review our guidance on
                 consultation fees, Medicare, and what to expect at your first visit.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
@@ -571,7 +599,7 @@ export function AppointmentRequestClient() {
       ) : null}
 
       {triageState === 'ready-to-book' && (
-        <section className="myent-section border-t border-neutral-200 bg-white">
+        <section id="booking-request-form" className="myent-section border-t border-neutral-200 bg-white">
           <div className="myent-container">
             <div className="mb-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
               {stepTitles.map((title, index) => {
