@@ -225,6 +225,12 @@ RULE 5 — TERMINOLOGY.
   "Grommets" not "tympanostomy tubes".
   "Snoring and sleep apnoea" not "OSAS" or "OSAHS".
 
+CLINICAL ACCURACY NOTE — GROMMETS RECOVERY:
+  Grommets (tympanostomy tube insertion) is a brief day procedure.
+  Patients — both children and adults — can resume normal activity the following day.
+  Do NOT state that grommets requires one to two weeks off school or work.
+  This is clinically incorrect. Normal activity resumes the next day.
+
 RULE 6 — NO INVENTED DETAILS.
   Phone, email, ABN, and unconfirmed surgeon affiliations must use
   // TODO: INSERT [field]. Never invent contact information.
@@ -970,6 +976,22 @@ git add -p      # review every change before staging
 Lighthouse 90+ on Performance, 95+ on Accessibility, 95+ on Best Practices, 95+ on SEO. These are targets to pursue, not release criteria. A page that scores 88 on Performance but is clinically accurate, correctly structured, and operationally sound is better than a page that scores 96 but has been simplified to the point of being unhelpful. Flag performance regressions for investigation; do not sacrifice content quality to chase a score.
 
 LCP < 2.5s, CLS < 0.1, INP < 200ms. Achieve via `next/image` with explicit dimensions, `next/font` with `display: swap`, and no render-blocking scripts above the fold.
+
+---
+
+## 14. Sinus pre-appointment questionnaire
+
+The full build specification for the rhinology and nasal pre-appointment questionnaire is contained in a separate file:
+
+**`SINUS_QUESTIONNAIRE_SPEC.md`** — located in the project root alongside this file.
+
+Read this file in full before building any component of the questionnaire. The specification covers the complete nine-step instrument including the EPOS 2020 symptom classification component, all validated instruments (SNOT-22, NOSE, TNSS, RQLQ, ESS), the two-section output architecture (patient-facing confirmation only; full graded clinician email), session management, save-and-return functionality, and implementation notes for Claude Code.
+
+Critical rules that apply to the questionnaire without exception:
+- No EPOS classification, severity grade, instrument score, or management recommendation is ever displayed to the patient on any screen.
+- All clinical output appears exclusively in the structured email sent to contact@my-ent.com.au.
+- The questionnaire is built at src/app/appointments/sinus-assessment/page.tsx.
+- The Privacy Policy at /privacy-policy must include the questionnaire data collection paragraph before the questionnaire goes live.
 
 ---
 

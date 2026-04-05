@@ -1,7 +1,8 @@
+import Image from 'next/image'
+
 import { ConditionsGrid } from '@/components/homepage/ConditionsGrid'
 import { GpStrip } from '@/components/homepage/GpStrip'
 import { Hero } from '@/components/homepage/Hero'
-import { LocationsCard } from '@/components/homepage/LocationsCard'
 import { ReviewsStrip } from '@/components/homepage/ReviewsStrip'
 import { SubspecialtyStrip } from '@/components/homepage/SubspecialtyStrip'
 import { SurgeonGrid } from '@/components/homepage/SurgeonGrid'
@@ -128,24 +129,6 @@ const conditions: ConditionData[] = [
   },
 ]
 
-const locations = [
-  {
-    name: 'Prince of Wales Private',
-    suburb: 'Randwick',
-    note: 'Confirmed affiliation.',
-  },
-  {
-    name: "St Luke's Private",
-    suburb: 'Potts Point',
-    note: 'Confirmed affiliation.',
-  },
-  {
-    name: "Sydney Children's Hospital",
-    suburb: 'Randwick',
-    note: 'Confirmed affiliation.',
-  },
-]
-
 const reviewStatus = [
   'Public-platform review excerpts are being compiled and verified.',
   'Only verbatim, attributable reviews will be published once approved.',
@@ -160,10 +143,45 @@ export default function Home() {
       <SurgeonGrid surgeons={surgeons} />
       <ConditionsGrid conditions={conditions} />
       <WhyMyEnt />
-      <LocationsCard
-        primaryAddress="Level 3, Suite 303, BMA House, 135 Macquarie Street, Sydney CBD NSW 2000"
-        locations={locations}
-      />
+      <section className="myent-section bg-white">
+        <div className="myent-container">
+          <div className="mb-10">
+            <p className="myent-eyebrow">Location</p>
+            <h2 className="mt-3 text-3xl lg:text-4xl">Visit My-ENT in Sydney CBD</h2>
+          </div>
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+            <article className="myent-card">
+              <Image
+                src="/images/bma-house-myent.jpg"
+                alt="BMA House at 135 Macquarie Street, Sydney CBD"
+                width={800}
+                height={600}
+                className="h-auto w-full rounded-lg object-cover"
+              />
+              <p className="mt-4 text-sm text-neutral-500">
+                Suite 303, Level 3, BMA House, 135 Macquarie Street, Sydney CBD NSW 2000.
+              </p>
+            </article>
+
+            <article className="myent-card">
+              <iframe
+                title="My-ENT location map"
+                src="https://www.google.com/maps?q=135+Macquarie+Street+Sydney+NSW+2000&output=embed"
+                className="h-64 w-full rounded-lg lg:h-[300px]"
+                style={{ border: 0 }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+              <div className="mt-4 space-y-1 text-sm text-neutral-500">
+                <p>Phone: 02 9247 1762</p>
+                <p>Email: contact@my-ent.com.au</p>
+                <p>Opening hours: 8:30am to 5:00pm Monday to Friday</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
       <ReviewsStrip
         summary="My-ENT publishes patient feedback with strict AHPRA-aligned review controls."
         reviewStatus={reviewStatus}
