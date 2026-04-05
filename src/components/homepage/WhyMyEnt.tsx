@@ -1,31 +1,24 @@
-interface WhyMyEntPoint {
-  title: string
-  body: string
-}
-
-interface WhyMyEntProps {
-  points: WhyMyEntPoint[]
-}
-
-export function WhyMyEnt({ points }: WhyMyEntProps) {
+export function WhyMyEnt() {
   return (
     <section className="myent-section">
-      <div className="myent-container grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-start">
+      <div className="myent-container">
         <div>
           <p className="myent-eyebrow">Why My-ENT</p>
-          <h2 className="mt-4 text-4xl">Built to reduce uncertainty before your first appointment</h2>
+          <h2 className="mt-4 text-4xl">The standard you should expect from a specialist</h2>
           <p className="mt-5 text-neutral-600">
-            The website is structured to reduce repetitive calls by giving patients the exact information
-            reception needs them to have before booking.
+            My-ENT brings together fellowship-trained ENT surgeons who have completed advanced training
+            at some of the world{"'"}s leading institutions — including Harvard Medical School,
+            Massachusetts Eye and Ear, Guy{"'"}s and St Thomas{"'"} NHS Trust London, Duke University, and
+            Singapore General Hospital. Every surgeon in the practice holds a public appointment at a
+            tertiary hospital, a recognised marker of professional standing within the specialty.
           </p>
-        </div>
-        <div className="grid gap-4">
-          {points.map((point) => (
-            <article key={point.title} className="myent-card">
-              <h3 className="text-2xl">{point.title}</h3>
-              <p className="mt-2 text-sm text-neutral-600">{point.body}</p>
-            </article>
-          ))}
+          <p className="mt-5 text-neutral-600">
+            Beyond credentials, My-ENT is a practice defined by its commitment to academic medicine. Our
+            surgeons contribute to surgical education, hold examiner appointments with the Royal
+            Australasian College of Surgeons, and pursue active research programs in their subspecialty
+            disciplines. When you are referred to My-ENT, you are seen by someone who does not only
+            practise at the frontier of their field — they help define it.
+          </p>
         </div>
       </div>
     </section>

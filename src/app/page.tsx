@@ -128,21 +128,6 @@ const conditions: ConditionData[] = [
   },
 ]
 
-const whyPoints = [
-  {
-    title: 'Reception-first booking request design',
-    body: 'Appointment requests are structured so reception can action bookings in Genie without a return call for missing details.',
-  },
-  {
-    title: 'Nurse practitioner pathway',
-    body: 'Patients who need triage, follow-up, or scope-appropriate review can be directed to the nurse practitioner consultation stream.',
-  },
-  {
-    title: 'Clear urgent escalation',
-    body: 'Urgent same-day concerns are signposted with immediate call instructions and after-hours emergency department guidance.',
-  },
-]
-
 const locations = [
   {
     name: 'Prince of Wales Private',
@@ -174,7 +159,7 @@ export default function Home() {
       <SubspecialtyStrip items={subspecialties} />
       <SurgeonGrid surgeons={surgeons} />
       <ConditionsGrid conditions={conditions} />
-      <WhyMyEnt points={whyPoints} />
+      <WhyMyEnt />
       <LocationsCard
         primaryAddress="Level 3, Suite 303, BMA House, 135 Macquarie Street, Sydney CBD NSW 2000"
         locations={locations}
