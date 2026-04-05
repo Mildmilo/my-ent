@@ -26,7 +26,7 @@ export default function GrommetsPage() {
         'Selected adult ear ventilation pathways after specialist review.',
       ]}
       whatToExpect="Assessment includes symptom history, ear examination, and often hearing testing. Grommet insertion is usually a short procedure, often day surgery in children. Your surgeon explains water precautions, follow-up schedule, and what changes to expect in hearing and infection frequency."
-      recoveryOverview="Recovery is typically quick, with most patients returning to usual activity soon after surgery. Follow-up visits check tube position, hearing response, and any further ear care needs. Long-term plans are individual and may include additional treatment if symptoms recur."
+      recoveryOverview="Grommets is a brief day procedure performed under a short general anaesthetic. Most children and adults return to normal activities the following day. There is no requirement for extended time off school or work."
       relatedConditions={[
         {
           title: 'Paediatric ear infections',
