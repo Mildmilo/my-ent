@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 
 const biographyParagraphs: string[] = [
   'Subspecialties: Rhinology, Skull Base Surgery, Adult and Paediatric ENT, General ENT.',
@@ -38,21 +39,35 @@ export default function DrCatherineBanksPage() {
         <h1 className="mt-4 text-4xl lg:text-5xl">Dr Catherine Banks</h1>
         <p className="mt-4 text-xl text-neutral-600">MBChB, FRACS</p>
 
-        <article className="myent-card mt-10">
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-start">
-            <div
-              aria-hidden="true"
-              className="flex h-28 w-28 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-3xl font-medium text-teal-400"
-            >
-              CB
+        <article className="myent-card mt-10 overflow-hidden p-0">
+          <div className="grid gap-0 lg:grid-cols-[1fr_5rem_400px]">
+            <div className="p-6 lg:p-8">
+              <p className="myent-eyebrow">Team profile</p>
+              <h2 className="mt-3 text-3xl">Dr Catherine Banks</h2>
+              <p className="mt-3 text-base text-neutral-600">MBChB, FRACS</p>
+
+              <div className="mt-6 space-y-4">
+                {biographyParagraphs.map((paragraph) => (
+                  <p key={paragraph} className="text-base text-neutral-600">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
             </div>
 
-            <div className="space-y-4">
-              {biographyParagraphs.map((paragraph) => (
-                <p key={paragraph} className="text-base text-neutral-600">
-                  {paragraph}
-                </p>
-              ))}
+            <div
+              aria-hidden="true"
+              className="hidden bg-gradient-to-r from-teal-300/40 to-transparent lg:block"
+            />
+
+            <div className="h-[320px] overflow-hidden lg:h-full lg:min-h-[320px]">
+              <Image
+                src="/images/Team/dr-catherine-banks-myent.jpg"
+                alt="Headshot of Dr Catherine Banks, ENT surgeon at My-ENT"
+                className="h-full w-full object-cover object-[50%_18%]"
+                width={400}
+                height={480}
+              />
             </div>
           </div>
         </article>

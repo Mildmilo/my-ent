@@ -7,9 +7,8 @@ interface TeamCard {
   name: string
   role: string
   credentials: string
-  initials: string
   href: string
-  imageSrc?: string
+  imageSrc: string
 }
 
 const justineOates: TeamCard = {
@@ -17,8 +16,8 @@ const justineOates: TeamCard = {
   name: 'Justine Oates',
   role: 'Nurse Practitioner - Head and Neck / Rhinology',
   credentials: 'Master of Nursing, Sydney University (2016)',
-  initials: 'JO',
   href: '/about/justine-oates',
+  imageSrc: '/images/Team/justine-oates-myent.jpg',
 }
 
 const teamCards: TeamCard[] = [
@@ -27,9 +26,8 @@ const teamCards: TeamCard[] = [
     name: surgeon.name,
     role: surgeon.role,
     credentials: surgeon.credentials,
-    initials: surgeon.initials,
     href: `/about/${surgeon.slug}`,
-    imageSrc: surgeon.imageSrc,
+    imageSrc: `/images/Team/${surgeon.slug}-myent.jpg`,
   })),
   justineOates,
 ]
@@ -51,39 +49,36 @@ export default function OurSurgeonsPage() {
           appointment pathway details.
         </p>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-10 space-y-6">
           {teamCards.map((person) => (
-            <article key={person.id} className="myent-card flex h-full flex-col">
-              <div className="flex items-start gap-4">
-                {person.imageSrc ? (
+            <article key={person.id} className="myent-card overflow-hidden p-0">
+              <div className="grid gap-0 lg:grid-cols-[1fr_5rem_400px]">
+                <div className="p-6 lg:p-8">
+                  <p className="myent-eyebrow">Team profile</p>
+                  <h2 className="mt-3 text-3xl lg:text-4xl">{person.name}</h2>
+                  <p className="mt-4 text-sm font-medium text-neutral-700">{person.role}</p>
+                  <p className="mt-3 text-sm text-neutral-600">{person.credentials}</p>
+
+                  <a className="mt-6 inline-block text-sm font-medium text-teal-500" href={person.href}>
+                    View full profile
+                  </a>
+                </div>
+
+                <div
+                  aria-hidden="true"
+                  className="hidden bg-gradient-to-r from-teal-300/40 to-transparent lg:block"
+                />
+
+                <div className="h-[320px] overflow-hidden lg:h-full lg:min-h-[320px]">
                   <Image
                     src={person.imageSrc}
-                    alt={`${person.name} profile photo`}
-                    className="h-16 w-16 rounded-full object-cover"
-                    width={64}
-                    height={64}
+                    alt={`Headshot of ${person.name} at My-ENT`}
+                    className="h-full w-full object-cover object-[50%_18%]"
+                    width={400}
+                    height={480}
                   />
-                ) : (
-                  <div
-                    aria-hidden="true"
-                    className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-teal-50 font-semibold text-teal-500"
-                  >
-                    {person.initials}
-                  </div>
-                )}
-
-                <div>
-                  <p className="text-xs uppercase tracking-wide text-teal-400">Team profile</p>
-                  <h2 className="mt-1 text-2xl">{person.name}</h2>
                 </div>
               </div>
-
-              <p className="mt-4 text-sm font-medium text-neutral-700">{person.role}</p>
-              <p className="mt-3 text-sm text-neutral-600">{person.credentials}</p>
-
-              <a className="mt-6 inline-block text-sm font-medium text-teal-500" href={person.href}>
-                View full profile
-              </a>
             </article>
           ))}
         </div>
