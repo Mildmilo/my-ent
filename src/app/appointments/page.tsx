@@ -17,16 +17,11 @@ export default function AppointmentsPage() {
           <div className="max-w-4xl space-y-6">
             <p className="myent-eyebrow">Appointment booking request</p>
             <p className="text-lg leading-relaxed text-neutral-600">
-              This page is for patients booking a consultation at My-ENT, 135 Macquarie Street, Sydney. Appointments at this location require a current GP referral. If your referral is to a different location or you are a public patient, please use our contact directory to find the right details.
+              This page is for patients booking a consultation at My-ENT, 135 Macquarie Street, Sydney CBD. If you need a different location, please visit our contact directory.
             </p>
-            <div className="flex flex-wrap items-center gap-3">
-              <Link className="myent-btn-primary" href="#booking-request-form">
-                Continue to booking request
-              </Link>
-              <Link className="myent-btn-outline" href="/contact/finding-the-right-contact">
-                Contact directory
-              </Link>
-            </div>
+            <Link className="myent-btn-outline inline-block" href="/contact/finding-the-right-contact">
+              Contact directory
+            </Link>
           </div>
         </div>
       </section>

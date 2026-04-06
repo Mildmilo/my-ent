@@ -15,17 +15,12 @@ export function Hero({ actions }: HeroProps) {
         <div>
           <p className="myent-eyebrow">MY-ENT · 135 MACQUARIE STREET, SYDNEY CBD</p>
           <h1 className="mt-4 font-serif text-display">Referred to My-ENT?</h1>
-          <p className="mt-6 max-w-2xl text-lg text-neutral-600">
-            My-ENT consults exclusively from Suite 303, Level 3, BMA House, 135 Macquarie Street,
-            Sydney CBD. If your referral or appointment is at a different location, please use our
-            contact directory.
-          </p>
           <div className="mt-8 flex max-w-2xl flex-col gap-4 lg:flex-row">
             <a
               className="myent-btn-primary inline-flex min-h-[56px] w-full items-center justify-center text-base font-medium lg:flex-1"
               href="/appointments"
             >
-              Yes — I need Macquarie Street
+              Yes — book at Macquarie Street
             </a>
             <a
               className="myent-btn-outline inline-flex min-h-[56px] w-full items-center justify-center text-base font-medium lg:flex-1"

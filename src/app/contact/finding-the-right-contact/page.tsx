@@ -49,7 +49,7 @@ const practiceContacts: ContactRow[] = [
 
 const surgeonLocations: SurgeonLocations[] = [
   {
-    surgeonLabel: 'Dr Chan',
+    surgeonLabel: 'Dr Lyndon Chan',
     locations: [
       {
         practiceName: 'Sydney North ENT — Lindfield',
@@ -75,7 +75,7 @@ const surgeonLocations: SurgeonLocations[] = [
     ],
   },
   {
-    surgeonLabel: 'Dr Huang',
+    surgeonLabel: 'Dr June Huang',
     locations: [
       {
         practiceName: 'Trinity ENT — Kogarah',
@@ -87,7 +87,7 @@ const surgeonLocations: SurgeonLocations[] = [
     ],
   },
   {
-    surgeonLabel: 'Dr Reddy',
+    surgeonLabel: 'Dr Rithvik Reddy',
     locations: [
       {
         practiceName: 'MacArthur ENT — Gregory Hills',
@@ -235,20 +235,30 @@ export default function FindingTheRightContactPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+          <div className="space-y-10">
             {surgeonLocations.map((surgeon) => (
-              <div key={surgeon.surgeonLabel}>
-                <p className="myent-eyebrow mb-4">{surgeon.surgeonLabel}</p>
-                <div className="space-y-4">
+              <section key={surgeon.surgeonLabel} className="rounded-xl border border-neutral-200 bg-white p-6 lg:p-8">
+                <p className="myent-eyebrow">Other private rooms</p>
+                <h3 className="mt-3 text-2xl leading-tight">{surgeon.surgeonLabel}</h3>
+                <div className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-2">
                   {surgeon.locations.map((loc) => (
                     <article key={loc.practiceName} className="myent-card">
-                      <h3 className="font-medium text-neutral-800">{loc.practiceName}</h3>
+                      <h4 className="font-medium text-neutral-800">{loc.practiceName}</h4>
                       <p className="mt-2 text-sm leading-relaxed text-neutral-500">{loc.address}</p>
                       <p className="mt-4 text-xs uppercase tracking-[0.06em] text-teal-400">
-                        Phone
+                        Primary phone contact
                       </p>
-                      <a className="mt-2 block text-2xl leading-none text-neutral-800 hover:text-teal-400" href={loc.phoneHref}>
+                      <a
+                        className="mt-2 block text-2xl leading-none text-neutral-800 hover:text-teal-400"
+                        href={loc.phoneHref}
+                      >
                         {loc.phone}
+                      </a>
+                      <a
+                        className="myent-btn-outline mt-4 inline-flex min-h-[44px] items-center justify-center"
+                        href={loc.phoneHref}
+                      >
+                        Call this practice
                       </a>
                       <dl className="mt-4 space-y-2 text-sm">
                         <div className="flex gap-3">
@@ -263,7 +273,7 @@ export default function FindingTheRightContactPage() {
                     </article>
                   ))}
                 </div>
-              </div>
+              </section>
             ))}
           </div>
         </div>

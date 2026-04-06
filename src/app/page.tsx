@@ -1,18 +1,12 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 import { ConditionsGrid } from '@/components/homepage/ConditionsGrid'
 import { GpStrip } from '@/components/homepage/GpStrip'
-import { Hero } from '@/components/homepage/Hero'
 import { ReviewsStrip } from '@/components/homepage/ReviewsStrip'
 import { SubspecialtyStrip } from '@/components/homepage/SubspecialtyStrip'
 import { SurgeonGrid } from '@/components/homepage/SurgeonGrid'
 import { WhyMyEnt } from '@/components/homepage/WhyMyEnt'
-
-interface HeroActionData {
-  label: string
-  href: string
-  summary: string
-}
 
 interface SurgeonData {
   name: string
@@ -27,29 +21,6 @@ interface ConditionData {
   detail: string
   href: string
 }
-
-const heroActions: HeroActionData[] = [
-  {
-    label: 'Request an appointment',
-    href: '/appointments',
-    summary: 'Start your booking request when you have a GP referral and are ready to be seen.',
-  },
-  {
-    label: 'Upload a referral or imaging',
-    href: '/appointments/referral-information',
-    summary: 'Send referral and scan documents before your visit to reduce reception follow-up calls.',
-  },
-  {
-    label: 'Fees and first-visit questions',
-    href: '/appointments/fees-and-medicare',
-    summary: 'Understand Medicare rebate pathways, what to bring, and what happens at your first visit.',
-  },
-  {
-    label: 'Post-operative concern',
-    href: '/patient-info/after-your-procedure',
-    summary: 'For urgent post-op concerns, call the rooms immediately or present to your nearest ED after hours.',
-  },
-]
 
 const subspecialties = [
   'Rhinology and anterior skull base',
@@ -138,7 +109,34 @@ const reviewStatus = [
 export default function Home() {
   return (
     <>
-      <Hero actions={heroActions} />
+      <section className="myent-section bg-white">
+        <div className="myent-container">
+          <div className="max-w-4xl">
+            <p className="myent-eyebrow">MY-ENT · SYDNEY CBD</p>
+            <h1 className="mt-4 font-serif text-display font-medium text-neutral-800">
+              You have been referred to the right place.
+            </h1>
+            <p className="mt-6 font-serif text-2xl font-medium text-neutral-700">
+              If your appointment is at 135 Macquarie Street, Sydney CBD — you are in the right
+              place.
+            </p>
+            <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
+              <Link
+                href="/appointments"
+                className="myent-btn-primary inline-flex min-h-[60px] items-center justify-center px-6 py-4 text-base font-semibold"
+              >
+                Yes — My-ENT, 135 Macquarie Street
+              </Link>
+              <Link
+                href="/contact/finding-the-right-contact"
+                className="myent-btn-outline inline-flex min-h-[60px] items-center justify-center px-6 py-4 text-base font-semibold"
+              >
+                No — find another location
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
       <SubspecialtyStrip items={subspecialties} />
       <SurgeonGrid surgeons={surgeons} />
       <ConditionsGrid conditions={conditions} />

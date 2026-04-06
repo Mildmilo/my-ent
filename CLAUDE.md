@@ -176,6 +176,16 @@ Section 2 — Other private consulting locations. List the verified private room
 
 Section 3 — Public hospital contacts. List the verified hospital contact details above. Introduce this section with the verbatim public patient statement from this document: "If you are a public patient and have any concerns, please contact the relevant hospital directly. Waiting times and appointment scheduling are managed by the hospital and are outside the control of our private rooms." Do not list individual surgeon names against specific hospitals.
 
+### Contact directory page — confirmed design
+
+The contact directory page at /contact/finding-the-right-contact is the destination for every patient who clicks "No — find another location" on the homepage. It must give every misdirected patient everything they need to reach the correct practice without calling My-ENT. It has three clearly labelled sections.
+
+Section 1 — My-ENT Macquarie Street. Confirms the practice address, phone, email, and hours for patients who realise they are in the right place after all.
+
+Section 2 — Other private consulting rooms. Lists the verified private room details for Dr Chan, Dr Huang, and Dr Reddy from the Other private consulting locations section above. Each surgeon's rooms are listed under a clear heading with address, phone, and email.
+
+Section 3 — Public hospital contacts. Lists all seven verified public hospitals with their main phone numbers, introduced by the verbatim public patient statement: "If you are a public patient and have any concerns, please contact the relevant hospital directly. Waiting times and appointment scheduling are managed by the hospital and are outside the control of our private rooms." Individual surgeon names are not listed against specific hospitals.
+
 ### Condition page surgeon statement
 
 Use the following statement verbatim in a "Choosing your surgeon" card on every condition page via `ConditionPageTemplate.tsx`. Do not list individual surgeons on condition pages. This applies to all 23 condition pages without exception.
@@ -317,7 +327,7 @@ Preferred surgeon: dropdown of all four surgeons plus Justine Oates (nurse pract
 
 The goal of the reception email is that reception can open it, read it once, and create the Genie booking without making a single outbound call. Every piece of information required for that booking must be present, clearly labelled, and in the same position every time so reception develops reading rhythm across repeated submissions.
 
-The email is generated automatically on form submission and sent to contact@my-ent.com.au. The sinus pre-appointment questionnaire clinician report is sent specifically to justine.oates@my-ent.com.au. Referral letters and imaging reports are attached as separate files, clearly named. The patient receives an automatic acknowledgement email confirming receipt and advising that reception will be in contact within one business day to confirm the appointment.
+The email is generated automatically on form submission and sent to contact@my-ent.com.au. The sinus pre-appointment questionnaire clinician report is sent specifically to justine.oates@my-ent.com.au. The questionnaire is accessed via direct link only — it is not linked from the main navigation and is not publicly discoverable by search engines. Referral letters and imaging reports are attached as separate files, clearly named. The patient receives an automatic acknowledgement email confirming receipt and advising that reception will be in contact within one business day to confirm the appointment.
 
 The reception email must follow this exact structure:
 
@@ -379,6 +389,18 @@ No sensitive health data is stored in the application database. All data transmi
 **Australian Privacy Principles compliance**
 This form collects sensitive health information as defined under the Privacy Act 1988 (Cth). The following requirements apply without exception. The form must link to the practice Privacy Policy before submission. The Privacy Policy page (/privacy-policy) is a required page in the site and must be built as part of the Tier A administrative pages. Data collected is limited to the minimum necessary for booking an appointment. Form submissions must be transmitted over HTTPS. The reception email account must have appropriate access controls. Patient health information must not be used for any secondary purpose including marketing.
 
+### Appointments page — confirmed design
+
+The appointments page uses the following confirmed structure. Do not alter this without explicit instruction.
+
+Eyebrow label: "APPOINTMENTS"
+
+Headline: "Request an appointment" in font-serif text-3xl.
+
+A single line of small text: "Wrong location? Contact directory." where "Contact directory" is a teal underline link to /contact/finding-the-right-contact, styled as text-sm text-neutral-400.
+
+The booking request form follows immediately below. No pathway cards, no duplicate redirect statements, no "Tell us your current situation" section. The page does one thing: present the booking request form cleanly with a single unobtrusive escape route for misdirected patients.
+
 ### What happens outside Genie
 
 Genie handles confirmed bookings, appointment reminders, billing and administration, and internal clinical recordkeeping. The website handles everything upstream of that.
@@ -386,6 +408,20 @@ Genie handles confirmed bookings, appointment reminders, billing and administrat
 The website is responsible for the new patient intake form, referral and imaging document upload, structured appointment request summaries that reception can action without a phone call, and patient education content that reduces post-booking questions.
 
 Reception should be able to open a new appointment request from the website and have everything they need to create the Genie booking without making an outbound call. If the website form does not capture enough information to do that, the form is incomplete.
+
+### Homepage hero — confirmed design
+
+The homepage hero uses the following confirmed structure. Do not alter this without explicit instruction.
+
+Eyebrow label in myent-eyebrow styling: "MY-ENT · SYDNEY CBD"
+
+Main headline in font-serif text-display font-medium text-neutral-800: "You have been referred to the right place."
+
+Subtext in font-serif text-2xl font-medium text-neutral-700: "If your appointment is at 135 Macquarie Street, Sydney CBD — you are in the right place."
+
+Two large binary decision buttons, minimum height 60px, side by side on desktop and stacked on mobile. Button 1 in myent-btn-primary reading "Yes — My-ENT, 135 Macquarie Street" linking to /appointments. Button 2 in myent-btn-outline reading "No — find another location" linking to /contact/finding-the-right-contact.
+
+No other content between the headline and the buttons. The four action cards follow below the binary decision buttons: Upload a referral or imaging, Fees and first-visit questions, Post-operative concern. The Request an appointment action card has been removed from this section as it is covered by Button 1 above.
 
 ### Homepage location section — confirmed design
 
@@ -1002,6 +1038,26 @@ Critical rules that apply to the questionnaire without exception:
 - All clinical output appears exclusively in the structured clinician email sent to justine.oates@my-ent.com.au.
 - The questionnaire is built at src/app/appointments/sinus-assessment/page.tsx.
 - The Privacy Policy at /privacy-policy must include the questionnaire data collection paragraph before the questionnaire goes live.
+
+---
+
+## 15. Planned future development
+
+The following items have been discussed and specified but not yet built. They are recorded here so future Claude Code sessions can pick them up precisely.
+
+**Token-based questionnaire access.** The sinus questionnaire is currently accessible at its direct URL without authentication. The planned implementation restricts access to patients who have received a unique time-limited link generated by Justine Oates or reception. The token generation interface is a private password-protected page. Tokens are stored in Vercel KV with a 14-day expiry and a single-use flag. On submission, the token is marked as used and cannot be reused.
+
+**Longitudinal SNOT-22 tracking.** The questionnaire submission architecture will be extended to support repeat SNOT-22 assessments for post-treatment progress monitoring. Each submission is associated with a clinical context label — pre-appointment, 3-month post-ESS, 6-week post-dupilumab, and so on — which appears in the clinician email subject line. This creates a longitudinal dataset of SNOT-22 scores per patient that documents treatment response objectively.
+
+**Integration with Justine Oates clinical database.** The questionnaire patient-reported outcome data will be integrated with objective clinical scoring data entered by Justine — serum IgE, peripheral eosinophil count, Lund-Mackay CT score, and Lund-Kennedy endoscopic score. The combined dataset supports EPOS 2020 endotype classification, biological therapy candidacy flagging, and treatment response tracking. The data structure and automation logic will be reviewed when Justine's database is shared.
+
+**Ear questionnaire.** A separate pre-appointment questionnaire for patients presenting with ear, hearing, and vestibular concerns. Validated instruments to include the Glasgow Benefit Inventory and condition-specific tools as appropriate.
+
+**Cough and reflux questionnaire.** A separate pre-appointment questionnaire for patients presenting with chronic cough, laryngopharyngeal reflux, and voice disorders.
+
+**Post-consultation condition information emails.** Patients who opt in during the questionnaire consent screen receive a single post-consultation email within 24 to 48 hours containing links to the relevant My-ENT condition and procedure pages. Content is informational only, AHPRA-compliant, and includes an unsubscribe mechanism compliant with the Australian Spam Act 2003.
+
+**My Medical Story paediatric storybook app.** A separate standalone platform (mymedicalstory.com.au). Stack: Next.js, TypeScript, Tailwind CSS, Supabase, ElevenLabs, Vercel. Phase 1 story types: grommets, tonsillectomy, adenoidectomy, older child general. This is a separate project from the My-ENT website and is not built within this repository.
 
 ---
 
