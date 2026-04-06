@@ -116,9 +116,12 @@ export default function Home() {
             <h1 className="mt-4 font-serif text-display font-medium text-neutral-800">
               You have been referred to the right place.
             </h1>
-            <p className="mt-6 font-serif text-2xl font-medium text-neutral-700">
-              If your appointment is at 135 Macquarie Street, Sydney CBD — you are in the right
-              place.
+            <p className="mt-6 font-serif leading-relaxed text-neutral-700">
+              <span className="text-2xl font-medium">If your appointment is at </span>
+              <span className="text-3xl font-semibold text-teal-400">My-ENT</span>
+              <span className="text-2xl font-medium">
+                {', 135 Macquarie Street, Sydney CBD — you are in the right place.'}
+              </span>
             </p>
             <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
               <Link
