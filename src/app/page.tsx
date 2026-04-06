@@ -26,6 +26,7 @@ const subspecialties = [
   'General and Paediatric ENT',
   'Rhinology and Anterior Skull Base',
   'Otology and Hearing Conditions',
+  'Sleep Apnoea and Snoring',
   'Head and Neck Care',
 ]
 
