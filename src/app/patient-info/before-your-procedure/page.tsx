@@ -16,8 +16,7 @@ const preparationCards: PreparationCard[] = [
   {
     title: 'Nil by mouth from midnight',
     points: [
-      'Unless your surgeon or anaesthetist gives you different written instructions, do not eat or drink after midnight before your procedure day.',
-      'This includes food, milk drinks, and chewing gum. Follow your procedure-specific hospital instructions if they differ from general guidance.',
+      'Your hospital will contact you — usually after 4pm the day before your surgery — with specific fasting instructions. These instructions vary depending on your procedure type, the anaesthetic planned, and your current medications. Follow only the instructions provided by your hospital for your specific procedure.',
     ],
   },
   {
