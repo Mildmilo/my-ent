@@ -428,7 +428,7 @@ Eyebrow label in myent-eyebrow styling: "MY-ENT · SYDNEY CBD"
 
 Main headline in font-serif text-display font-medium text-neutral-800: "You have been referred to the right place."
 
-Subtext in font-serif text-2xl font-medium text-neutral-700: "If your appointment is at 135 Macquarie Street, Sydney CBD — you are in the right place."
+Subtext: "If your appointment is at " in font-serif text-2xl font-medium text-neutral-700, followed by "My-ENT" in font-serif text-3xl font-semibold text-teal-400, followed by ", 135 Macquarie Street, Sydney CBD — you are in the right place." in font-serif text-2xl font-medium text-neutral-700. All on one line, wrapping naturally on mobile.
 
 Two large binary decision buttons, minimum height 60px, side by side on desktop and stacked on mobile. Button 1 in myent-btn-primary reading "Yes — My-ENT, 135 Macquarie Street" linking to /appointments. Button 2 in myent-btn-outline reading "No — find another location" linking to /contact/finding-the-right-contact.
 
@@ -436,12 +436,13 @@ No other content between the headline and the buttons. The four action cards fol
 
 ### Homepage subspecialty strip — confirmed order
 
-The four subspecialty pills on the homepage appear in this confirmed order. Do not alter without explicit instruction.
+The five subspecialty pills on the homepage appear in this confirmed order. Do not alter without explicit instruction.
 
 1. General and Paediatric ENT
 2. Rhinology and Anterior Skull Base
 3. Otology and Hearing Conditions
-4. Head and Neck Care
+4. Sleep Apnoea and Snoring
+5. Head and Neck Care
 
 ### Homepage location section — confirmed design
 
@@ -1104,4 +1105,4 @@ Library: @react-pdf/renderer — generates PDF server-side from React components
 
 ---
 
-*Last updated: April 2026 — Session 7 complete. 62 pages built. This is the single source of truth for all project decisions. Update the date when this file changes.*
+*Last updated: April 2026 — Session 9 complete. 62 pages built. This is the single source of truth for all project decisions. Update the date when this file changes.*
