@@ -893,20 +893,21 @@ my-ent/
 │   │   │   └── patient-portal/page.tsx           ← Tier A  ★ exclusive
 │   │   │
 │   │   ├── patient-info/
-│   │   │   ├── page.tsx                          ← Tier A
-│   │   │   ├── before-your-procedure/page.tsx    ← Tier C
-│   │   │   ├── after-your-procedure/page.tsx     ← Tier C
-│   │   │   ├── resources-and-downloads/page.tsx  ← Tier A
-│   │   │   └── faq/page.tsx                      ← Tier A
+│   │   │   ├── page.tsx                          ← Tier A  BUILT
+│   │   │   ├── before-your-procedure/page.tsx    ← Tier A  BUILT
+│   │   │   ├── after-your-procedure/page.tsx     ← Tier A  BUILT
+│   │   │   ├── resources-and-downloads/page.tsx  ← Tier A  BUILT (placeholder)
+│   │   │   └── faq/page.tsx                      ← Tier A  BUILT
 │   │   │
 │   │   ├── for-gps/                              ★ exclusive
 │   │   │   ├── page.tsx                          ← Tier A  PRIORITY 7
 │   │   │   ├── subspecialty-guide/page.tsx       ← Tier B
 │   │   │   └── gp-resources/page.tsx             ← Tier A
 │   │   │
-│   │   ├── contact/page.tsx                       ← Tier A
-│   │   └── privacy-policy/page.tsx               ← Tier A  required for APP compliance
-│   │   └── privacy-policy/page.tsx                ← Tier A  REQUIRED — linked from intake form
+│   │   ├── contact/
+│   │   │   ├── page.tsx                          ← Tier A  BUILT
+│   │   │   └── finding-the-right-contact/page.tsx ← Tier A  BUILT
+│   │   └── privacy-policy/page.tsx               ← Tier A  BUILT
 │   │
 │   ├── components/
 │   │   ├── layout/
@@ -1074,6 +1075,8 @@ Library: @react-pdf/renderer — generates PDF server-side from React components
 
 **Post-consultation condition information emails.** Patients who opt in during the questionnaire consent screen receive a single post-consultation email within 24 to 48 hours containing links to the relevant My-ENT condition and procedure pages. Content is informational only, AHPRA-compliant, and includes an unsubscribe mechanism compliant with the Australian Spam Act 2003.
 
+**Email configuration for questionnaire submission.** The questionnaire uses Nodemailer with Gmail SMTP for email delivery. A .env.local file is required locally and environment variables must be set in Vercel for production. Do not use contact@my-ent.com.au as the sending account while it is in active use by the practice manager. The recommended approach is either a dedicated noreply@my-ent.com.au Google Workspace account, or Resend as a dedicated email delivery service. Environment variables required: EMAIL_HOST, EMAIL_PORT, EMAIL_USER, EMAIL_PASS, EMAIL_TO (justine.oates@my-ent.com.au). The .env.local file must never be committed to GitHub — confirm it is listed in .gitignore as .env*.local before adding credentials.
+
 **DNS domain switch guidance.** When connecting my-ent.com.au to Vercel, add only the Vercel-provided DNS records alongside the existing Google Workspace MX records. Do not delete or replace any existing DNS records. Google Workspace email accounts — catherinebanks@my-ent.com.au, lyndonchan@my-ent.com.au, justine.oates@my-ent.com.au, contact@my-ent.com.au — are completely unaffected by the Vercel domain connection. Share a screenshot of current DNS settings before making any changes so the exact records to add can be confirmed. DNS propagation takes 15 minutes to a few hours. Cancel Wix immediately after propagation confirms the Vercel site is live.
 
 **Pre-launch checklist before DNS switch:**
@@ -1089,4 +1092,4 @@ Library: @react-pdf/renderer — generates PDF server-side from React components
 
 ---
 
-*Last updated: April 2026 — Session 4 complete. This is the single source of truth for all project decisions. Update the date when this file changes.*
+*Last updated: April 2026 — Session 5 complete. This is the single source of truth for all project decisions. Update the date when this file changes.*
