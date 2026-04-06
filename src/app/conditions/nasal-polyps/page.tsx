@@ -43,6 +43,7 @@ export default function NasalPolypsPage() {
       causesCitation="Fokkens WJ et al. EPOS 2020. Rhinology. 2020;58(Suppl S29):1-464."
       whenToSeekHelp="Seek specialist review when blockage and smell loss are ongoing, when symptoms continue despite GP treatment, or when symptoms repeatedly return. Assessment can clarify whether polyps are present and whether further medical therapy, endoscopic assessment, or surgical discussion is appropriate."
       treatmentOverview="Treatment usually starts with medical management to reduce inflammation and improve nasal airflow. Endoscopic assessment may be used to map disease extent. For selected patients with persistent symptoms or recurrent obstruction, endoscopic sinus surgery (ESS) can be discussed as one part of long-term care planning."
+      sinusQuestionnaireCalloutHeading="Prepare for your appointment."
       relatedProcedures={[
         {
           title: 'Endoscopic sinus surgery (ESS)',

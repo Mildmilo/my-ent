@@ -44,6 +44,7 @@ export default function PostNasalDripPage() {
       causesCitation="Fokkens WJ et al. EPOS 2020. Rhinology. 2020;58(Suppl S29):1-464."
       whenToSeekHelp="Arrange specialist review when throat clearing or post-nasal drip is persistent, when it has not responded to allergy or reflux management, or when associated symptoms such as nasal blockage, facial pressure, or a change in voice are present. A nasendoscopy can assess the nasal cavity, post-nasal space, and larynx in a single clinic visit."
       treatmentOverview="Management depends on identifying the primary contributing cause. Where sinusitis or rhinitis is present, treatment is directed at reducing nasal inflammation and improving mucus clearance. Where laryngopharyngeal reflux (silent reflux) is suspected, this is addressed alongside nasal care. In patients with a mixed picture, both contributors are assessed and treated in sequence or simultaneously as appropriate."
+      sinusQuestionnaireCalloutHeading="Prepare for your appointment."
       relatedProcedures={[
         {
           title: 'Nasendoscopy',

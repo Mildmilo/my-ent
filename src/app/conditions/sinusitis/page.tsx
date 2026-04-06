@@ -43,6 +43,7 @@ export default function SinusitisPage() {
       causesCitation="Fokkens WJ et al. European Position Paper on Rhinosinusitis and Nasal Polyps (EPOS) 2020. Rhinology. 2020;58(Suppl S29):1-464."
       whenToSeekHelp="Arrange specialist review if symptoms continue beyond several weeks, keep recurring, or are affecting sleep, school, work, or day-to-day function. Prompt review is also important when symptoms are severe, one-sided, or not improving with GP-led treatment."
       treatmentOverview="Treatment is tailored to the symptom pattern and likely cause. Many patients begin with medical treatment and nasal care plans, with imaging or endoscopic assessment when needed. For selected patients with persistent disease, endoscopic sinus surgery (ESS) may be discussed as part of a broader management pathway."
+      sinusQuestionnaireCalloutHeading="Prepare for your appointment."
       relatedProcedures={[
         {
           title: 'Endoscopic sinus surgery (ESS)',

@@ -44,6 +44,7 @@ export default function BlockedNosePage() {
       causesCitation="Fokkens WJ et al. EPOS 2020. Rhinology. 2020;58(Suppl S29):1-464."
       whenToSeekHelp="Arrange specialist review if nasal blockage is affecting sleep, breathing comfortably during daily activities, or has been persistent for several weeks without a clear cause. A nasendoscopy can usually identify the cause during a single clinic visit and guide management from there."
       treatmentOverview="Treatment is directed at the underlying cause. Many patients respond well to medical management, including nasal sprays and allergy care. Where a structural cause such as a deviated septum or enlarged turbinates is identified, septoplasty or turbinate reduction may be discussed after conservative measures. Nasal polyps, where present, are assessed and treated as a separate condition."
+      sinusQuestionnaireCalloutHeading="Prepare for your appointment."
       relatedProcedures={[
         {
           title: 'Septoplasty and turbinate reduction',

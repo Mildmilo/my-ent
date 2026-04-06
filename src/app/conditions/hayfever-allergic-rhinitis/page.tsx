@@ -43,6 +43,7 @@ export default function HayfeverAllergicRhinitisPage() {
       causesCitation="Bousquet J et al. ARIA 2019 update. J Allergy Clin Immunol. 2019;144(5):1308-1316. Fokkens WJ et al. EPOS 2020. Rhinology. 2020;58(Suppl S29):1-464."
       whenToSeekHelp="Arrange specialist review when allergy symptoms are disrupting sleep, work, or daily activity, or when they have not responded adequately to antihistamines and nasal sprays available over the counter. ENT review is also helpful when it is unclear whether symptoms are primarily allergic or have a structural contributor such as a deviated septum."
       treatmentOverview="Management typically begins with identifying triggers, structured nasal care, and medical therapy. Where a structural contributor such as enlarged turbinates is present, addressing it can improve the response to allergy treatment. Immunotherapy referral may be considered in appropriate cases following specialist assessment."
+      sinusQuestionnaireCalloutHeading="Prepare for your appointment."
       relatedProcedures={[
         {
           title: 'Nasendoscopy',
