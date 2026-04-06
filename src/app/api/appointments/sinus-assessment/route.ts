@@ -592,7 +592,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
   try {
     await transporter.sendMail({
       from: smtpFrom,
-      to: 'contact@my-ent.com.au',
+      to: 'justineoates@my-ent.com.au',
       replyTo: payload.formData.personalDetails.email,
       subject,
       text: body,

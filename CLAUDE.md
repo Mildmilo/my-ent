@@ -317,7 +317,7 @@ Preferred surgeon: dropdown of all four surgeons plus Justine Oates (nurse pract
 
 The goal of the reception email is that reception can open it, read it once, and create the Genie booking without making a single outbound call. Every piece of information required for that booking must be present, clearly labelled, and in the same position every time so reception develops reading rhythm across repeated submissions.
 
-The email is generated automatically on form submission and sent to contact@my-ent.com.au. Referral letters and imaging reports are attached as separate files, clearly named. The patient receives an automatic acknowledgement email confirming receipt and advising that reception will be in contact within one business day to confirm the appointment.
+The email is generated automatically on form submission and sent to contact@my-ent.com.au. The sinus pre-appointment questionnaire clinician report is sent specifically to justine.oates@my-ent.com.au. Referral letters and imaging reports are attached as separate files, clearly named. The patient receives an automatic acknowledgement email confirming receipt and advising that reception will be in contact within one business day to confirm the appointment.
 
 The reception email must follow this exact structure:
 
@@ -999,7 +999,7 @@ Read this file in full before building any component of the questionnaire. The s
 
 Critical rules that apply to the questionnaire without exception:
 - No EPOS classification, severity grade, instrument score, or management recommendation is ever displayed to the patient on any screen.
-- All clinical output appears exclusively in the structured email sent to contact@my-ent.com.au.
+- All clinical output appears exclusively in the structured clinician email sent to justine.oates@my-ent.com.au.
 - The questionnaire is built at src/app/appointments/sinus-assessment/page.tsx.
 - The Privacy Policy at /privacy-policy must include the questionnaire data collection paragraph before the questionnaire goes live.
 
