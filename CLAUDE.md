@@ -886,11 +886,12 @@ my-ent/
 │   │   │   └── wax-microsuction/page.tsx         ← Tier C
 │   │   │
 │   │   ├── appointments/
-│   │   │   ├── page.tsx                          ← Tier A  PRIORITY 2
-│   │   │   ├── your-first-visit/page.tsx         ← Tier A  PRIORITY 3
-│   │   │   ├── fees-and-medicare/page.tsx        ← Tier A  PRIORITY 3
-│   │   │   ├── referral-information/page.tsx     ← Tier A
-│   │   │   └── patient-portal/page.tsx           ← Tier A  ★ exclusive
+│   │   │   ├── page.tsx                          ← Tier A  BUILT
+│   │   │   ├── your-first-visit/page.tsx         ← Tier A  BUILT
+│   │   │   ├── fees-and-medicare/page.tsx        ← Tier A  BUILT
+│   │   │   ├── referral-information/page.tsx     ← Tier A  BUILT
+│   │   │   ├── changes/page.tsx                  ← Tier A  BUILT
+│   │   │   └── sinus-assessment/page.tsx         ← Tier A  BUILT
 │   │   │
 │   │   ├── patient-info/
 │   │   │   ├── page.tsx                          ← Tier A  BUILT
@@ -1075,6 +1076,8 @@ Library: @react-pdf/renderer — generates PDF server-side from React components
 
 **Post-consultation condition information emails.** Patients who opt in during the questionnaire consent screen receive a single post-consultation email within 24 to 48 hours containing links to the relevant My-ENT condition and procedure pages. Content is informational only, AHPRA-compliant, and includes an unsubscribe mechanism compliant with the Australian Spam Act 2003.
 
+**Email environment variable naming — IMPORTANT.** Two API routes exist for email sending and use different environment variable naming conventions. The sinus questionnaire route uses EMAIL_HOST, EMAIL_PORT, EMAIL_USER, EMAIL_PASS, EMAIL_TO. The appointment changes route uses SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, SMTP_FROM. These must be standardised to a single naming convention before production deployment. A Claude Code session should align both routes to use the same variable names before configuring credentials in Vercel.
+
 **Email configuration for questionnaire submission.** The questionnaire uses Nodemailer with Gmail SMTP for email delivery. A .env.local file is required locally and environment variables must be set in Vercel for production. Do not use contact@my-ent.com.au as the sending account while it is in active use by the practice manager. The recommended approach is either a dedicated noreply@my-ent.com.au Google Workspace account, or Resend as a dedicated email delivery service. Environment variables required: EMAIL_HOST, EMAIL_PORT, EMAIL_USER, EMAIL_PASS, EMAIL_TO (justine.oates@my-ent.com.au). The .env.local file must never be committed to GitHub — confirm it is listed in .gitignore as .env*.local before adding credentials.
 
 **DNS domain switch guidance.** When connecting my-ent.com.au to Vercel, add only the Vercel-provided DNS records alongside the existing Google Workspace MX records. Do not delete or replace any existing DNS records. Google Workspace email accounts — catherinebanks@my-ent.com.au, lyndonchan@my-ent.com.au, justine.oates@my-ent.com.au, contact@my-ent.com.au — are completely unaffected by the Vercel domain connection. Share a screenshot of current DNS settings before making any changes so the exact records to add can be confirmed. DNS propagation takes 15 minutes to a few hours. Cancel Wix immediately after propagation confirms the Vercel site is live.
@@ -1092,4 +1095,4 @@ Library: @react-pdf/renderer — generates PDF server-side from React components
 
 ---
 
-*Last updated: April 2026 — Session 5 complete. This is the single source of truth for all project decisions. Update the date when this file changes.*
+*Last updated: April 2026 — Session 6 complete. 62 pages built. This is the single source of truth for all project decisions. Update the date when this file changes.*
