@@ -434,6 +434,15 @@ Two large binary decision buttons, minimum height 60px, side by side on desktop 
 
 No other content between the headline and the buttons. The four action cards follow below the binary decision buttons: Upload a referral or imaging, Fees and first-visit questions, Post-operative concern. The Request an appointment action card has been removed from this section as it is covered by Button 1 above.
 
+### Homepage subspecialty strip — confirmed order
+
+The four subspecialty pills on the homepage appear in this confirmed order. Do not alter without explicit instruction.
+
+1. General and Paediatric ENT
+2. Rhinology and Anterior Skull Base
+3. Otology and Hearing Conditions
+4. Head and Neck Care
+
 ### Homepage location section — confirmed design
 
 The homepage location section uses two equal-height cards side by side on desktop, stacked on mobile.
@@ -1095,4 +1104,4 @@ Library: @react-pdf/renderer — generates PDF server-side from React components
 
 ---
 
-*Last updated: April 2026 — Session 6 complete. 62 pages built. This is the single source of truth for all project decisions. Update the date when this file changes.*
+*Last updated: April 2026 — Session 7 complete. 62 pages built. This is the single source of truth for all project decisions. Update the date when this file changes.*

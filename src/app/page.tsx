@@ -23,10 +23,10 @@ interface ConditionData {
 }
 
 const subspecialties = [
-  'Rhinology and anterior skull base',
-  'General and paediatric ENT',
-  'Otology and hearing conditions',
-  'Head and neck care',
+  'General and Paediatric ENT',
+  'Rhinology and Anterior Skull Base',
+  'Otology and Hearing Conditions',
+  'Head and Neck Care',
 ]
 
 const surgeons: SurgeonData[] = [
