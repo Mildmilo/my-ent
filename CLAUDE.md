@@ -268,9 +268,15 @@ RULE 9 — JUSTINE OATES SCOPE OF PRACTICE. NON-NEGOTIABLE.
     - Post-operative callouts
     - Schema markup
     - Any automated routing logic
-    - Questionnaire email routing
   When describing the nurse practitioner review pathway, always scope the
   wording to Dr Banks's patients only.
+  NOTE ON QUESTIONNAIRE ROUTING: The sinus questionnaire system is available
+  to all four surgeons' patients. The clinician report destination email is
+  specified by reception at link generation — it is not hardcoded to
+  justineoates@my-ent.com.au. Justine's email is the default pre-fill for
+  Dr Banks's patients only. For other surgeons, reception enters a different
+  destination email. The questionnaire system itself does not violate Rule 9
+  provided the routing logic is dynamic and not hardcoded to Justine.
 ```
 
 ---
@@ -343,7 +349,7 @@ Preferred surgeon: dropdown of all four surgeons plus Justine Oates (nurse pract
 
 The goal of the reception email is that reception can open it, read it once, and create the Genie booking without making a single outbound call. Every piece of information required for that booking must be present, clearly labelled, and in the same position every time so reception develops reading rhythm across repeated submissions.
 
-The email is generated automatically on form submission and sent to contact@my-ent.com.au. The sinus pre-appointment questionnaire clinician report is sent specifically to justine.oates@my-ent.com.au. The questionnaire is accessed via direct link only — it is not linked from the main navigation and is not publicly discoverable by search engines. Referral letters and imaging reports are attached as separate files, clearly named. The patient receives an automatic acknowledgement email confirming receipt and advising that reception will be in contact within one business day to confirm the appointment.
+The email is generated automatically on form submission and sent to contact@my-ent.com.au. The sinus pre-appointment questionnaire clinician report is sent specifically to justineoates@my-ent.com.au. The questionnaire is accessed via direct link only — it is not linked from the main navigation and is not publicly discoverable by search engines. Referral letters and imaging reports are attached as separate files, clearly named. The patient receives an automatic acknowledgement email confirming receipt and advising that reception will be in contact within one business day to confirm the appointment.
 
 The reception email must follow this exact structure:
 
@@ -1074,7 +1080,7 @@ Read this file in full before building any component of the questionnaire. The s
 
 Critical rules that apply to the questionnaire without exception:
 - No EPOS classification, severity grade, instrument score, or management recommendation is ever displayed to the patient on any screen.
-- All clinical output appears exclusively in the structured clinician email sent to justine.oates@my-ent.com.au.
+- All clinical output appears exclusively in the structured clinician email sent to justineoates@my-ent.com.au.
 - The questionnaire is built at src/app/appointments/sinus-assessment/page.tsx.
 - The Privacy Policy at /privacy-policy must include the questionnaire data collection paragraph before the questionnaire goes live.
 
@@ -1084,13 +1090,31 @@ Critical rules that apply to the questionnaire without exception:
 
 The following items have been discussed and specified but not yet built. They are recorded here so future Claude Code sessions can pick them up precisely.
 
-**PDF clinical record generation.** The sinus questionnaire API route generates a clean clinical PDF document alongside the clinician email on every form submission. The PDF is a structured record of patient-reported data only — no severity grades, no triage flags, no clinical recommendations, and no management suggestions appear anywhere in the document. The PDF is attached to the clinician email sent to justine.oates@my-ent.com.au and is never stored on the server and never sent to the patient. The PDF filename format is MyENT_Assessment_[Surname]_[DDMMYYYY].pdf so it is immediately identifiable when uploaded into Genie. The PDF is designed for manual upload into the patient's Genie clinical record.
+**PDF clinical record generation.** The sinus questionnaire API route generates a clean clinical PDF document alongside the clinician email on every form submission. The PDF is a structured record of patient-reported data only — no severity grades, no triage flags, no clinical recommendations, and no management suggestions appear anywhere in the document. The PDF is attached to the clinician email sent to justineoates@my-ent.com.au and is never stored on the server and never sent to the patient. The PDF filename format is MyENT_Assessment_[Surname]_[DDMMYYYY].pdf so it is immediately identifiable when uploaded into Genie. The PDF is designed for manual upload into the patient's Genie clinical record.
 
 PDF contents in order: My-ENT header with address and patient details; provisional EPOS 2020 classification labelled "for clinical review only"; SNOT-22 presented in five validated subdomains (rhinological symptoms items 1-6, extranasal rhinological symptoms items 7-9, ear and facial symptoms items 10-11, psychological dysfunction items 12-18, sleep dysfunction items 19-22) with individual item scores and subdomain totals; overall SNOT-22 total; NOSE scale all five items with individual scores and total out of 100; TNSS if completed with individual scores and total; RQLQ if completed with mean score and domain scores; ESS if completed with individual scores and total; medical history summary; additional concerns verbatim; footer noting scores require clinical interpretation by the treating clinician. No severity grades appear in the PDF — severity grades and triage flags remain exclusively in the clinician email.
 
 Library: @react-pdf/renderer — generates PDF server-side from React components, TypeScript-compatible, no external API calls required.
 
-**Token-based questionnaire access — full specification.**
+**Token-based questionnaire access — full specification — REVISED.**
+
+Scope: The sinus pre-appointment questionnaire at /appointments/sinus-assessment is available as an option for all four My-ENT surgeons. Access is controlled by reception who generate the invitation link. The clinician report destination email is specified by reception at the time of link generation — it is not hardcoded. For Dr Catherine Banks's patients, justineoates@my-ent.com.au is the default pre-filled destination. For other surgeons' patients, reception enters the appropriate clinician email address manually. Rule 9 still applies to Justine specifically — her email only appears as the destination for Dr Banks's patients. The questionnaire instrument itself is clinically valid for all four surgeons' patients.
+
+Component 1 — Staff invitation page at /staff/send-questionnaire. Password protected via environment variable STAFF_PASSWORD. Not linked from public site, excluded from sitemap and robots.txt. Reception enters: patient full name, patient email, appointment date, clinician report email address (mandatory — pre-filled with justineoates@my-ent.com.au for Dr Banks's patients, manually entered for other surgeons), then clicks Send. System generates a unique six-digit numeric access code and URL token, stores in Vercel KV with 72-hour expiry, sends invitation email to patient automatically. Reception sees confirmation: "Questionnaire link sent to [email]. Link expires in 72 hours."
+
+Component 2 — Patient invitation email. Sent from noreply@my-ent.com.au. Subject: "Pre-appointment questionnaire — Dr Catherine Banks — My-ENT." Body includes patient first name, purpose statement, access code displayed prominently, questionnaire link button, 72-hour expiry notice, practice contact details. Reply-to: justineoates@my-ent.com.au.
+
+Component 3 — Token validation on questionnaire page. No token present: display neutral message "This questionnaire is sent by invitation only. If you have been asked to complete a pre-appointment assessment, please use the link provided in your email from My-ENT. If you need assistance, please call us on 02 9247 1762." Token expired: display automated resend screen with single email field — checks email against KV database, generates new token if matched, sends new invitation email without staff involvement. Token valid: display six-digit code entry field before any clinical questions. Three incorrect attempts: "Incorrect code. Please call us on 02 9247 1762 and we will help you directly." Correct code: questionnaire proceeds with patient first name pre-populated from token record.
+
+Component 4 — Clinician report routing. On submission, structured clinician report email and PDF sent to the clinician email address specified by reception at link generation — stored in the token record in Vercel KV. This is not hardcoded. For Dr Banks's patients this will be justineoates@my-ent.com.au. For other surgeons' patients it will be whatever email reception entered. Subject line includes patient name and appointment date from token record.
+
+Environment variables required: STAFF_PASSWORD, KV_REST_API_URL, KV_REST_API_TOKEN, EMAIL_HOST, EMAIL_PORT, EMAIL_USER, EMAIL_PASS, SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, SMTP_FROM, EMAIL_TO (justineoates@my-ent.com.au).
+
+robots.txt: Add /staff/ to disallow list in next-sitemap.config.js.
+
+Build sequence: Session A — Vercel KV setup and staff invitation page. Session B — Token validation layer on questionnaire page. Session C — Clinician report routing update to pull patient details from token record.
+
+**Token-based questionnaire access.**
 
 Architecture: Unique time-limited access links generated by Justine Oates or reception for each patient. The questionnaire page validates the token silently before rendering — no login screen, no password, no account creation. The patient experience is identical to accessing a normal webpage.
 
@@ -1104,7 +1128,7 @@ Expired link screen: Displays a single email input field with the message "This 
 
 Security: The automated resend only triggers if the email matches an existing patient record in the token database. Justine must have previously generated a token for that patient. Unknown email addresses are directed to the phone number, not given access.
 
-Questionnaire type routing: Tokens are tagged with questionnaire type. Resend emails use reply-to of justine.oates@my-ent.com.au for sinus assessments and contact@my-ent.com.au for all others.
+Questionnaire type routing: Tokens are tagged with questionnaire type. Resend emails use reply-to of justineoates@my-ent.com.au for sinus assessments and contact@my-ent.com.au for all others.
 
 **Token-based questionnaire access.** The sinus questionnaire is currently accessible at its direct URL without authentication. The planned implementation restricts access to patients who have received a unique time-limited link generated by Justine Oates or reception. The token generation interface is a private password-protected page. Tokens are stored in Vercel KV with a 14-day expiry and a single-use flag. On submission, the token is marked as used and cannot be reused.
 
@@ -1128,7 +1152,7 @@ The post-consultation email opt-in captured in the questionnaire consent screen 
 
 **Email environment variable naming — IMPORTANT.** Two API routes exist for email sending and use different environment variable naming conventions. The sinus questionnaire route uses EMAIL_HOST, EMAIL_PORT, EMAIL_USER, EMAIL_PASS, EMAIL_TO. The appointment changes route uses SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, SMTP_FROM. These must be standardised to a single naming convention before production deployment. A Claude Code session should align both routes to use the same variable names before configuring credentials in Vercel.
 
-**Email configuration for questionnaire submission.** The questionnaire uses Nodemailer with Gmail SMTP for email delivery. A .env.local file is required locally and environment variables must be set in Vercel for production. Do not use contact@my-ent.com.au as the sending account while it is in active use by the practice manager. The recommended approach is either a dedicated noreply@my-ent.com.au Google Workspace account, or Resend as a dedicated email delivery service. Environment variables required: EMAIL_HOST, EMAIL_PORT, EMAIL_USER, EMAIL_PASS, EMAIL_TO (justine.oates@my-ent.com.au). The .env.local file must never be committed to GitHub — confirm it is listed in .gitignore as .env*.local before adding credentials.
+**Email configuration for questionnaire submission.** The questionnaire uses Nodemailer with Gmail SMTP for email delivery. A .env.local file is required locally and environment variables must be set in Vercel for production. Do not use contact@my-ent.com.au as the sending account while it is in active use by the practice manager. The recommended approach is either a dedicated noreply@my-ent.com.au Google Workspace account, or Resend as a dedicated email delivery service. Environment variables required: EMAIL_HOST, EMAIL_PORT, EMAIL_USER, EMAIL_PASS, EMAIL_TO (justineoates@my-ent.com.au). The .env.local file must never be committed to GitHub — confirm it is listed in .gitignore as .env*.local before adding credentials.
 
 **SEO improvement priorities — implement before domain switch.**
 
@@ -1142,12 +1166,12 @@ Priority 4 — FAQ schema markup on the FAQ page at /patient-info/faq. The exist
 
 Priority 5 — Google Business Profile update. Immediately after domain switch: submit sitemap to Google Search Console, update Google Business Profile website URL to my-ent.com.au, confirm NAP consistency — Suite 303, Level 3, BMA House, 135 Macquarie Street, Sydney CBD NSW 2000, 02 9247 1762 — exactly matching the website and Google Business Profile.
 
-**DNS domain switch guidance.** When connecting my-ent.com.au to Vercel, add only the Vercel-provided DNS records alongside the existing Google Workspace MX records. Do not delete or replace any existing DNS records. Google Workspace email accounts — catherinebanks@my-ent.com.au, lyndonchan@my-ent.com.au, justine.oates@my-ent.com.au, contact@my-ent.com.au — are completely unaffected by the Vercel domain connection. Share a screenshot of current DNS settings before making any changes so the exact records to add can be confirmed. DNS propagation takes 15 minutes to a few hours. Cancel Wix immediately after propagation confirms the Vercel site is live.
+**DNS domain switch guidance.** When connecting my-ent.com.au to Vercel, add only the Vercel-provided DNS records alongside the existing Google Workspace MX records. Do not delete or replace any existing DNS records. Google Workspace email accounts — catherinebanks@my-ent.com.au, lyndonchan@my-ent.com.au, justineoates@my-ent.com.au, contact@my-ent.com.au — are completely unaffected by the Vercel domain connection. Share a screenshot of current DNS settings before making any changes so the exact records to add can be confirmed. DNS propagation takes 15 minutes to a few hours. Cancel Wix immediately after propagation confirms the Vercel site is live.
 
 **Pre-launch checklist before DNS switch:**
 1. Clinical sign-offs on all Tier C condition and procedure pages from Dr Banks
 2. Individual Tier B sign-offs from Dr Chan, Dr Huang, Dr Reddy, and Justine Oates on their profile pages
-3. End-to-end test of sinus questionnaire email delivery — confirm clinician report arrives at justine.oates@my-ent.com.au in correct format
+3. End-to-end test of sinus questionnaire email delivery — confirm clinician report arrives at justineoates@my-ent.com.au in correct format
 4. Add sinus questionnaire to the Appointments dropdown in the navigation
 5. Confirm homepage and appointments page render correctly on mobile
 6. Connect custom domain my-ent.com.au in Vercel Settings → Domains
@@ -1157,4 +1181,4 @@ Priority 5 — Google Business Profile update. Immediately after domain switch: 
 
 ---
 
-*Last updated: April 2026 — Session 11 complete. 62 pages built. Pre-launch SEO priorities documented. Justine Oates scope of practice Rule 9 added. This is the single source of truth for all project decisions. Update the date when this file changes.*
+*Last updated: April 2026 — Session 13 complete. 62 pages built. Pre-launch SEO priorities documented. Justine Oates scope of practice Rule 9 added. Token-based questionnaire access specification revised — Dr Banks patients only, reception-initiated, six-digit access code. This is the single source of truth for all project decisions. Update the date when this file changes.*
