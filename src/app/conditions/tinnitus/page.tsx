@@ -4,6 +4,34 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { ConditionPageTemplate } from '@/components/templates/ConditionPageTemplate'
 
+const tinnitusFaqItems = [
+  {
+    question: 'Is tinnitus a sign that I am going deaf?',
+    answer:
+      'Not always. Tinnitus can occur with or without measurable hearing loss. A hearing assessment helps clarify whether hearing changes are present and whether they are likely contributing to your symptoms.',
+  },
+  {
+    question: 'Why is tinnitus often worse at night?',
+    answer:
+      'Tinnitus can feel louder in quiet environments because there is less external sound competing for attention. Fatigue and stress can also make the sound more intrusive at the end of the day.',
+  },
+  {
+    question: 'When should tinnitus be reviewed urgently?',
+    answer:
+      'Urgent review is important if tinnitus starts suddenly with hearing loss, is pulsatile in time with your heartbeat, or is accompanied by severe dizziness or neurological symptoms.',
+  },
+  {
+    question: 'Can tinnitus be managed even if it does not fully disappear?',
+    answer:
+      'Yes. Many patients improve with targeted management that addresses hearing status, triggers, sleep impact, and coping strategies. The goal is to reduce symptom burden and improve daily function.',
+  },
+  {
+    question: 'Will every surgeon at My-ENT approach my condition the same way?',
+    answer:
+      'Individual surgeons within My-ENT may approach assessment and management differently based on their subspecialty training and clinical experience. Your surgeon will discuss the most appropriate pathway for your specific situation at your consultation.',
+  },
+]
+
 export const metadata: Metadata = {
   title: 'Tinnitus Specialist Sydney | Ringing in Ears | My-ENT',
   description:
@@ -53,6 +81,7 @@ export default function TinnitusPage() {
           href: '/procedures/wax-microsuction',
         },
       ]}
+      faqItems={tinnitusFaqItems}
     />
   )
 }

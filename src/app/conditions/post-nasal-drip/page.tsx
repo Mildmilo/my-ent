@@ -7,7 +7,7 @@ import { ConditionPageTemplate } from '@/components/templates/ConditionPageTempl
 export const metadata: Metadata = {
   title: 'Post-Nasal Drip Sydney | Sinus and Throat Specialist | My-ENT',
   description:
-    'Post-nasal drip information for Sydney patients, including common causes, when to seek specialist review, and treatment pathways at My-ENT.',
+    'Post-nasal drip information for Sydney patients, covering sinus and throat symptoms, key causes, and specialist ENT treatment pathways at My-ENT.',
 }
 
 export default function PostNasalDripPage() {

@@ -7,7 +7,7 @@ import { ConditionPageTemplate } from '@/components/templates/ConditionPageTempl
 export const metadata: Metadata = {
   title: 'Vertigo and Dizziness Assessment Sydney | ENT Review | My-ENT',
   description:
-    'Vertigo and dizziness information for Sydney patients, including key symptoms, warning signs, and specialist assessment pathways at My-ENT.',
+    'Vertigo and dizziness information for Sydney patients, including warning signs, inner-ear causes, and specialist ENT assessment pathways at My-ENT.',
 }
 
 export default function VertigoDizzinessPage() {

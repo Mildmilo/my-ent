@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { BreadcrumbNav } from '@/components/shared/BreadcrumbNav'
 
 const postOperativeCareStatement =
   'Recovery after any surgical procedure requires careful attention to the instructions provided by your treating surgeon. These instructions are tailored to your specific procedure and individual circumstances and should be followed precisely. If you have questions about your recovery, or if you experience symptoms that concern you, contact the rooms directly during business hours on 02 9247 1762. After hours, if you have an urgent concern, please present to your nearest emergency department.'
@@ -36,6 +37,7 @@ export function ProcedurePageTemplate({
     <>
       <section className="myent-section border-b border-neutral-200 bg-white">
         <div className="myent-container">
+          <BreadcrumbNav sectionLabel="Procedures" pageTitle={title} />
           <p className="myent-eyebrow">Procedure</p>
           {heroImage ? (
             <div className="relative mt-4 overflow-hidden rounded-[28px] border border-neutral-200 bg-neutral-800">

@@ -19,7 +19,7 @@ export default function AppointmentsPage() {
             <p className="text-lg leading-relaxed text-neutral-600">
               This page is for patients booking a consultation at My-ENT, 135 Macquarie Street, Sydney CBD. If you need a different location, please visit our contact directory.
             </p>
-            <Link className="myent-btn-outline inline-block" href="/contact/finding-the-right-contact">
+            <Link className="myent-btn-outline inline-flex w-full justify-center sm:w-fit" href="/contact/finding-the-right-contact">
               Contact directory
             </Link>
           </div>

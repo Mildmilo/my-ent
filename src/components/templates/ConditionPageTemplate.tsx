@@ -1,8 +1,14 @@
 import type { ReactNode } from 'react'
+import { BreadcrumbNav } from '@/components/shared/BreadcrumbNav'
 
 interface RelatedLink {
   title: string
   href: string
+}
+
+interface FaqItem {
+  question: string
+  answer: string
 }
 
 interface ConditionPageTemplateProps {
@@ -18,6 +24,7 @@ interface ConditionPageTemplateProps {
   treatmentOverview: string
   relatedProcedures: RelatedLink[]
   sinusQuestionnaireCalloutHeading?: string
+  faqItems?: FaqItem[]
 }
 
 // DO NOT list individual surgeons on condition pages - see CLAUDE.md Section 2 for rationale.
@@ -36,11 +43,28 @@ export function ConditionPageTemplate({
   treatmentOverview,
   relatedProcedures,
   sinusQuestionnaireCalloutHeading,
+  faqItems,
 }: ConditionPageTemplateProps) {
+  const faqSchema = faqItems
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqItems.map((item) => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: item.answer,
+          },
+        })),
+      }
+    : null
+
   return (
     <>
       <section className="myent-section border-b border-neutral-200 bg-white">
         <div className="myent-container">
+          <BreadcrumbNav sectionLabel="Conditions" pageTitle={title} />
           <p className="myent-eyebrow">Condition</p>
           {heroImageSlot ? (
             <div className="relative mt-8 h-56 overflow-hidden rounded-xl lg:h-[26rem]">
@@ -154,6 +178,36 @@ export function ConditionPageTemplate({
           </div>
         </div>
       </section>
+
+      {faqItems ? (
+        <section className="myent-section border-t border-neutral-200 bg-neutral-100">
+          <div className="myent-container">
+            <article className="myent-card">
+              <p className="myent-eyebrow">Frequently asked questions</p>
+              <h2 className="mt-3 text-3xl">Common questions about {title.toLowerCase()}</h2>
+              <div className="mt-6 space-y-3">
+                {faqItems.map((item) => (
+                  <details key={item.question} className="group rounded-xl border border-neutral-200 bg-white px-5 py-4">
+                    <summary className="flex cursor-pointer list-none items-start justify-between gap-4">
+                      <span className="text-base font-medium text-neutral-800">{item.question}</span>
+                      <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-neutral-200 text-neutral-500 transition-colors duration-150 group-open:border-teal-400 group-open:bg-teal-400 group-open:text-white">
+                        <span className="text-sm leading-none">+</span>
+                      </span>
+                    </summary>
+                    <p className="mt-4 border-t border-neutral-100 pt-4 text-base leading-relaxed text-neutral-600">
+                      {item.answer}
+                    </p>
+                  </details>
+                ))}
+              </div>
+            </article>
+          </div>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+          />
+        </section>
+      ) : null}
     </>
   )
 }

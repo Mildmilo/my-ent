@@ -12,8 +12,6 @@ interface SurgeonGridProps {
   surgeons: SurgeonGridItem[]
 }
 
-const TEAM_CARD_HEIGHT_CLASS = 'h-[280px]'
-
 export function SurgeonGrid({ surgeons }: SurgeonGridProps) {
   return (
     <section className="myent-section">
@@ -28,15 +26,15 @@ export function SurgeonGrid({ surgeons }: SurgeonGridProps) {
 
         <div className="mt-8 grid grid-cols-1 gap-5 lg:grid-cols-2">
           {surgeons.map((surgeon) => (
-            <article key={surgeon.name} className={`myent-card ${TEAM_CARD_HEIGHT_CLASS}`}>
-              <div className="flex h-full gap-5">
-                <div className="h-full w-[160px] shrink-0 overflow-hidden rounded-lg">
+            <article key={surgeon.name} className="myent-card">
+              <div className="flex h-full flex-col gap-5 sm:flex-row">
+                <div className="w-full shrink-0 overflow-hidden rounded-lg sm:h-[220px] sm:w-[160px]">
                   <Image
                     src={surgeon.imageSrc}
                     alt={surgeon.name}
-                    width={160}
-                    height={280}
-                    className="h-full w-full object-cover object-[50%_18%]"
+                    width={320}
+                    height={220}
+                    className="h-[220px] w-full object-cover object-[50%_18%] sm:h-full"
                   />
                 </div>
                 <div className="min-w-0">

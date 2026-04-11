@@ -4,6 +4,34 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { ConditionPageTemplate } from '@/components/templates/ConditionPageTemplate'
 
+const blockedNoseFaqItems = [
+  {
+    question: 'Can a blocked nose be caused by a deviated septum?',
+    answer:
+      'Yes. A deviated septum is a common structural cause of persistent blockage, especially when symptoms are more noticeable on one side. Examination and nasendoscopy help confirm whether this is a significant contributor.',
+  },
+  {
+    question: 'Why does my nose feel more blocked at night?',
+    answer:
+      'Nasal blood flow and tissue swelling can increase when lying down, which can worsen congestion overnight. Coexisting allergy, inflammation, or structural narrowing may make this more pronounced.',
+  },
+  {
+    question: 'Will medicated nasal sprays fix every blocked nose problem?',
+    answer:
+      'Nasal sprays can be very effective for inflammatory causes, but they do not correct every structural issue. Treatment depends on identifying the main cause, which is why specialist assessment is useful when symptoms persist.',
+  },
+  {
+    question: 'When is surgery considered for nasal obstruction?',
+    answer:
+      'Surgery is considered for selected patients when a structural cause is confirmed and symptoms remain significant despite appropriate conservative care. The decision is individualized after examination and discussion of options.',
+  },
+  {
+    question: 'Will every surgeon at My-ENT approach my condition the same way?',
+    answer:
+      'Individual surgeons within My-ENT may approach assessment and management differently based on their subspecialty training and clinical experience. Your surgeon will discuss the most appropriate pathway for your specific situation at your consultation.',
+  },
+]
+
 export const metadata: Metadata = {
   title: 'Blocked Nose Treatment Sydney | Nasal Obstruction | My-ENT',
   description:
@@ -55,6 +83,7 @@ export default function BlockedNosePage() {
           href: '/procedures/nasendoscopy',
         },
       ]}
+      faqItems={blockedNoseFaqItems}
     />
   )
 }

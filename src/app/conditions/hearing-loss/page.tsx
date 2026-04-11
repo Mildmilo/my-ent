@@ -4,6 +4,34 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { ConditionPageTemplate } from '@/components/templates/ConditionPageTemplate'
 
+const hearingLossFaqItems = [
+  {
+    question: 'Is sudden hearing loss an emergency?',
+    answer:
+      'A sudden drop in hearing over hours or a few days should be treated as urgent and assessed the same day where possible. Early specialist review is important because timing can influence treatment options and outcomes.',
+  },
+  {
+    question: 'What is the difference between conductive and sensorineural hearing loss?',
+    answer:
+      'Conductive loss relates to problems transmitting sound through the outer or middle ear, while sensorineural loss involves the inner ear or auditory nerve. Hearing tests and examination help distinguish these patterns.',
+  },
+  {
+    question: 'Do I always need surgery for hearing loss?',
+    answer:
+      'No. Many patients are managed without surgery, depending on the cause and severity. Management may include medical treatment, wax removal, monitoring, hearing rehabilitation, or surgery only when clinically appropriate.',
+  },
+  {
+    question: 'Can hearing loss happen in only one ear?',
+    answer:
+      'Yes. Unilateral hearing changes can occur and should be assessed carefully, particularly if they are new, progressive, or associated with tinnitus, imbalance, or other neurological symptoms.',
+  },
+  {
+    question: 'Will every surgeon at My-ENT approach my condition the same way?',
+    answer:
+      'Individual surgeons within My-ENT may approach assessment and management differently based on their subspecialty training and clinical experience. Your surgeon will discuss the most appropriate pathway for your specific situation at your consultation.',
+  },
+]
+
 export const metadata: Metadata = {
   title: 'Hearing Loss Assessment Sydney | ENT Specialist | My-ENT',
   description:
@@ -53,6 +81,7 @@ export default function HearingLossPage() {
           href: '/procedures/wax-microsuction',
         },
       ]}
+      faqItems={hearingLossFaqItems}
     />
   )
 }

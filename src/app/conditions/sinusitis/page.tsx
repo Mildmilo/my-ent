@@ -4,6 +4,34 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { ConditionPageTemplate } from '@/components/templates/ConditionPageTemplate'
 
+const sinusitisFaqItems = [
+  {
+    question: 'How can I tell if my sinus symptoms are more than a common cold?',
+    answer:
+      'A cold usually improves within about 7 to 10 days. If congestion, facial pressure, thick discharge, or reduced smell persists beyond this period, keeps recurring, or worsens after initial improvement, specialist review may be helpful.',
+  },
+  {
+    question: 'When is imaging needed for sinusitis?',
+    answer:
+      'Imaging is not required for every patient. It is usually considered when symptoms are persistent, recurrent, one-sided, or not improving with appropriate treatment, and when the result will help guide further management decisions.',
+  },
+  {
+    question: 'Does everyone with sinusitis need surgery?',
+    answer:
+      'No. Many patients improve with medical treatment and a structured nasal care plan. Surgery is considered only for selected patients when symptoms remain significant despite appropriate conservative treatment.',
+  },
+  {
+    question: 'Can sinusitis affect sleep and concentration?',
+    answer:
+      'Yes. Persistent nasal blockage, facial pressure, and post-nasal drip can disrupt sleep quality and daytime focus. Improving sinonasal control often helps reduce this broader day-to-day burden.',
+  },
+  {
+    question: 'Will every surgeon at My-ENT approach my condition the same way?',
+    answer:
+      'Individual surgeons within My-ENT may approach assessment and management differently based on their subspecialty training and clinical experience. Your surgeon will discuss the most appropriate pathway for your specific situation at your consultation.',
+  },
+]
+
 export const metadata: Metadata = {
   title: 'Sinusitis Treatment Sydney | Sinus Specialist | My-ENT',
   description:
@@ -54,6 +82,7 @@ export default function SinusitisPage() {
           href: '/procedures/nasendoscopy',
         },
       ]}
+      faqItems={sinusitisFaqItems}
     />
   )
 }

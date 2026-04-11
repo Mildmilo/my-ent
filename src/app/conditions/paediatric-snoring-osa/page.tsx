@@ -7,7 +7,7 @@ import { ConditionPageTemplate } from '@/components/templates/ConditionPageTempl
 export const metadata: Metadata = {
   title: 'Snoring and Sleep Apnoea in Children Sydney | Paediatric ENT | My-ENT',
   description:
-    'Children\'s snoring and sleep apnoea information for Sydney parents — symptoms, causes, when to seek specialist review, and paediatric treatment options at My-ENT.',
+    'Paediatric snoring and sleep apnoea information for Sydney parents, including breathing warning signs, ENT assessment, and treatment pathways at My-ENT.',
 }
 
 export default function PaediatricSnoringOsaPage() {

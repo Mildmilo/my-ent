@@ -6,7 +6,7 @@ import { ConditionPageTemplate } from '@/components/templates/ConditionPageTempl
 export const metadata: Metadata = {
   title: 'Skull Base Conditions Sydney | Skull Base Surgeon | My-ENT',
   description:
-    'Skull base conditions information for Sydney patients, including anterior skull base lesions, pituitary conditions, symptoms to watch for, and endoscopic treatment pathways at My-ENT.',
+    'Skull base conditions information for Sydney patients, including anterior skull base and pituitary conditions, warning signs, and endoscopic pathways.',
 }
 
 export default function SkullBaseConditionsPage() {

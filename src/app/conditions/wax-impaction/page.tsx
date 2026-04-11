@@ -7,7 +7,7 @@ import { ConditionPageTemplate } from '@/components/templates/ConditionPageTempl
 export const metadata: Metadata = {
   title: 'Wax Impaction Treatment Sydney | Ear Cleaning | My-ENT',
   description:
-    'Wax impaction information for Sydney patients, including symptoms, safe removal guidance, and when to seek ENT review at My-ENT.',
+    'Wax impaction information for Sydney patients, including blocked hearing symptoms, safe ear wax removal options, and ENT review timing at My-ENT.',
 }
 
 export default function WaxImpactionPage() {

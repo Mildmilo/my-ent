@@ -4,6 +4,34 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { ConditionPageTemplate } from '@/components/templates/ConditionPageTemplate'
 
+const nasalPolypsFaqItems = [
+  {
+    question: 'Are nasal polyps cancerous?',
+    answer:
+      'Nasal polyps are usually benign inflammatory swellings. They are not typically cancerous, but persistent unilateral symptoms or unusual findings still require specialist assessment to confirm the diagnosis and exclude other causes.',
+  },
+  {
+    question: 'Why has my sense of smell changed with nasal polyps?',
+    answer:
+      'Polyps can physically obstruct airflow to the smell area high in the nasal cavity, and underlying inflammation can further reduce smell function. Improvement varies between patients and depends on disease severity and treatment response.',
+  },
+  {
+    question: 'Can nasal polyps come back after treatment?',
+    answer:
+      'They can recur in some patients because polyps are linked to ongoing inflammatory disease. Long-term follow-up and maintenance treatment are often important, even after initial symptom improvement.',
+  },
+  {
+    question: 'Do allergy tablets alone treat nasal polyps?',
+    answer:
+      'Not usually. Allergy management may help if allergy coexists, but polyps often need a broader plan that can include nasal therapies, endoscopic assessment, and occasionally surgery depending on symptom burden.',
+  },
+  {
+    question: 'Will every surgeon at My-ENT approach my condition the same way?',
+    answer:
+      'Individual surgeons within My-ENT may approach assessment and management differently based on their subspecialty training and clinical experience. Your surgeon will discuss the most appropriate pathway for your specific situation at your consultation.',
+  },
+]
+
 export const metadata: Metadata = {
   title: 'Nasal Polyps Treatment Sydney | ENT Specialist | My-ENT',
   description:
@@ -54,6 +82,7 @@ export default function NasalPolypsPage() {
           href: '/procedures/nasendoscopy',
         },
       ]}
+      faqItems={nasalPolypsFaqItems}
     />
   )
 }

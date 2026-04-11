@@ -127,13 +127,13 @@ export default function Home() {
             <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
               <Link
                 href="/appointments"
-                className="myent-btn-primary inline-flex min-h-[60px] items-center justify-center px-6 py-4 text-base font-semibold"
+                className="myent-btn-primary flex min-h-[60px] w-full items-center justify-center px-6 py-4 text-base font-medium"
               >
                 Yes — My-ENT, 135 Macquarie Street
               </Link>
               <Link
                 href="/contact/finding-the-right-contact"
-                className="myent-btn-outline inline-flex min-h-[60px] items-center justify-center px-6 py-4 text-base font-semibold"
+                className="myent-btn-outline flex min-h-[60px] w-full items-center justify-center px-6 py-4 text-base font-medium"
               >
                 No — find another location
               </Link>

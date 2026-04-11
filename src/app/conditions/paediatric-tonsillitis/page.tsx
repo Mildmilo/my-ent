@@ -7,7 +7,7 @@ import { ConditionPageTemplate } from '@/components/templates/ConditionPageTempl
 export const metadata: Metadata = {
   title: 'Tonsillitis in Children Sydney | Paediatric ENT | My-ENT',
   description:
-    'Tonsillitis information for parents of children in Sydney — symptoms, causes, when specialist review is needed, and treatment options including tonsillectomy at My-ENT.',
+    'Paediatric tonsillitis information for Sydney parents, covering recurrent symptoms, specialist ENT review timing, and tonsillectomy pathways at My-ENT.',
 }
 
 export default function PaediatricTonsillitisPage() {

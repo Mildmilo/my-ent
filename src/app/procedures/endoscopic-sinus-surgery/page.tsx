@@ -6,7 +6,7 @@ import { ProcedurePageTemplate } from '@/components/templates/ProcedurePageTempl
 export const metadata: Metadata = {
   title: 'Endoscopic Sinus Surgery Sydney | ESS Surgeon | My-ENT',
   description:
-    'Endoscopic sinus surgery (ESS) information for Sydney patients, including when it may be recommended, that it is performed under general anaesthetic in an operating theatre, what to expect, and recovery planning.',
+    'Endoscopic sinus surgery (ESS) information for Sydney patients, including when ESS is considered, how surgery is performed, and recovery planning at My-ENT.',
 }
 
 export default function EndoscopicSinusSurgeryPage() {

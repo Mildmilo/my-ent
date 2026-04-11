@@ -183,7 +183,7 @@ const categories: ConditionCategory[] = [
 export const metadata: Metadata = {
   title: 'ENT Conditions Explained | Nose, Ear, Throat, Paediatric | My-ENT Sydney',
   description:
-    'Browse all 23 ENT conditions treated at My-ENT in Sydney. Patient-focused condition guides covering nose, ear, throat, and paediatric ENT.',
+    'Explore ENT conditions treated at My-ENT in Sydney, including sinusitis, hearing loss, tinnitus, tonsillitis, and paediatric ENT care pathways.',
 }
 
 export default function ConditionsIndexPage() {

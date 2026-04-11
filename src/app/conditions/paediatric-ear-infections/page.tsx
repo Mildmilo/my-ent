@@ -7,7 +7,7 @@ import { ConditionPageTemplate } from '@/components/templates/ConditionPageTempl
 export const metadata: Metadata = {
   title: 'Paediatric Ear Infections Sydney | Children\'s ENT | My-ENT',
   description:
-    'Ear infection information for parents of children in Sydney — symptoms, causes, when to seek specialist review, and treatment options including grommets at My-ENT.',
+    'Paediatric ear infections information for Sydney parents, covering symptoms, hearing impact, specialist review timing, and grommets pathways at My-ENT.',
 }
 
 export default function PaediatricEarInfectionsPage() {

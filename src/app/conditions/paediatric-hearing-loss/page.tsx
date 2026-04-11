@@ -7,7 +7,7 @@ import { ConditionPageTemplate } from '@/components/templates/ConditionPageTempl
 export const metadata: Metadata = {
   title: 'Hearing Loss in Children Sydney | Paediatric ENT | My-ENT',
   description:
-    'Childhood hearing loss information for Sydney parents — causes, symptoms, when to seek specialist review, and treatment options including grommets and cochlear implants at My-ENT.',
+    'Paediatric hearing loss information for Sydney parents, including warning signs, causes, hearing test pathways, and specialist treatment options at My-ENT.',
 }
 
 export default function PaediatricHearingLossPage() {
