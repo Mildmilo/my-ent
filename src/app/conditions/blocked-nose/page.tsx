@@ -26,6 +26,11 @@ const blockedNoseFaqItems = [
       'Surgery is considered for selected patients when a structural cause is confirmed and symptoms remain significant despite appropriate conservative care. The decision is individualized after examination and discussion of options.',
   },
   {
+    question: 'Can allergies cause an ongoing blocked nose?',
+    answer:
+      'Yes. Hayfever and perennial allergic rhinitis are common contributors to intermittent or persistent nasal blockage. Allergy management, correct nasal spray technique, and reducing known triggers can make a meaningful difference, and specialist assessment helps clarify whether allergy is playing a significant role in your case.',
+  },
+  {
     question: 'Will every surgeon at My-ENT approach my condition the same way?',
     answer:
       'Individual surgeons within My-ENT may approach assessment and management differently based on their subspecialty training and clinical experience. Your surgeon will discuss the most appropriate pathway for your specific situation at your consultation.',

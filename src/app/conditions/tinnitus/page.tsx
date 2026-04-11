@@ -26,6 +26,11 @@ const tinnitusFaqItems = [
       'Yes. Many patients improve with targeted management that addresses hearing status, triggers, sleep impact, and coping strategies. The goal is to reduce symptom burden and improve daily function.',
   },
   {
+    question: 'Can tinnitus be caused by something reversible like earwax?',
+    answer:
+      'Yes. Simple causes such as wax build-up, middle ear fluid, or an ear infection can produce tinnitus that often improves once the underlying problem is addressed. An ear examination during your consultation helps identify whether any reversible factor is contributing to your symptoms and should be treated first.',
+  },
+  {
     question: 'Will every surgeon at My-ENT approach my condition the same way?',
     answer:
       'Individual surgeons within My-ENT may approach assessment and management differently based on their subspecialty training and clinical experience. Your surgeon will discuss the most appropriate pathway for your specific situation at your consultation.',

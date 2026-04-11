@@ -26,6 +26,11 @@ const hearingLossFaqItems = [
       'Yes. Unilateral hearing changes can occur and should be assessed carefully, particularly if they are new, progressive, or associated with tinnitus, imbalance, or other neurological symptoms.',
   },
   {
+    question: 'Can earwax be enough to cause noticeable hearing loss?',
+    answer:
+      'Yes. A build-up of wax against the eardrum can cause a blocked sensation and a measurable reduction in hearing, often in one ear. Removal by microsuction in the rooms commonly restores hearing when wax is the main cause, and examination helps confirm whether other factors also need investigation.',
+  },
+  {
     question: 'Will every surgeon at My-ENT approach my condition the same way?',
     answer:
       'Individual surgeons within My-ENT may approach assessment and management differently based on their subspecialty training and clinical experience. Your surgeon will discuss the most appropriate pathway for your specific situation at your consultation.',
