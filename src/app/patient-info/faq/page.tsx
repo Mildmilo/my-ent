@@ -129,7 +129,7 @@ const faqGroups: FaqGroup[] = [
       {
         question: 'When will I have my post-operative follow-up appointment?',
         answer:
-          'A follow-up appointment is usually arranged for two to four weeks after your procedure, depending on the surgery performed. Reception will confirm your follow-up date when your procedure is booked. Justine Oates, our nurse practitioner, may also see you for post-operative review as part of your care pathway.',
+          'A follow-up appointment is usually arranged for two to four weeks after your procedure, depending on the surgery performed. Reception will confirm your follow-up date when your procedure is booked. If you are a patient of Dr Catherine Banks, Justine Oates — our nurse practitioner — may also see you for post-operative review as part of your care pathway.',
       },
     ],
   },

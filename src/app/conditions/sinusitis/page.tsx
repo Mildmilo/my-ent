@@ -28,7 +28,7 @@ const sinusitisFaqItems = [
   {
     question: 'Can saline nasal rinses help with sinusitis symptoms?',
     answer:
-      'Saline nasal irrigation is a low-risk measure that many patients find helpful for clearing mucus, reducing crusting, and calming nasal irritation. It is commonly used alongside other treatments as part of a structured nasal care plan, and your surgeon or nurse practitioner can advise on technique and frequency at your appointment.',
+      'Saline nasal irrigation is a low-risk measure that many patients find helpful for clearing mucus, reducing crusting, and calming nasal irritation. It is commonly used alongside other treatments as part of a structured nasal care plan, and your surgeon can advise on technique and frequency at your appointment.',
   },
   {
     question: 'Will every surgeon at My-ENT approach my condition the same way?',
