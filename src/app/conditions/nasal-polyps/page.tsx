@@ -26,6 +26,11 @@ const nasalPolypsFaqItems = [
       'Not usually. Allergy management may help if allergy coexists, but polyps often need a broader plan that can include nasal therapies, endoscopic assessment, and occasionally surgery depending on symptom burden.',
   },
   {
+    question: 'Are steroid nasal sprays useful for nasal polyps?',
+    answer:
+      'Intranasal steroid sprays are a recognised first-line treatment for many patients with nasal polyps. They work gradually to reduce inflammation within the nasal lining, and regular, correct use is important for benefit. Your surgeon can review your spray technique and discuss whether additional medical therapy is appropriate for your situation.',
+  },
+  {
     question: 'Will every surgeon at My-ENT approach my condition the same way?',
     answer:
       'Individual surgeons within My-ENT may approach assessment and management differently based on their subspecialty training and clinical experience. Your surgeon will discuss the most appropriate pathway for your specific situation at your consultation.',

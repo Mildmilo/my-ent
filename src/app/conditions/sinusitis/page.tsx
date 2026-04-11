@@ -26,6 +26,11 @@ const sinusitisFaqItems = [
       'Yes. Persistent nasal blockage, facial pressure, and post-nasal drip can disrupt sleep quality and daytime focus. Improving sinonasal control often helps reduce this broader day-to-day burden.',
   },
   {
+    question: 'Can saline nasal rinses help with sinusitis symptoms?',
+    answer:
+      'Saline nasal irrigation is a low-risk measure that many patients find helpful for clearing mucus, reducing crusting, and calming nasal irritation. It is commonly used alongside other treatments as part of a structured nasal care plan, and your surgeon or nurse practitioner can advise on technique and frequency at your appointment.',
+  },
+  {
     question: 'Will every surgeon at My-ENT approach my condition the same way?',
     answer:
       'Individual surgeons within My-ENT may approach assessment and management differently based on their subspecialty training and clinical experience. Your surgeon will discuss the most appropriate pathway for your specific situation at your consultation.',
