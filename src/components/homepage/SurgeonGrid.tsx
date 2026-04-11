@@ -17,7 +17,7 @@ export function SurgeonGrid({ surgeons }: SurgeonGridProps) {
     <section className="myent-section">
       <div className="myent-container">
         <p className="myent-eyebrow">Our Team</p>
-        <div className="mt-4 flex items-end justify-between gap-4">
+        <div className="mt-4 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <h2 className="text-4xl">Surgeons and nurse practitioner</h2>
           <a className="text-sm font-medium text-teal-500" href="/about/our-surgeons">
             View all profiles

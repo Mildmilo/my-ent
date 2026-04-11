@@ -122,7 +122,7 @@ Role: Nurse Practitioner for Dr Catherine Banks. Head and Neck / Rhinology Nurse
 Qualifications: Master of Nursing, Sydney University (2016).
 One of only three nurse practitioners in this scope of practice in Australia at the time of her appointment.
 Pioneered the nurse consultant role in head and neck surgery alongside Professor Chris O'Brien at Royal Prince Alfred Hospital for 15 years. Transitioned to Chris O'Brien Lifehouse at its opening in 2014, developing highly specialised nursing care for complex head and neck surgical and radiation oncology patients. Commenced as nurse practitioner in 2017. Has published and presented nationally and internationally on quality of life following head and neck cancer treatment. Invited lecturer, Sydney University Nursing School. Joined Dr Banks to expand her scope to include rhinology.
-Justine plays a central role in the new patient triage and nurse practitioner review pathway — see Section 5.
+Justine plays a central role in the new patient triage and nurse practitioner review pathway for Dr Banks's patients only — see Section 5 and Rule 9. She does not provide nurse practitioner input for patients of Dr Chan, Dr Huang, or Dr Reddy.
 
 Justine must appear on the team page alongside the surgeons, with her own profile card and biography page at /about/justine-oates.
 
@@ -255,6 +255,22 @@ RULE 7 — TYPESCRIPT STRICT.
 RULE 8 — NO EMPTY PAGES.
   Never create a page.tsx returning a placeholder or "coming soon".
   Build one complete, content-populated page at a time.
+
+RULE 9 — JUSTINE OATES SCOPE OF PRACTICE. NON-NEGOTIABLE.
+  Justine Oates works exclusively with Dr Catherine Banks.
+  She does not work for Dr Lyndon Chan, Dr June Huang, or Dr Rithvik Reddy.
+  Justine is only involved in patient care when a patient has been referred
+  to Dr Catherine Banks. Do not imply, state, or design any user flow in
+  which Justine triages, reviews, follows up, or provides nurse practitioner
+  input for patients of the other three surgeons. This applies to:
+    - Page copy
+    - Triage pathway descriptions
+    - Post-operative callouts
+    - Schema markup
+    - Any automated routing logic
+    - Questionnaire email routing
+  When describing the nurse practitioner review pathway, always scope the
+  wording to Dr Banks's patients only.
 ```
 
 ---
@@ -1141,4 +1157,4 @@ Priority 5 — Google Business Profile update. Immediately after domain switch: 
 
 ---
 
-*Last updated: April 2026 — Session 10 complete. 62 pages built. Pre-launch SEO priorities documented. This is the single source of truth for all project decisions. Update the date when this file changes.*
+*Last updated: April 2026 — Session 11 complete. 62 pages built. Pre-launch SEO priorities documented. Justine Oates scope of practice Rule 9 added. This is the single source of truth for all project decisions. Update the date when this file changes.*

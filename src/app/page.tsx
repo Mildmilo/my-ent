@@ -119,7 +119,7 @@ export default function Home() {
             </h1>
             <p className="mt-6 font-serif leading-relaxed text-neutral-700">
               <span className="text-2xl font-medium">If your appointment is at </span>
-              <span className="text-3xl font-semibold text-teal-400">My-ENT</span>
+              <span className="text-3xl font-medium text-teal-400">My-ENT</span>
               <span className="text-2xl font-medium">
                 {', 135 Macquarie Street, Sydney CBD — you are in the right place.'}
               </span>
