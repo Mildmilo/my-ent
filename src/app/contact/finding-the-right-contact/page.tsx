@@ -7,11 +7,6 @@ export const metadata: Metadata = {
     'Contact details for My-ENT Macquarie Street rooms, other private consulting locations, and public hospital contacts in Sydney.',
 }
 
-interface ContactRow {
-  label: string
-  value: string
-  href?: string
-}
 
 interface PrivateLocation {
   practiceName: string
@@ -36,16 +31,6 @@ interface HospitalContact {
   email?: string
 }
 
-const practiceContacts: ContactRow[] = [
-  {
-    label: 'Address',
-    value: 'Level 3, Suite 303, BMA House, 135 Macquarie Street, Sydney CBD NSW 2000',
-  },
-  { label: 'Phone', value: '02 9247 1762', href: 'tel:0292471762' },
-  { label: 'Fax', value: '02 9247 2141', href: 'tel:0292472141' },
-  { label: 'Email', value: 'contact@my-ent.com.au', href: 'mailto:contact@my-ent.com.au' },
-  { label: 'Hours', value: '8:30 am – 5:00 pm, Monday to Friday' },
-]
 
 const surgeonLocations: SurgeonLocations[] = [
   {
@@ -153,112 +138,56 @@ const publicHospitals: HospitalContact[] = [
 export default function FindingTheRightContactPage() {
   return (
     <>
+      {/* Page heading */}
       <section className="myent-section bg-white">
         <div className="myent-container">
           <p className="myent-eyebrow">Contact</p>
           <div className="mt-4 max-w-3xl space-y-6">
             <h1 className="text-4xl leading-tight tracking-tight lg:text-5xl">
-              Finding the right contact
+              {"Let\u2019s get you to the right place."}
             </h1>
             <p className="text-lg leading-relaxed text-neutral-500">
-              Use this directory to find the correct contact point for My-ENT Macquarie Street,
-              other private consulting rooms, and public hospital appointments.
+              {"No problem at all \u2014 specialists see patients across multiple locations. Find your surgeon\u2019s rooms below and give them a call directly. They will be expecting referrals like yours."}
             </p>
           </div>
         </div>
       </section>
 
+      {/* Urgent warning */}
+      <section className="border-t border-neutral-200 bg-neutral-100 px-0 py-6">
+        <div className="myent-container">
+          <p className="max-w-3xl text-sm leading-relaxed text-neutral-600">
+            <span className="font-medium text-neutral-800">Urgent or after-hours concern?</span>{' '}
+            If you are experiencing significant bleeding, breathing difficulty, or sudden severe pain, call{' '}
+            <a className="font-medium text-teal-400 hover:text-teal-300" href="tel:000">000</a>{' '}
+            or present to your nearest emergency department immediately.
+          </p>
+        </div>
+      </section>
+
+      {/* Section 1 — Other private consulting rooms */}
       <section className="myent-section border-t border-neutral-200">
         <div className="myent-container">
           <div className="section-header mb-10 max-w-3xl">
-            <p className="myent-eyebrow">Macquarie Street</p>
-            <h2 className="mt-3 text-3xl leading-tight">My-ENT Macquarie Street</h2>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-neutral-500">
-              The My-ENT reception team manages bookings and enquiries for 135 Macquarie Street only.
-              If your referral is addressed to another consulting location, please contact those rooms
-              directly.
-            </p>
-          </div>
-
-          <div className="myent-card max-w-4xl">
-            <div className="grid gap-6 lg:grid-cols-[18rem_minmax(0,1fr)]">
-              <div className="rounded-xl border border-teal-100 bg-teal-50 p-6">
-                <p className="myent-eyebrow">Reception phone</p>
-                <a className="mt-3 block text-3xl leading-none text-neutral-800 hover:text-teal-400" href="tel:0292471762">
-                  02 9247 1762
-                </a>
-                <p className="mt-4 text-sm leading-relaxed text-neutral-500">
-                  Bookings and enquiries for 135 Macquarie Street are managed through this line.
-                </p>
-                <div className="mt-6 flex flex-wrap gap-3">
-                  <a className="myent-btn-primary" href="tel:0292471762">
-                    Call the rooms
-                  </a>
-                  <Link className="myent-btn-outline" href="/appointments">
-                    Request an appointment
-                  </Link>
-                </div>
-              </div>
-
-              <dl className="divide-y divide-neutral-100">
-                {practiceContacts.map((item) => (
-                  <div key={item.label} className="flex flex-col gap-1 py-4 sm:flex-row sm:gap-6">
-                    <dt className="w-24 flex-shrink-0 text-sm font-medium text-neutral-700">
-                      {item.label}
-                    </dt>
-                    <dd className="text-sm leading-relaxed text-neutral-600">
-                      {item.href ? (
-                        <a className="hover:text-teal-400" href={item.href}>
-                          {item.value}
-                        </a>
-                      ) : (
-                        item.value
-                      )}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="myent-section border-t border-neutral-200 bg-neutral-100">
-        <div className="myent-container">
-          <div className="section-header mb-10 max-w-3xl">
             <p className="myent-eyebrow">Other locations</p>
-            <h2 className="mt-3 text-3xl leading-tight">Other private consulting locations</h2>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-neutral-500">
-              If your referral is addressed to one of the locations below, please contact those rooms
-              directly. The My-ENT reception team cannot manage bookings or enquiries for these
-              separate private consulting practices.
-            </p>
+            <h2 className="mt-3 text-3xl leading-tight">Other private consulting rooms</h2>
           </div>
 
           <div className="space-y-10">
             {surgeonLocations.map((surgeon) => (
               <section key={surgeon.surgeonLabel} className="rounded-xl border border-neutral-200 bg-white p-6 lg:p-8">
-                <p className="myent-eyebrow">Other private rooms</p>
+                <p className="myent-eyebrow">Private rooms</p>
                 <h3 className="mt-3 text-2xl leading-tight">{surgeon.surgeonLabel}</h3>
                 <div className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-2">
                   {surgeon.locations.map((loc) => (
                     <article key={loc.practiceName} className="myent-card">
                       <h4 className="font-medium text-neutral-800">{loc.practiceName}</h4>
                       <p className="mt-2 text-sm leading-relaxed text-neutral-500">{loc.address}</p>
-                      <p className="mt-4 text-xs uppercase tracking-[0.06em] text-teal-400">
-                        Primary phone contact
-                      </p>
                       <a
-                        className="mt-2 block text-2xl leading-none text-neutral-800 hover:text-teal-400"
+                        className="myent-btn-primary mt-4 inline-flex min-h-[44px] w-full items-center justify-center sm:w-fit"
                         href={loc.phoneHref}
                       >
-                        {loc.phone}
-                      </a>
-                      <a
-                        className="myent-btn-outline mt-4 inline-flex min-h-[44px] items-center justify-center"
-                        href={loc.phoneHref}
-                      >
-                        Call this practice
+                        Call {loc.phone}
                       </a>
                       <dl className="mt-4 space-y-2 text-sm">
                         <div className="flex gap-3">
@@ -279,17 +208,20 @@ export default function FindingTheRightContactPage() {
         </div>
       </section>
 
-      <section className="myent-section border-t border-neutral-200 bg-white">
+      {/* Section 2 — Public hospital appointments */}
+      <section className="myent-section border-t border-neutral-200 bg-neutral-100">
         <div className="myent-container">
           <div className="section-header mb-10 max-w-3xl">
             <p className="myent-eyebrow">Public hospitals</p>
-            <h2 className="mt-3 text-3xl leading-tight">Public hospital contacts</h2>
+            <h2 className="mt-3 text-3xl leading-tight">Public hospital appointments</h2>
           </div>
 
           <p className="mb-8 max-w-3xl rounded-xl border border-teal-100 bg-teal-50 p-5 text-base leading-relaxed text-neutral-700">
-            If you are a public patient and have any concerns, please contact the relevant hospital
-            directly. Waiting times and appointment scheduling are managed by the hospital and are
-            outside the control of our private rooms.
+            If you are a public patient, please contact the relevant hospital directly. Public
+            hospital appointments, waiting times, and scheduling are managed entirely by the hospital
+            and are outside the control of our private rooms. We are unable to assist with public
+            hospital enquiries, bookings, or follow-up on your behalf — please direct all public
+            hospital enquiries to the hospital administration team.
           </p>
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -297,34 +229,74 @@ export default function FindingTheRightContactPage() {
               <article key={hospital.name} className="myent-card">
                 <h3 className="font-medium text-neutral-800">{hospital.name}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-neutral-500">{hospital.address}</p>
-                <p className="mt-4 text-xs uppercase tracking-[0.06em] text-teal-400">Phone</p>
-                <a className="mt-2 block text-2xl leading-none text-neutral-800 hover:text-teal-400" href={hospital.phoneHref}>
+                <a
+                  className="mt-4 block text-lg font-medium text-teal-400 hover:text-teal-300"
+                  href={hospital.phoneHref}
+                >
                   {hospital.phone}
                 </a>
-                <dl className="mt-4 space-y-2 text-sm">
-                  {hospital.appointmentsPhone && hospital.appointmentsPhoneHref && (
-                    <div className="flex gap-3">
-                      <dt className="w-20 flex-shrink-0 text-neutral-400">Appointments</dt>
-                      <dd>
-                        <a className="hover:text-teal-400" href={hospital.appointmentsPhoneHref}>
-                          {hospital.appointmentsPhone}
-                        </a>
-                      </dd>
-                    </div>
-                  )}
-                  {hospital.email && (
-                    <div className="flex gap-3">
-                      <dt className="w-20 flex-shrink-0 text-neutral-400">Email</dt>
-                      <dd>
-                        <a className="break-all hover:text-teal-400" href={`mailto:${hospital.email}`}>
-                          {hospital.email}
-                        </a>
-                      </dd>
-                    </div>
-                  )}
-                </dl>
+                {hospital.appointmentsPhone && hospital.appointmentsPhoneHref && (
+                  <p className="mt-2 text-sm text-neutral-500">
+                    Appointments:{' '}
+                    <a className="hover:text-teal-400" href={hospital.appointmentsPhoneHref}>
+                      {hospital.appointmentsPhone}
+                    </a>
+                  </p>
+                )}
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section 3 — Actually at Macquarie Street? */}
+      <section className="myent-section border-t border-neutral-200 bg-white">
+        <div className="myent-container">
+          <div className="section-header mb-10 max-w-3xl">
+            <p className="myent-eyebrow">Macquarie Street</p>
+            <h2 className="mt-3 text-3xl leading-tight">Actually at Macquarie Street?</h2>
+            <p className="mt-4 text-base leading-relaxed text-neutral-500">
+              {"No worries \u2014 you are in the right place after all."}
+            </p>
+          </div>
+
+          <div className="myent-card max-w-2xl">
+            <p className="font-serif text-2xl text-neutral-800">My-ENT</p>
+            <dl className="mt-6 divide-y divide-neutral-100 text-sm">
+              <div className="flex flex-col gap-1 py-3 sm:flex-row sm:gap-6">
+                <dt className="w-16 flex-shrink-0 font-medium text-neutral-700">Address</dt>
+                <dd className="text-neutral-600">
+                  Level 3, Suite 303, BMA House, 135 Macquarie Street, Sydney CBD NSW 2000
+                </dd>
+              </div>
+              <div className="flex flex-col gap-1 py-3 sm:flex-row sm:gap-6">
+                <dt className="w-16 flex-shrink-0 font-medium text-neutral-700">Phone</dt>
+                <dd>
+                  <a className="text-neutral-600 hover:text-teal-400" href="tel:0292471762">
+                    02 9247 1762
+                  </a>
+                </dd>
+              </div>
+              <div className="flex flex-col gap-1 py-3 sm:flex-row sm:gap-6">
+                <dt className="w-16 flex-shrink-0 font-medium text-neutral-700">Email</dt>
+                <dd>
+                  <a className="text-neutral-600 hover:text-teal-400" href="mailto:contact@my-ent.com.au">
+                    contact@my-ent.com.au
+                  </a>
+                </dd>
+              </div>
+              <div className="flex flex-col gap-1 py-3 sm:flex-row sm:gap-6">
+                <dt className="w-16 flex-shrink-0 font-medium text-neutral-700">Hours</dt>
+                <dd className="text-neutral-600">
+                  {"8:30\u00a0am \u2013 5:00\u00a0pm, Monday to Friday"}
+                </dd>
+              </div>
+            </dl>
+            <div className="mt-6">
+              <Link className="myent-btn-primary" href="/appointments">
+                Request an appointment
+              </Link>
+            </div>
           </div>
         </div>
       </section>

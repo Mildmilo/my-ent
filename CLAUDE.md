@@ -178,13 +178,17 @@ Section 3 — Public hospital contacts. List the verified hospital contact detai
 
 ### Contact directory page — confirmed design
 
-The contact directory page at /contact/finding-the-right-contact is the destination for every patient who clicks "No — find another location" on the homepage. It must give every misdirected patient everything they need to reach the correct practice without calling My-ENT. It has three clearly labelled sections.
+The contact directory page at /contact/finding-the-right-contact is the destination for every patient who clicks "No — find another location" on the homepage. Page heading: "Let's get you to the right place." Subtext: "No problem at all — specialists see patients across multiple locations. Find your surgeon's rooms below and give them a call directly. They will be expecting referrals like yours."
 
-Section 1 — My-ENT Macquarie Street. Confirms the practice address, phone, email, and hours for patients who realise they are in the right place after all.
+The urgent warning directing patients to call 000 appears at the very top of the page above all three sections.
 
-Section 2 — Other private consulting rooms. Lists the verified private room details for Dr Chan, Dr Huang, and Dr Reddy from the Other private consulting locations section above. Each surgeon's rooms are listed under a clear heading with address, phone, and email.
+The three sections appear in this confirmed order — do not alter without explicit instruction.
 
-Section 3 — Public hospital contacts. Lists all seven verified public hospitals with their main phone numbers, introduced by the verbatim public patient statement: "If you are a public patient and have any concerns, please contact the relevant hospital directly. Waiting times and appointment scheduling are managed by the hospital and are outside the control of our private rooms." Individual surgeon names are not listed against specific hospitals.
+Section 1 — Other private consulting rooms. Lists the verified private room details for Dr Chan (three locations), Dr Huang (Trinity ENT Kogarah), and Dr Reddy (MacArthur ENT Gregory Hills) from the Other private consulting locations section above. Each surgeon's rooms are listed under a clear heading with address, phone number as a prominent clickable tel: link in myent-btn-primary styling, and email.
+
+Section 2 — Public hospital appointments. Lists all seven verified public hospitals with their main phone numbers as clickable tel: links. Introduced by the following statement verbatim: "If you are a public patient, please contact the relevant hospital directly. Public hospital appointments, waiting times, and scheduling are managed entirely by the hospital and are outside the control of our private rooms. We are unable to assist with public hospital enquiries, bookings, or follow-up on your behalf — please direct all public hospital enquiries to the hospital administration team." Individual surgeon names are not listed against specific hospitals.
+
+Section 3 — "Actually at Macquarie Street?" with subtext "No worries — you are in the right place after all." Displays the My-ENT practice phone, email, address, and a Request an appointment button linking to /appointments. This section is a safety net for patients who clicked No by mistake.
 
 ### Condition page surgeon statement
 
@@ -1181,4 +1185,4 @@ Priority 5 — Google Business Profile update. Immediately after domain switch: 
 
 ---
 
-*Last updated: April 2026 — Session 13 complete. 62 pages built. Pre-launch SEO priorities documented. Justine Oates scope of practice Rule 9 added. Token-based questionnaire access specification revised — Dr Banks patients only, reception-initiated, six-digit access code. This is the single source of truth for all project decisions. Update the date when this file changes.*
+*Last updated: April 2026 — Session 14 complete. Contact directory redesigned — patient-centred section order, public hospital disclaimer, Resend email configured. 62 pages built. Pre-launch SEO priorities documented. Justine Oates scope of practice Rule 9 added. Token-based questionnaire access specification revised — Dr Banks patients only, reception-initiated, six-digit access code. This is the single source of truth for all project decisions. Update the date when this file changes.*
