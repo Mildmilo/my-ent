@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import nodemailer from 'nodemailer'
+import { Resend } from 'resend'
 
 interface AppointmentChangePayload {
   patientFullName: string
@@ -62,13 +62,9 @@ function buildEmail(payload: AppointmentChangePayload): { subject: string; body:
 }
 
 export async function POST(request: NextRequest): Promise<NextResponse> {
-  const smtpHost = process.env.SMTP_HOST
-  const smtpPort = Number(process.env.SMTP_PORT || '0')
-  const smtpUser = process.env.SMTP_USER
-  const smtpPass = process.env.SMTP_PASS
-  const smtpFrom = process.env.SMTP_FROM
+  const resendApiKey = process.env.RESEND_API_KEY
 
-  if (!smtpHost || !smtpPort || !smtpUser || !smtpPass || !smtpFrom) {
+  if (!resendApiKey) {
     return NextResponse.json({ error: 'Email service is not configured' }, { status: 500 })
   }
 
@@ -86,19 +82,11 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
   const { subject, body } = buildEmail(payload)
 
-  const transporter = nodemailer.createTransport({
-    host: smtpHost,
-    port: smtpPort,
-    secure: smtpPort === 465,
-    auth: {
-      user: smtpUser,
-      pass: smtpPass,
-    },
-  })
+  const resend = new Resend(resendApiKey)
 
   try {
-    await transporter.sendMail({
-      from: smtpFrom,
+    await resend.emails.send({
+      from: 'noreply@my-ent.com.au',
       to: 'contact@my-ent.com.au',
       replyTo: payload.emailAddress,
       subject,
