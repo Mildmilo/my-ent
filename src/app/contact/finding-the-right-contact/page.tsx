@@ -34,6 +34,18 @@ interface HospitalContact {
 
 const surgeonLocations: SurgeonLocations[] = [
   {
+    surgeonLabel: 'Dr Catherine Banks',
+    locations: [
+      {
+        practiceName: 'My-ENT — Sydney CBD',
+        address: 'Suite 303, Level 3, BMA House, 135 Macquarie Street, Sydney CBD NSW 2000',
+        phone: '(02) 9247 1762',
+        phoneHref: 'tel:0292471762',
+        email: 'contact@my-ent.com.au',
+      },
+    ],
+  },
+  {
     surgeonLabel: 'Dr Lyndon Chan',
     locations: [
       {
