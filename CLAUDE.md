@@ -190,6 +190,26 @@ Section 2 — Public hospital appointments. Lists all seven verified public hosp
 
 Section 3 — "Actually at Macquarie Street?" with subtext "No worries — you are in the right place after all." Displays the My-ENT practice phone, email, address, and a Request an appointment button linking to /appointments. This section is a safety net for patients who clicked No by mistake.
 
+### My-ENT logo and brand colours
+
+The My-ENT logo uses "My" in Rage Italic font (ITC/Adobe licensed commercial typeface) at a large display size, paired with "-ENT" in bold serif. Rage Italic is a licensed commercial font not available on Google Fonts.
+
+The logo has been extracted from the original PDF source file (LOGO2.pdf) with transparent backgrounds and is available in two versions in public/images/:
+
+- myent-logo-white.png — "My" in white, "-ENT" in black. Use on teal or dark navigation backgrounds.
+- myent-logo-teal.png — "My" in brand teal #4A7C8F, "-ENT" in black. Use on white or light backgrounds.
+
+Both versions are 600px wide with transparent backgrounds, extracted at 300dpi from the original PDF.
+
+Navigation implementation: Use next/image to display myent-logo-white.png in the Nav component at height 40px with auto width, linking to the homepage.
+
+The business card colour palette has been adopted as the website colour system:
+- Primary teal: #4A7C8F — blue-teal, not green-teal
+- This is a noticeably different hue from the original #0F6E56 — warmer and more muted
+- All teal values in tailwind.config.ts have been updated to reflect this palette
+
+The My-ENT brand tagline: "Quality. Trust. Innovation."
+
 ### Condition page surgeon statement
 
 Use the following statement verbatim in a "Choosing your surgeon" card on every condition page via `ConditionPageTemplate.tsx`. Do not list individual surgeons on condition pages. This applies to all 23 condition pages without exception.
@@ -677,13 +697,13 @@ const config: Config = {
     extend: {
       colors: {
         teal: {
-          50:  '#E1F5EE', // section backgrounds, pill labels
-          100: '#9FE1CB', // subtle borders on light backgrounds
-          200: '#5DCAA5', // borders, dividers, icon strokes
-          300: '#1D9E75', // hover states
-          400: '#0F6E56', // PRIMARY — CTAs, heading accents
-          500: '#085041', // pressed / active darken
-          600: '#04342C', // deep tints
+          50:  '#EAF3F6', // section backgrounds, pill labels
+          100: '#B8D8E3', // subtle borders on light backgrounds
+          200: '#7FBDD0', // borders, dividers, icon strokes
+          300: '#4E9AB5', // hover states
+          400: '#4A7C8F', // PRIMARY — CTAs, heading accents (matches My-ENT business card blue-teal)
+          500: '#3A6272', // pressed / active darken
+          600: '#2A4A57', // deep tints
         },
         neutral: {
           50:  '#FAFAFA', // page background
@@ -745,7 +765,7 @@ export default config
   .myent-section    { @apply py-16 lg:py-20; }
   .myent-eyebrow    { @apply font-sans text-xs font-medium uppercase tracking-widest text-teal-400; }
   .myent-card       { @apply rounded-xl border border-neutral-200 bg-white p-6 transition-colors duration-150 hover:border-teal-200; }
-  .myent-btn-primary  { @apply inline-flex items-center gap-2 rounded-lg bg-teal-400 px-6 py-3 font-sans text-sm font-medium text-white transition-colors duration-150 hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-teal-400; }
+  .myent-btn-primary  { @apply inline-flex items-center gap-2 rounded-lg bg-teal-400 px-6 py-3 font-sans text-sm font-medium text-white transition-colors duration-150 hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-teal-400; } /* Primary colour: #4A7C8F — matches My-ENT business card blue-teal */
   .myent-btn-outline  { @apply inline-flex items-center gap-2 rounded-lg border border-teal-200 px-6 py-3 font-sans text-sm font-medium text-teal-400 transition-colors duration-150 hover:bg-teal-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-teal-400; }
 }
 ```
@@ -1185,4 +1205,4 @@ Priority 5 — Google Business Profile update. Immediately after domain switch: 
 
 ---
 
-*Last updated: April 2026 — Session 14 complete. Contact directory redesigned — patient-centred section order, public hospital disclaimer, Resend email configured. 62 pages built. Pre-launch SEO priorities documented. Justine Oates scope of practice Rule 9 added. Token-based questionnaire access specification revised — Dr Banks patients only, reception-initiated, six-digit access code. This is the single source of truth for all project decisions. Update the date when this file changes.*
+*Last updated: April 2026 — Session 16 complete. Contact directory redesigned. Colour palette updated to match My-ENT business card blue-teal #4A7C8F. Logo extracted from LOGO2.pdf — two transparent PNG versions in public/images/. Navigation logo implementation specified. 62 pages built. Pre-launch SEO priorities documented. Justine Oates scope of practice Rule 9 added. Token-based questionnaire access specification revised — Dr Banks patients only, reception-initiated, six-digit access code. This is the single source of truth for all project decisions. Update the date when this file changes.*

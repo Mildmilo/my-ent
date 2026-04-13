@@ -46,11 +46,12 @@ xs       12px / lh 1.5  / ls 0.06em — eyebrow labels, badges, DM Sans medium
 The palette is narrow by design. Restraint in colour is a signal of confidence.
 
 ```
-teal-400  #0F6E56  PRIMARY — CTAs, heading accents, active nav states,
+teal-400  #4A7C8F  PRIMARY — CTAs, heading accents, active nav states,
                              eyebrow labels, card hover borders
-teal-300  #1D9E75  Hover states on primary buttons
-teal-200  #5DCAA5  Borders, dividers, icon strokes, subtle accents
-teal-50   #E1F5EE  Section backgrounds, pill/badge fills, card highlights
+teal-300  #4E9AB5  Hover states on primary buttons
+teal-200  #7FBDD0  Borders, dividers, icon strokes, subtle accents
+teal-100  #B8D8E3  Subtle borders on light backgrounds
+teal-50   #EAF3F6  Section backgrounds, pill/badge fills, card highlights
 
 neutral-800  #1A1A1A  Headings
 neutral-600  #444444  Body copy

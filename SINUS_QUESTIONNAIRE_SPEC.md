@@ -44,7 +44,7 @@ It is not linked from the main navigation. It is accessed via a direct link prov
 
 The questionnaire must match the My-ENT design system precisely.
 
-Primary teal: #0F6E56. Headings: Cormorant Garamond serif. Body text: DM Sans sans-serif. Background: neutral-50 (#FAFAFA). Card backgrounds: white with border-neutral-200. No heavy drop shadows. No gradient backgrounds on cards. Progress bar uses teal-400. Buttons use myent-btn-primary and myent-btn-outline classes. Mobile-first responsive layout. Minimum touch target size 44×44px for all interactive elements.
+Primary teal: #4A7C8F. Headings: Cormorant Garamond serif. Body text: DM Sans sans-serif. Background: neutral-50 (#FAFAFA). Card backgrounds: white with border-neutral-200. No heavy drop shadows. No gradient backgrounds on cards. Progress bar uses teal-400. Buttons use myent-btn-primary and myent-btn-outline classes. Mobile-first responsive layout. Minimum touch target size 44×44px for all interactive elements.
 
 ---
 

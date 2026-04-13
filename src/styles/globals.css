@@ -39,7 +39,7 @@
   }
 
   .myent-eyebrow {
-    @apply text-xs font-medium uppercase tracking-widest text-teal-400;
+    @apply text-xs font-medium uppercase tracking-widest text-teal-500;
   }
 
   .myent-card {

@@ -490,7 +490,7 @@ function InstrumentTable({ itemLabels, responseScale, responses, sectionTitle, o
                     <input
                       aria-label={`${itemLabel}: ${option.label}`}
                       checked={responses[index] === option.value}
-                      className="h-5 w-5 accent-[#0F6E56]"
+                      className="h-5 w-5 accent-[#4A7C8F]"
                       name={`${sectionTitle}-${index}`}
                       onChange={() => onSelect(index, option.value)}
                       type="radio"
@@ -1032,7 +1032,7 @@ export default function SinusAssessmentPage() {
                         >
                           <input
                             checked={formData.patientType === option.value}
-                            className="mt-1 h-5 w-5 accent-[#0F6E56]"
+                            className="mt-1 h-5 w-5 accent-[#4A7C8F]"
                             name="patientType"
                             onChange={() => {
                               setFormData((previous) => ({
@@ -1132,7 +1132,7 @@ export default function SinusAssessmentPage() {
                     <label className="mt-6 flex min-h-11 items-start gap-3 rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3">
                       <input
                         checked={formData.personalDetails.postConsultationOptIn}
-                        className="mt-1 h-5 w-5 accent-[#0F6E56]"
+                        className="mt-1 h-5 w-5 accent-[#4A7C8F]"
                         onChange={(event) => {
                           setFormData((previous) => ({
                             ...previous,
@@ -1171,7 +1171,7 @@ export default function SinusAssessmentPage() {
                           >
                             <input
                               checked={formData.eposSymptoms.cardinalSymptoms.includes(symptom)}
-                              className="mt-1 h-5 w-5 accent-[#0F6E56]"
+                              className="mt-1 h-5 w-5 accent-[#4A7C8F]"
                               onChange={() => toggleCardinalSymptom(symptom)}
                               type="checkbox"
                             />
@@ -1200,7 +1200,7 @@ export default function SinusAssessmentPage() {
                           >
                             <input
                               checked={formData.eposSymptoms.duration === option.value}
-                              className="mt-1 h-5 w-5 accent-[#0F6E56]"
+                              className="mt-1 h-5 w-5 accent-[#4A7C8F]"
                               name="duration"
                               onChange={() => {
                                 setFormData((previous) => ({
@@ -1236,7 +1236,7 @@ export default function SinusAssessmentPage() {
                             >
                               <input
                                 checked={formData.eposSymptoms.symptomFreeInterval === option.value}
-                                className="mt-1 h-5 w-5 accent-[#0F6E56]"
+                                className="mt-1 h-5 w-5 accent-[#4A7C8F]"
                                 name="symptomFreeInterval"
                                 onChange={() => {
                                   setFormData((previous) => ({
@@ -1274,7 +1274,7 @@ export default function SinusAssessmentPage() {
                             >
                               <input
                                 checked={formData.eposSymptoms.episodeFrequency === option.value}
-                                className="mt-1 h-5 w-5 accent-[#0F6E56]"
+                                className="mt-1 h-5 w-5 accent-[#4A7C8F]"
                                 name="episodeFrequency"
                                 onChange={() => {
                                   setFormData((previous) => ({
@@ -1321,7 +1321,7 @@ export default function SinusAssessmentPage() {
                           >
                             <input
                               checked={formData.medicalHistory.relevantConditions.includes(condition)}
-                              className="mt-1 h-5 w-5 accent-[#0F6E56]"
+                              className="mt-1 h-5 w-5 accent-[#4A7C8F]"
                               onChange={() => toggleRelevantCondition(condition)}
                               type="checkbox"
                             />
@@ -1345,7 +1345,7 @@ export default function SinusAssessmentPage() {
                           >
                             <input
                               checked={formData.medicalHistory.priorSinusSurgery === option.value}
-                              className="mt-1 h-5 w-5 accent-[#0F6E56]"
+                              className="mt-1 h-5 w-5 accent-[#4A7C8F]"
                               name="priorSinusSurgery"
                               onChange={() => {
                                 setFormData((previous) => ({
@@ -1404,7 +1404,7 @@ export default function SinusAssessmentPage() {
                           >
                             <input
                               checked={formData.medicalHistory.currentIntranasalTreatment === option.value}
-                              className="mt-1 h-5 w-5 accent-[#0F6E56]"
+                              className="mt-1 h-5 w-5 accent-[#4A7C8F]"
                               name="currentIntranasalTreatment"
                               onChange={() => {
                                 setFormData((previous) => ({
@@ -1438,7 +1438,7 @@ export default function SinusAssessmentPage() {
                           >
                             <input
                               checked={formData.medicalHistory.biologicTherapy === option.value}
-                              className="mt-1 h-5 w-5 accent-[#0F6E56]"
+                              className="mt-1 h-5 w-5 accent-[#4A7C8F]"
                               name="biologicTherapy"
                               onChange={() => {
                                 setFormData((previous) => ({
