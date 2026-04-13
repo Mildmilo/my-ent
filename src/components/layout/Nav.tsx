@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 
 interface NavItem {
   label: string
@@ -25,11 +26,14 @@ export function Nav() {
   return (
     <header className="sticky top-0 z-40 border-b border-neutral-200 bg-neutral-50/95 backdrop-blur">
       <div className="myent-container flex items-center justify-between gap-6 py-4">
-        <a href="/" className="flex items-center gap-3" aria-label="My-ENT home">
-          <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-teal-50 text-sm font-semibold text-teal-500">
-            ME
-          </span>
-          <span className="font-serif text-2xl text-neutral-800">My-ENT</span>
+        <a href="/" aria-label="My-ENT home">
+          <Image
+            src="/images/myent-logo-white.png"
+            alt="My-ENT"
+            width={126}
+            height={40}
+            priority
+          />
         </a>
 
         <nav className="hidden lg:block" aria-label="Primary navigation">
