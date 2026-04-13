@@ -28,7 +28,7 @@ export function Nav() {
       <div className="myent-container flex items-center justify-between gap-6 py-4">
         <a href="/" aria-label="My-ENT home">
           <Image
-            src="/images/myent-logo-white.png"
+            src="/images/myent-logo-teal.png"
             alt="My-ENT"
             width={126}
             height={40}
