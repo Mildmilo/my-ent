@@ -184,7 +184,7 @@ The urgent warning directing patients to call 000 appears at the very top of the
 
 The three sections appear in this confirmed order — do not alter without explicit instruction.
 
-Section 1 — Other private consulting rooms. Lists the verified private room details for Dr Chan (three locations), Dr Huang (Trinity ENT Kogarah), and Dr Reddy (MacArthur ENT Gregory Hills) from the Other private consulting locations section above. Each surgeon's rooms are listed under a clear heading with address, phone number as a prominent clickable tel: link in myent-btn-primary styling, and email.
+Section 1 — Other private consulting rooms. Lists all four surgeons in this order: Dr Catherine Banks first (My-ENT, Suite 303, Level 3, BMA House, 135 Macquarie Street, Sydney CBD, phone 02 9247 1762, email contact@my-ent.com.au), then Dr Lyndon Chan (three locations), Dr June Huang (Trinity ENT Kogarah), and Dr Rithvik Reddy (MacArthur ENT Gregory Hills) from the Other private consulting locations section above. Each surgeon's rooms are listed under a clear heading with address, phone number as a prominent clickable tel: link in myent-btn-primary styling, and email.
 
 Section 2 — Public hospital appointments. Lists all seven verified public hospitals with their main phone numbers as clickable tel: links. Introduced by the following statement verbatim: "If you are a public patient, please contact the relevant hospital directly. Public hospital appointments, waiting times, and scheduling are managed entirely by the hospital and are outside the control of our private rooms. We are unable to assist with public hospital enquiries, bookings, or follow-up on your behalf — please direct all public hospital enquiries to the hospital administration team." Individual surgeon names are not listed against specific hospitals.
 
@@ -1048,6 +1048,16 @@ Every condition page links to its related procedure(s) and the surgeon(s) who tr
 
 ## 13. Development workflow
 
+### Git push helper script
+
+A `git-push.sh` script is located in the project root. Use this instead of manual git commands to avoid clipboard tilde issues on Mac. Usage:
+
+```bash
+bash git-push.sh "Your commit message"
+```
+
+This stages all changes with `git add -A`, commits with the provided message, and pushes to origin main in a single command. If nothing has changed, it exits cleanly with "Nothing to commit."
+
 ### Before starting any session
 
 ```bash
@@ -1205,4 +1215,4 @@ Priority 5 — Google Business Profile update. Immediately after domain switch: 
 
 ---
 
-*Last updated: April 2026 — Session 16 complete. Contact directory redesigned. Colour palette updated to match My-ENT business card blue-teal #4A7C8F. Logo extracted from LOGO2.pdf — two transparent PNG versions in public/images/. Navigation logo implementation specified. 62 pages built. Pre-launch SEO priorities documented. Justine Oates scope of practice Rule 9 added. Token-based questionnaire access specification revised — Dr Banks patients only, reception-initiated, six-digit access code. This is the single source of truth for all project decisions. Update the date when this file changes.*
+*Last updated: April 2026 — Session 17 complete. Contact directory redesigned with Dr Banks listed first in private rooms section. Colour palette updated to business card blue-teal #4A7C8F. WCAG AA fix on eyebrow labels. Logo extracted from LOGO2.pdf — myent-logo-teal.png in use in navigation. git-push.sh helper script added to project root. 62 pages built. Pre-launch SEO priorities documented. Justine Oates scope of practice Rule 9 added. Token-based questionnaire access specification revised — Dr Banks patients only, reception-initiated, six-digit access code. This is the single source of truth for all project decisions. Update the date when this file changes.*
