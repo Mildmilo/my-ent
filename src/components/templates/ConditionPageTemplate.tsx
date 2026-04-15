@@ -11,6 +11,22 @@ interface FaqItem {
   answer: string
 }
 
+interface TreatmentBlock {
+  heading: string
+  body: string
+}
+
+interface WhenToSeekHelp {
+  overview: string
+  warningSignsHeading?: string
+  warningSigns?: string[]
+}
+
+interface TreatmentOverview {
+  overview: string
+  treatments?: TreatmentBlock[]
+}
+
 interface ConditionPageTemplateProps {
   title: string
   clinicalTerm?: string
@@ -18,10 +34,11 @@ interface ConditionPageTemplateProps {
   /** Optional hero image node. Rendered with a gradient overlay and title treatment in the template. */
   heroImageSlot?: ReactNode
   symptoms: string[]
+  symptomsNote?: string
   causes: string[]
   causesCitation?: string
-  whenToSeekHelp: string
-  treatmentOverview: string
+  whenToSeekHelp: WhenToSeekHelp | string
+  treatmentOverview: TreatmentOverview | string
   relatedProcedures: RelatedLink[]
   sinusQuestionnaireCalloutHeading?: string
   faqItems?: FaqItem[]
@@ -31,12 +48,21 @@ interface ConditionPageTemplateProps {
 const choosingYourSurgeonStatement =
   "Choosing the right specialist takes thought. Fellowship training, experience with the relevant condition, and contribution to teaching and research are all meaningful indicators. A public appointment at a tertiary hospital is another recognised marker of professional standing. Online reviews can be helpful, but they don't tell the whole story."
 
+function isWhenToSeekHelpObject(val: WhenToSeekHelp | string): val is WhenToSeekHelp {
+  return typeof val === 'object' && val !== null
+}
+
+function isTreatmentOverviewObject(val: TreatmentOverview | string): val is TreatmentOverview {
+  return typeof val === 'object' && val !== null
+}
+
 export function ConditionPageTemplate({
   title,
   clinicalTerm,
   plainEnglishSummary,
   heroImageSlot,
   symptoms,
+  symptomsNote,
   causes,
   causesCitation,
   whenToSeekHelp,
@@ -99,6 +125,11 @@ export function ConditionPageTemplate({
                 </li>
               ))}
             </ul>
+            {symptomsNote ? (
+              <p className="mt-5 rounded-lg bg-neutral-50 px-4 py-3 text-sm leading-relaxed text-neutral-500">
+                {symptomsNote}
+              </p>
+            ) : null}
           </article>
 
           <article className="myent-card">
@@ -111,7 +142,9 @@ export function ConditionPageTemplate({
                 </p>
               ))}
             </div>
-            {causesCitation ? <p className="mt-4 text-xs italic text-neutral-400">{causesCitation}</p> : null}
+            {causesCitation ? (
+              <p className="mt-4 text-xs italic text-neutral-400">{causesCitation}</p>
+            ) : null}
           </article>
         </div>
       </section>
@@ -121,7 +154,28 @@ export function ConditionPageTemplate({
           <article className="myent-card">
             <p className="myent-eyebrow">When to seek help</p>
             <h2 className="mt-3 text-3xl">When to arrange review</h2>
-            <p className="mt-5 text-neutral-600">{whenToSeekHelp}</p>
+            {isWhenToSeekHelpObject(whenToSeekHelp) ? (
+              <>
+                <p className="mt-5 text-neutral-600">{whenToSeekHelp.overview}</p>
+                {whenToSeekHelp.warningSigns && whenToSeekHelp.warningSigns.length > 0 ? (
+                  <div className="mt-5 rounded-lg border border-red-100 bg-red-50 px-4 py-4">
+                    <p className="text-sm font-semibold text-red-700">
+                      {whenToSeekHelp.warningSignsHeading ?? 'Seek urgent attention if you notice:'}
+                    </p>
+                    <ul className="mt-2 space-y-1">
+                      {whenToSeekHelp.warningSigns.map((sign) => (
+                        <li key={sign} className="flex items-start gap-2 text-sm text-red-700">
+                          <span aria-hidden="true" className="mt-0.5 shrink-0">→</span>
+                          {sign}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
+              </>
+            ) : (
+              <p className="mt-5 text-neutral-600">{whenToSeekHelp}</p>
+            )}
             <div className="mt-6">
               <a className="myent-btn-primary" href="/appointments">
                 Request an appointment
@@ -132,7 +186,23 @@ export function ConditionPageTemplate({
           <article className="myent-card">
             <p className="myent-eyebrow">Treatment</p>
             <h2 className="mt-3 text-3xl">Treatment overview</h2>
-            <p className="mt-5 text-neutral-600">{treatmentOverview}</p>
+            {isTreatmentOverviewObject(treatmentOverview) ? (
+              <>
+                <p className="mt-5 text-neutral-600">{treatmentOverview.overview}</p>
+                {treatmentOverview.treatments && treatmentOverview.treatments.length > 0 ? (
+                  <div className="mt-6 space-y-5">
+                    {treatmentOverview.treatments.map((block) => (
+                      <div key={block.heading} className="border-t border-neutral-100 pt-4">
+                        <p className="text-sm font-semibold text-neutral-800">{block.heading}</p>
+                        <p className="mt-1 text-sm leading-relaxed text-neutral-600">{block.body}</p>
+                      </div>
+                    ))}
+                  </div>
+                ) : null}
+              </>
+            ) : (
+              <p className="mt-5 text-neutral-600">{treatmentOverview}</p>
+            )}
           </article>
         </div>
       </section>
@@ -157,10 +227,13 @@ export function ConditionPageTemplate({
             {sinusQuestionnaireCalloutHeading ? (
               <article className="myent-card border border-teal-200 bg-teal-50/60">
                 <p className="myent-eyebrow">Pre-appointment</p>
-                <h2 className="mt-3 font-serif text-2xl text-neutral-800">{sinusQuestionnaireCalloutHeading}</h2>
+                <h2 className="mt-3 font-serif text-2xl text-neutral-800">
+                  {sinusQuestionnaireCalloutHeading}
+                </h2>
                 <p className="mt-5 text-base leading-relaxed text-neutral-600">
-                  If you are attending My-ENT for a nose or sinus concern, our pre-appointment questionnaire helps our
-                  clinical team prepare for your consultation. It takes most patients four to six minutes to complete.
+                  If you are attending My-ENT for a nose or sinus concern, our pre-appointment
+                  questionnaire helps our clinical team prepare for your consultation. It takes most
+                  patients four to six minutes to complete.
                 </p>
                 <div className="mt-6">
                   <a className="myent-btn-primary" href="/appointments/sinus-assessment">
@@ -173,7 +246,9 @@ export function ConditionPageTemplate({
             <article className="myent-card">
               <p className="myent-eyebrow">Choosing your surgeon</p>
               <h2 className="mt-3 font-serif text-2xl text-neutral-800">Choosing your surgeon</h2>
-              <p className="mt-5 text-base leading-relaxed text-neutral-600">{choosingYourSurgeonStatement}</p>
+              <p className="mt-5 text-base leading-relaxed text-neutral-600">
+                {choosingYourSurgeonStatement}
+              </p>
             </article>
           </div>
         </div>
@@ -187,7 +262,10 @@ export function ConditionPageTemplate({
               <h2 className="mt-3 text-3xl">Common questions about {title.toLowerCase()}</h2>
               <div className="mt-6 space-y-3">
                 {faqItems.map((item) => (
-                  <details key={item.question} className="group rounded-xl border border-neutral-200 bg-white px-5 py-4">
+                  <details
+                    key={item.question}
+                    className="group rounded-xl border border-neutral-200 bg-white px-5 py-4"
+                  >
                     <summary className="flex cursor-pointer list-none items-start justify-between gap-4">
                       <span className="text-base font-medium text-neutral-800">{item.question}</span>
                       <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-neutral-200 text-neutral-500 transition-colors duration-150 group-open:border-teal-400 group-open:bg-teal-400 group-open:text-white">
