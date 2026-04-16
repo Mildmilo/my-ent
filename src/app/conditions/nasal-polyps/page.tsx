@@ -142,7 +142,7 @@ export default function NasalPolypsPage() {
           },
           {
             heading: 'Biologic therapy',
-            body: 'For patients with severe, recurrent, or uncontrolled disease meeting EPOS 2020 criteria, biologic injections targeting the underlying type 2 inflammatory pathway are available in Australia. Three biologics are TGA-approved for nasal polyps: dupilumab (Dupixent), mepolizumab (Nucala — PBS-listed from April 2023), and omalizumab (Xolair — PBS-listed from March 2025). These are fortnightly or monthly subcutaneous injections, self-administered at home. An important note for Australian patients: PBS-subsidised biologic prescriptions for nasal polyps must be issued by a clinical immunologist, allergist, or respiratory physician — not by an ENT surgeon. Your rhinologist will assess whether you meet criteria and, where appropriate, refer you to the relevant specialist to initiate PBS-subsidised therapy. Both work together to manage your ongoing care.',
+            body: 'For patients with severe, recurrent, or uncontrolled disease meeting EPOS 2020 criteria, biologic injections targeting the underlying type 2 inflammatory pathway are available in Australia. These are fortnightly or monthly subcutaneous injections, self-administered at home. Your rhinologist will assess whether you meet criteria and can either prescribe or further refer you to a respiratory physician or allergist/immunologist. Both work together to manage your ongoing care.',
           },
         ],
       }}
