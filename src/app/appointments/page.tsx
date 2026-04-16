@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-
 import { AppointmentRequestClient } from './AppointmentRequestClient'
 
 export const metadata: Metadata = {
@@ -12,17 +11,19 @@ export const metadata: Metadata = {
 export default function AppointmentsPage() {
   return (
     <>
-      <section className="myent-section bg-white">
+      <section className="myent-section border-b border-neutral-200 bg-white">
         <div className="myent-container">
-          <div className="max-w-4xl space-y-6">
-            <p className="myent-eyebrow">Appointment booking request</p>
-            <p className="text-lg leading-relaxed text-neutral-600">
-              This page is for patients booking a consultation at My-ENT, 135 Macquarie Street, Sydney CBD. If you need a different location, please visit our contact directory.
-            </p>
-            <Link className="myent-btn-outline inline-flex w-full justify-center sm:w-fit" href="/contact/finding-the-right-contact">
-              Contact directory
+          <p className="myent-eyebrow">Appointments</p>
+          <h1 className="mt-4 text-4xl lg:text-5xl">You have come to the right place.</h1>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-neutral-600">
+            Complete the form below to request a consultation at My-ENT, 135 Macquarie Street, Sydney CBD. Reception will confirm your booking pathway — no follow-up calls for missing details.
+          </p>
+          <p className="mt-3 text-sm text-neutral-400">
+            Booking for a different location?{' '}
+            <Link className="text-teal-500 underline hover:text-teal-600" href="/contact/finding-the-right-contact">
+              Find the right contact.
             </Link>
-          </div>
+          </p>
         </div>
       </section>
 
