@@ -15,7 +15,7 @@ export default function AcousticNeuromaSurgeryPage() {
       title="Acoustic Neuroma Surgery"
       plainEnglishSummary="An acoustic neuroma — more accurately called a vestibular schwannoma — is a benign, slow-growing tumour that arises from the balance nerve connecting the inner ear to the brain. Although not cancerous, it can cause progressive hearing loss, tinnitus, and balance disturbance, and larger tumours can compress surrounding structures. Management depends on tumour size, growth rate, patient age, hearing status, and individual preference, and includes active surveillance, stereotactic radiosurgery, or microsurgical removal."
       heroImage={{
-        src: '/images/Procedures/acoustic-neuroma-surgery-myent.webp',
+        src: '/images/Procedures/acoustic-neuroma-surgery-myent.png',
         alt: 'Acoustic neuroma surgical consultation at My-ENT Sydney.',
       }}
       indications={[
