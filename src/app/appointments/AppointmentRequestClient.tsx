@@ -499,7 +499,8 @@ export function AppointmentRequestClient() {
     value: TriageState,
     title: string,
     detail: string,
-    buttonLabel: string
+    buttonLabel: string,
+    buttonStyle: 'myent-btn-primary' | 'myent-btn-outline' = 'myent-btn-outline'
   ): React.ReactElement {
     return (
       <article className="myent-card h-full">
@@ -507,7 +508,7 @@ export function AppointmentRequestClient() {
         <p className="mt-4 text-base leading-relaxed text-neutral-500">{detail}</p>
         <button
           type="button"
-          className="myent-btn-outline mt-6"
+          className={`${buttonStyle} mt-6`}
           onClick={() => setTriageState(value)}
         >
           {buttonLabel}
@@ -556,7 +557,8 @@ export function AppointmentRequestClient() {
               'ready-to-book',
               'I have a GP referral and I am ready to request an appointment',
               'Complete the booking request form so reception can action your booking request quickly.',
-              'Start booking request form'
+              'Start booking request form',
+              'myent-btn-primary'
             )}
             {triageCard(
               'questions',
