@@ -10,6 +10,9 @@ type ProcedureHref =
   | '/procedures/grommets'
   | '/procedures/myringoplasty'
   | '/procedures/wax-microsuction'
+  | '/procedures/hearing-implant-surgery'
+  | '/procedures/stapes-surgery'
+  | '/procedures/acoustic-neuroma-surgery'
   | '/procedures/tonsillectomy'
   | '/procedures/adenoidectomy'
   | '/procedures/microlaryngoscopy'
@@ -79,6 +82,21 @@ const categories: ProcedureCategory[] = [
         summary: 'Safe removal of earwax blockage using gentle suction under microscope guidance.',
         href: '/procedures/wax-microsuction',
       },
+      {
+        title: 'Hearing implant surgery',
+        summary: 'Bone-anchored hearing aids (BAHA) and cochlear implants for hearing loss not corrected by conventional aids.',
+        href: '/procedures/hearing-implant-surgery',
+      },
+      {
+        title: 'Stapes surgery',
+        summary: 'Stapedotomy or stapedectomy to restore hearing loss caused by otosclerosis.',
+        href: '/procedures/stapes-surgery',
+      },
+      {
+        title: 'Acoustic neuroma surgery',
+        summary: 'Microsurgical removal of vestibular schwannoma — a benign tumour of the balance nerve.',
+        href: '/procedures/acoustic-neuroma-surgery',
+      },
     ],
   },
   {
@@ -117,7 +135,7 @@ const categories: ProcedureCategory[] = [
 export const metadata: Metadata = {
   title: 'ENT Procedures and Surgery | Nose, Ear, Throat | My-ENT Sydney',
   description:
-    'Browse all 13 ENT procedures performed at My-ENT in Sydney. Patient-focused guides covering sinus surgery, ear procedures, tonsillectomy, and more.',
+    'Browse all 16 ENT procedures performed at My-ENT in Sydney. Patient-focused guides covering sinus surgery, ear procedures, tonsillectomy, and more.',
 }
 
 export default function ProceduresIndexPage() {
