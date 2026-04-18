@@ -91,9 +91,12 @@ export default function ContactPage() {
               For non-urgent booking and administrative enquiries, call reception during opening
               hours on 02 9247 1762.
             </p>
-            <div className="mt-8">
+            <div className="mt-8 flex flex-wrap gap-3">
               <Link className="myent-btn-outline" href="/contact/finding-the-right-contact">
                 Need another location?
+              </Link>
+              <Link className="myent-btn-outline" href="/contact/getting-here">
+                Getting here
               </Link>
             </div>
           </article>

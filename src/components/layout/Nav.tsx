@@ -16,6 +16,7 @@ const navItems: NavItem[] = [
   { label: 'Patient Info', href: '/patient-info' },
   { label: 'For GPs', href: '/for-gps' },
   { label: 'Contact', href: '/contact' },
+  { label: 'Getting Here', href: '/contact/getting-here' },
 ]
 
 export function Nav() {
