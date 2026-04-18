@@ -5,7 +5,7 @@ const biographyParagraphs: string[] = [
   'Subspecialties: Complex Otology, Auditory Implants, Lateral Skull Base Surgery, General and Paediatric ENT.',
   'Qualifications: FRACS (Otolaryngology, Head and Neck Surgery).',
   "Fellowship: Advanced fellowship in Complex Otology, Auditory Implants and Lateral Skull Base Surgery, Guy's and St Thomas' NHS Trust, London. Executive Fellowship in Surgical Leadership and Innovation, King's College London.",
-  "Consultant appointments: Sydney Children's Hospital; Liverpool Hospital (adult and paediatric).",
+  "Consultant appointments: Sydney Children's Hospital; Prince of Wales Hospital; Liverpool Hospital (adult and paediatric).",
   "Training centres: Sydney Children's Hospital; Westmead Children's Hospital; John Hunter Children's Hospital — trained across all three major NSW paediatric centres.",
   'Clinical expertise (subspecialty): cochlear implantation; middle ear implants; paediatric hearing loss; chronic ear disease; exostoses; cholesteatoma; skull base tumours.',
   'Clinical expertise (general ENT): ear infections; hearing loss; tonsillitis; glue ear; nasal obstruction; sinus disease; snoring — adults and children.',
