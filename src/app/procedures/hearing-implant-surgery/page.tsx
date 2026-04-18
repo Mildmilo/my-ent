@@ -15,7 +15,7 @@ export default function HearingImplantSurgeryPage() {
       title="Hearing Implant Surgery"
       plainEnglishSummary="Hearing implants are surgically placed devices that restore hearing when conventional hearing aids are not suitable or not effective. The two main types are bone-anchored hearing aids (BAHA), which transmit sound through the skull bone to the inner ear, and cochlear implants, which bypass a damaged inner ear and stimulate the hearing nerve directly. The right implant depends on the type and severity of hearing loss, the condition of the inner ear, and individual anatomy."
       heroImage={{
-        src: '/images/Procedures/hearing-implant-surgery-myent.webp',
+        src: '/images/Procedures/hearing-implant-surgery-myent.png',
         alt: 'Hearing implant surgery consultation at My-ENT Sydney.',
       }}
       indications={[
