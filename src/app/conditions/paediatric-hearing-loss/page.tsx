@@ -16,6 +16,7 @@ export const metadata: Metadata = {
 export default function PaediatricHearingLossPage() {
   return (
     <ConditionPageTemplate
+      slug="paediatric-hearing-loss"
       title="Hearing loss in children"
       clinicalTerm="Paediatric hearing impairment — conductive and sensorineural"
       plainEnglishSummary="Hearing is fundamental to speech development, learning, and social connection in childhood. Hearing loss in children can be present from birth or develop later, and it ranges from mild and temporary to permanent and requiring intervention. Early identification and management make a significant difference to outcomes — if you have any concern about your child's hearing, specialist assessment is always worthwhile."

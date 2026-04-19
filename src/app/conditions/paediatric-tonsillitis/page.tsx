@@ -16,6 +16,7 @@ export const metadata: Metadata = {
 export default function PaediatricTonsillitisPage() {
   return (
     <ConditionPageTemplate
+      slug="paediatric-tonsillitis"
       title="Tonsillitis in children"
       clinicalTerm="Paediatric recurrent and chronic tonsillitis"
       plainEnglishSummary="Tonsillitis is one of the most common reasons children see a doctor. For most children, episodes are infrequent and settle with rest and simple treatment. When episodes become frequent, severe, or are disrupting sleep, school attendance, and day-to-day life, specialist ENT review is worthwhile. Tonsillectomy is one of the most commonly performed paediatric surgical procedures and can significantly reduce the burden of recurrent illness."

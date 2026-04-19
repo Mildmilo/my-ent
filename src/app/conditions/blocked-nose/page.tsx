@@ -79,6 +79,7 @@ export const metadata: Metadata = {
 export default function BlockedNosePage() {
   return (
     <ConditionPageTemplate
+      slug="blocked-nose"
       title="Blocked Nose"
       clinicalTerm="Nasal obstruction"
       plainEnglishSummary="A persistently blocked nose affects breathing, sleep, exercise, and quality of life. It can result from inflammatory causes — such as allergic rhinitis or sinusitis — or from structural issues like a deviated septum or enlarged turbinates. The right treatment depends on the underlying cause, and many patients need both addressed."

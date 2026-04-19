@@ -49,6 +49,7 @@ export const metadata: Metadata = {
 export default function TinnitusPage() {
   return (
     <ConditionPageTemplate
+      slug="tinnitus"
       title="Tinnitus"
       clinicalTerm="Subjective tinnitus"
       plainEnglishSummary="Tinnitus is the perception of sound such as ringing, buzzing, hissing, or pulsation when no external sound is present. It may be constant or intermittent and can vary in intensity. Assessment focuses on identifying possible causes and reducing day-to-day impact."

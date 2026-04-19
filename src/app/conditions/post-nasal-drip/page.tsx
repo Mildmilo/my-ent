@@ -16,6 +16,7 @@ export const metadata: Metadata = {
 export default function PostNasalDripPage() {
   return (
     <ConditionPageTemplate
+      slug="post-nasal-drip"
       title="Post-Nasal Drip"
       clinicalTerm="Posterior Rhinorrhoea"
       plainEnglishSummary="Post-nasal drip (posterior rhinorrhoea) occurs when excess mucus drains down the back of the throat rather than clearing through the nostrils. It is a common but often underrecognised symptom that can cause persistent throat clearing, cough, or the sensation of something sitting at the back of the throat. The contributing cause is frequently nasal, but reflux and throat factors can play a role in some patients."

@@ -16,6 +16,7 @@ export const metadata: Metadata = {
 export default function SwallowingProblemsPage() {
   return (
     <ConditionPageTemplate
+      slug="swallowing-problems"
       title="Swallowing problems"
       clinicalTerm="Dysphagia"
       plainEnglishSummary="Swallowing involves a coordinated sequence of muscle movements from the mouth through the throat and into the oesophagus. When this process is disrupted, patients may notice food or liquid catching, coughing during meals, or a sense that something is not passing through easily. Swallowing problems should always be assessed, as the underlying cause varies widely and accurate diagnosis guides the management approach."

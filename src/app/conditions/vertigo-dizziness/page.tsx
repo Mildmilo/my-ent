@@ -16,6 +16,7 @@ export const metadata: Metadata = {
 export default function VertigoDizzinessPage() {
   return (
     <ConditionPageTemplate
+      slug="vertigo-dizziness"
       title="Vertigo and dizziness"
       clinicalTerm="Vestibular disorders"
       plainEnglishSummary="Vertigo and dizziness are common symptoms with many possible causes, including inner-ear conditions. Some people describe spinning, while others feel unsteady or off balance. ENT assessment helps determine whether symptoms are ear-related and what further management is appropriate."

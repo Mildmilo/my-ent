@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 export default function AdenoidectomyPage() {
   return (
     <ProcedurePageTemplate
+      slug="adenoidectomy"
       title="Adenoidectomy"
       plainEnglishSummary="Adenoidectomy is surgery to remove enlarged adenoid tissue at the back of the nose. It is commonly discussed for children with persistent nasal blockage, snoring, or recurrent ear and sinus-related problems after medical management has been considered."
       heroImage={{

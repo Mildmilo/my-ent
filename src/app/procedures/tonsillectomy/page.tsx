@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 export default function TonsillectomyPage() {
   return (
     <ProcedurePageTemplate
+      slug="tonsillectomy"
       title="Tonsillectomy"
       plainEnglishSummary="Tonsillectomy is surgery to remove the tonsils. It may be discussed for recurrent tonsillitis, significant sleep-disordered breathing, or other persistent tonsil-related problems after ENT specialist assessment."
       heroImage={{

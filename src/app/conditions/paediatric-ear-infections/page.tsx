@@ -16,6 +16,7 @@ export const metadata: Metadata = {
 export default function PaediatricEarInfectionsPage() {
   return (
     <ConditionPageTemplate
+      slug="paediatric-ear-infections"
       title="Ear infections in children"
       clinicalTerm="Paediatric otitis media and otitis media with effusion"
       plainEnglishSummary="Ear infections are common in young children and one of the most frequent reasons for GP and specialist visits in the paediatric age group. They can cause ear pain, temporary hearing loss, and in some children, recurrent or persistent fluid behind the eardrum that affects speech and learning. Specialist review is often helpful when episodes keep returning or hearing does not recover fully between infections."

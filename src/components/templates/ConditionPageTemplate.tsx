@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import { BreadcrumbNav } from '@/components/shared/BreadcrumbNav'
+import { buildMedicalConditionSchema } from '@/lib/schema'
 
 interface RelatedLink {
   title: string
@@ -28,6 +29,7 @@ interface TreatmentOverview {
 }
 
 interface ConditionPageTemplateProps {
+  slug: string
   title: string
   clinicalTerm?: string
   plainEnglishSummary: string
@@ -57,6 +59,7 @@ function isTreatmentOverviewObject(val: TreatmentOverview | string): val is Trea
 }
 
 export function ConditionPageTemplate({
+  slug,
   title,
   clinicalTerm,
   plainEnglishSummary,
@@ -71,6 +74,13 @@ export function ConditionPageTemplate({
   sinusQuestionnaireCalloutHeading,
   faqItems,
 }: ConditionPageTemplateProps) {
+  const conditionSchema = buildMedicalConditionSchema({
+    name: title,
+    ...(clinicalTerm ? { alternateName: clinicalTerm } : {}),
+    description: plainEnglishSummary,
+    url: `/conditions/${slug}`,
+  })
+
   const faqSchema = faqItems
     ? {
         '@context': 'https://schema.org',
@@ -88,6 +98,10 @@ export function ConditionPageTemplate({
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(conditionSchema) }}
+      />
       <section className="myent-section border-b border-neutral-200 bg-white">
         <div className="myent-container">
           <BreadcrumbNav sectionLabel="Conditions" pageTitle={title} />

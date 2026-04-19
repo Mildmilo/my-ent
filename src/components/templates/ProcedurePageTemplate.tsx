@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { BreadcrumbNav } from '@/components/shared/BreadcrumbNav'
+import { buildMedicalProcedureSchema } from '@/lib/schema'
 
 const postOperativeCareStatement =
   'Recovery after any surgical procedure requires careful attention to the instructions provided by your treating surgeon. These instructions are tailored to your specific procedure and individual circumstances and should be followed precisely. If you have questions about your recovery, or if you experience symptoms that concern you, contact the rooms directly during business hours on 02 9247 1762. After hours, if you have an urgent concern, please present to your nearest emergency department.'
@@ -15,6 +16,7 @@ interface ProcedureHeroImage {
 }
 
 interface ProcedurePageTemplateProps {
+  slug: string
   title: string
   plainEnglishSummary: string
   heroImage?: ProcedureHeroImage
@@ -25,6 +27,7 @@ interface ProcedurePageTemplateProps {
 }
 
 export function ProcedurePageTemplate({
+  slug,
   title,
   plainEnglishSummary,
   heroImage,
@@ -33,8 +36,19 @@ export function ProcedurePageTemplate({
   recoveryOverview,
   relatedConditions,
 }: ProcedurePageTemplateProps) {
+  const procedureSchema = buildMedicalProcedureSchema({
+    name: title,
+    description: plainEnglishSummary,
+    url: `/procedures/${slug}`,
+    howPerformed: whatToExpect,
+  })
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(procedureSchema) }}
+      />
       <section className="myent-section border-b border-neutral-200 bg-white">
         <div className="myent-container">
           <BreadcrumbNav sectionLabel="Procedures" pageTitle={title} />

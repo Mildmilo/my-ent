@@ -16,6 +16,7 @@ export const metadata: Metadata = {
 export default function PaediatricBlockedNosePage() {
   return (
     <ConditionPageTemplate
+      slug="paediatric-blocked-nose"
       title="Blocked nose in children"
       clinicalTerm="Paediatric nasal obstruction"
       plainEnglishSummary="A persistently blocked nose is not uncommon in children, but when it is affecting sleep, breathing through the mouth, speech development, or day-to-day quality of life, it deserves specialist attention. The causes in children differ from adults — enlarged adenoids, allergic rhinitis, and structural nasal factors all play a role — and the right treatment depends on identifying the underlying contributors."

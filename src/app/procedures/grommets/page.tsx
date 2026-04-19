@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 export default function GrommetsPage() {
   return (
     <ProcedurePageTemplate
+      slug="grommets"
       title="Grommets"
       plainEnglishSummary="Grommets are tiny ventilation tubes placed in the eardrum to help equalise middle ear pressure and reduce fluid build-up. They are commonly considered for persistent glue ear, recurrent ear infections, or hearing concerns after ENT assessment."
       heroImage={{

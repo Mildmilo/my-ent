@@ -16,6 +16,7 @@ export const metadata: Metadata = {
 export default function TonsillitisPage() {
   return (
     <ConditionPageTemplate
+      slug="tonsillitis"
       title="Tonsillitis"
       clinicalTerm="Acute and recurrent tonsillitis"
       plainEnglishSummary="Tonsillitis is inflammation of the tonsils, usually caused by a viral or bacterial infection. It produces a sore throat, difficulty swallowing, and sometimes fever. Most episodes settle with rest and simple care, but recurrent or severe tonsillitis may need specialist review and, in some cases, surgical treatment."

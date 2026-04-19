@@ -16,6 +16,7 @@ export const metadata: Metadata = {
 export default function PaediatricSnoringOsaPage() {
   return (
     <ConditionPageTemplate
+      slug="paediatric-snoring-osa"
       title="Snoring and sleep apnoea in children"
       clinicalTerm="Paediatric obstructive sleep apnoea (OSA)"
       plainEnglishSummary="Snoring is common in children, but it is not always harmless. When a child's upper airway becomes repeatedly blocked during sleep, breathing pauses occur — this is paediatric obstructive sleep apnoea (OSA). Unlike adults, children with OSA often do not appear sleepy during the day; instead they may be restless, hyperactive, or struggling at school. Enlarged tonsils and adenoids are the most common underlying cause and can be treated."

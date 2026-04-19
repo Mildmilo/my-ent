@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 export default function EndoscopicSinusSurgeryPage() {
   return (
     <ProcedurePageTemplate
+      slug="endoscopic-sinus-surgery"
       title="Endoscopic sinus surgery (ESS)"
       plainEnglishSummary="Endoscopic sinus surgery (ESS) is a procedure performed through the nostrils to improve sinus ventilation and drainage. It is performed under general anaesthetic in an operating theatre. It is usually considered when chronic sinus symptoms continue despite appropriate medical treatment and specialist review."
       heroImage={{

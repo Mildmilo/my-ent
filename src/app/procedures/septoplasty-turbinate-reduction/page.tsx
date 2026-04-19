@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 export default function SeptoplastyTurbinateReductionPage() {
   return (
     <ProcedurePageTemplate
+      slug="septoplasty-turbinate-reduction"
       title="Septoplasty and turbinate reduction"
       plainEnglishSummary="Septoplasty and turbinate reduction are procedures used to improve nasal airflow when long-term blockage is linked to a deviated septum and enlarged turbinates. They are usually considered after specialist assessment and medical treatment planning."
       heroImage={{

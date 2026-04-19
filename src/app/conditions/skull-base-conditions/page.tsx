@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 export default function SkullBaseConditionsPage() {
   return (
     <ConditionPageTemplate
+      slug="skull-base-conditions"
       title="Skull Base Conditions"
       clinicalTerm="Anterior Skull Base Pathology"
       plainEnglishSummary="The skull base is the floor of the skull, forming the boundary between the brain and the nasal cavity, sinuses, and face. Conditions affecting the anterior skull base include benign growths, pituitary lesions, encephaloceles (herniation of brain tissue into the nasal cavity), and other pathologies. Many of these can now be assessed and treated through endoscopic approaches from within the nose, without the need for open surgery or external incisions."

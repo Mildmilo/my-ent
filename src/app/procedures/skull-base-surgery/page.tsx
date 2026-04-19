@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 export default function SkullBaseSurgeryPage() {
   return (
     <ProcedurePageTemplate
+      slug="skull-base-surgery"
       title="Skull base surgery"
       plainEnglishSummary="Skull base surgery covers procedures for selected lesions at the interface of the nose, sinuses, orbit, and brain base. Treatment planning is multidisciplinary, often involving ENT, neurosurgery, and other specialist teams to match the approach to the condition and patient needs."
       heroImage={{

@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 export default function SnoringSurgeryUpppPage() {
   return (
     <ProcedurePageTemplate
+      slug="snoring-surgery-uppp"
       title="Snoring surgery (UPPP)"
       plainEnglishSummary="Snoring surgery (uvulopalatopharyngoplasty, UPPP) targets selected soft palate and throat structures to address airway vibration or collapse. It is considered only after detailed sleep and airway assessment, often as part of a broader management plan."
       heroImage={{

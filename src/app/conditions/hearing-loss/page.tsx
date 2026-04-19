@@ -49,6 +49,7 @@ export const metadata: Metadata = {
 export default function HearingLossPage() {
   return (
     <ConditionPageTemplate
+      slug="hearing-loss"
       title="Hearing loss"
       clinicalTerm="Conductive and sensorineural hearing loss"
       plainEnglishSummary="Hearing loss may develop gradually or come on suddenly, and it can involve one ear or both. Some causes are temporary and treatable, while others need long-term monitoring and hearing support. Specialist assessment helps identify the cause and the most appropriate next steps."

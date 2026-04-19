@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 export default function NasendoscopyPage() {
   return (
     <ProcedurePageTemplate
+      slug="nasendoscopy"
       title="Nasendoscopy"
       plainEnglishSummary="Nasendoscopy is a scope examination of the nose and throat used to assess breathing pathways, sinus openings, voice structures, and related symptoms. It is a common ENT diagnostic procedure that helps guide clear, personalised treatment planning."
       heroImage={{

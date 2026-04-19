@@ -16,6 +16,7 @@ export const metadata: Metadata = {
 export default function RefluxLprPage() {
   return (
     <ConditionPageTemplate
+      slug="reflux-lpr"
       title="Reflux and LPR"
       clinicalTerm="Laryngopharyngeal reflux (LPR); gastro-oesophageal reflux disease (GORD)"
       plainEnglishSummary="Reflux occurs when stomach contents travel upward into the oesophagus and, in some cases, reach the throat and voice box. Laryngopharyngeal reflux (LPR) — sometimes called silent reflux — affects the throat region and often occurs without the classic heartburn that patients associate with reflux. It is a common and under-recognised cause of chronic throat symptoms."

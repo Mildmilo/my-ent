@@ -16,6 +16,7 @@ export const metadata: Metadata = {
 export default function NosebleedsPage() {
   return (
     <ConditionPageTemplate
+      slug="nosebleeds"
       title="Nosebleeds"
       clinicalTerm="Epistaxis"
       plainEnglishSummary="Most nosebleeds (epistaxis) are brief and settle without specialist care. When bleeding is frequent, heavy, or not responding to simple first aid, ENT review can identify the underlying cause and guide appropriate management. In most cases, a clear explanation is found and a practical plan can be put in place."

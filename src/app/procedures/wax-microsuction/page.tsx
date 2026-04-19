@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 export default function WaxMicrosuctionPage() {
   return (
     <ProcedurePageTemplate
+      slug="wax-microsuction"
       title="Wax microsuction"
       plainEnglishSummary="Wax microsuction is a specialist technique to remove impacted ear wax under magnified visual control. It may be recommended when wax is causing blocked hearing, discomfort, tinnitus, or when accurate ear examination is needed."
       heroImage={{

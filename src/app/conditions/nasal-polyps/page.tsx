@@ -79,6 +79,7 @@ export const metadata: Metadata = {
 export default function NasalPolypsPage() {
   return (
     <ConditionPageTemplate
+      slug="nasal-polyps"
       title="Nasal Polyps"
       clinicalTerm="Chronic rhinosinusitis with nasal polyposis (CRSwNP)"
       plainEnglishSummary="Nasal polyps are soft, non-cancerous growths that develop in the lining of the nose and sinuses as a result of chronic inflammation. They can cause progressive nasal blockage, loss of smell, and recurrent sinus infections. Treatment ranges from nasal sprays and saline irrigation through to surgery and, for selected patients with severe disease, biologic therapy."

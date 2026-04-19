@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 export default function MyringoplastyPage() {
   return (
     <ProcedurePageTemplate
+      slug="myringoplasty"
       title="Myringoplasty"
       plainEnglishSummary="Myringoplasty is surgery to repair a hole in the eardrum. It may be discussed for persistent perforations causing hearing difficulty, recurrent discharge, or water-related ear problems after specialist ear assessment."
       heroImage={{

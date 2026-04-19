@@ -16,6 +16,7 @@ export const metadata: Metadata = {
 export default function EarInfectionsPage() {
   return (
     <ConditionPageTemplate
+      slug="ear-infections"
       title="Ear infections"
       clinicalTerm="Otitis externa and otitis media"
       plainEnglishSummary="Ear infections can affect the outer ear canal or the middle ear space behind the eardrum. Symptoms may include pain, pressure, reduced hearing, or discharge. While many infections settle with GP care, repeated episodes or persistent symptoms often benefit from ENT assessment."

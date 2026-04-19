@@ -79,6 +79,7 @@ export const metadata: Metadata = {
 export default function HayfeverAllergicRhinitisPage() {
   return (
     <ConditionPageTemplate
+      slug="hayfever-allergic-rhinitis"
       title="Hayfever & Allergic Rhinitis"
       clinicalTerm="Allergic rhinitis"
       plainEnglishSummary="Hayfever — or allergic rhinitis — is the most common allergic condition in Australia, affecting approximately one in four people. It occurs when the immune system overreacts to airborne substances such as grass pollen, dust mite, or pet dander, causing nasal congestion, sneezing, runny nose, and itchy eyes. Symptoms can be seasonal, year-round, or both. Treatment ranges from nasal sprays and antihistamines through to allergen immunotherapy — the only treatment that addresses the underlying cause."

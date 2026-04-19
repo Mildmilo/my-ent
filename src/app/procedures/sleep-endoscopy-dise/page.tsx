@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 export default function SleepEndoscopyDisePage() {
   return (
     <ProcedurePageTemplate
+      slug="sleep-endoscopy-dise"
       title="Sleep endoscopy (DISE)"
       plainEnglishSummary="Sleep endoscopy (drug-induced sleep endoscopy, DISE) is a dynamic airway assessment performed under sedation. It helps identify where airway narrowing occurs during sleep-like conditions and supports personalised planning for snoring and sleep apnoea management."
       // TODO: INSERT hero image - sleep-endoscopy-dise-hero-sydney.webp

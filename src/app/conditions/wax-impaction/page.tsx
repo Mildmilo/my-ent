@@ -16,6 +16,7 @@ export const metadata: Metadata = {
 export default function WaxImpactionPage() {
   return (
     <ConditionPageTemplate
+      slug="wax-impaction"
       title="Wax impaction"
       clinicalTerm="Cerumen impaction"
       plainEnglishSummary="Ear wax protects the ear canal, but sometimes it builds up and becomes impacted. This can cause blocked hearing, discomfort, and noise symptoms. Specialist review helps confirm the diagnosis and remove wax safely when needed."

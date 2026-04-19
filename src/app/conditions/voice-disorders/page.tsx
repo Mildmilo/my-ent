@@ -16,6 +16,7 @@ export const metadata: Metadata = {
 export default function VoiceDisordersPage() {
   return (
     <ConditionPageTemplate
+      slug="voice-disorders"
       title="Voice disorders"
       clinicalTerm="Dysphonia"
       plainEnglishSummary="A voice disorder means that the voice sounds different from normal — hoarse, breathy, strained, or effortful — or that the voice tires more quickly than expected. Voice changes can reflect conditions affecting the vocal cords, the larynx, or related structures, and they deserve proper assessment when they persist beyond a few weeks."

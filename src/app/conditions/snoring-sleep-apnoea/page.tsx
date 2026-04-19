@@ -16,6 +16,7 @@ export const metadata: Metadata = {
 export default function SnoringAndSleepApnoeaPage() {
   return (
     <ConditionPageTemplate
+      slug="snoring-sleep-apnoea"
       title="Snoring and sleep apnoea"
       clinicalTerm="Obstructive sleep apnoea (OSA)"
       plainEnglishSummary="Snoring is caused by partial obstruction of the upper airway during sleep. Obstructive sleep apnoea (OSA) occurs when this obstruction becomes complete, causing breathing to stop repeatedly through the night. Both conditions disrupt sleep quality and can have broader effects on energy, concentration, and health over time."

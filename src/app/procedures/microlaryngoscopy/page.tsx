@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 export default function MicrolaryngoscopyPage() {
   return (
     <ProcedurePageTemplate
+      slug="microlaryngoscopy"
       title="Microlaryngoscopy"
       plainEnglishSummary="Microlaryngoscopy is a procedure that allows detailed examination and treatment of the voice box (larynx) under anaesthesia. It may be used to investigate persistent voice change, throat symptoms, or selected laryngeal lesions after specialist assessment."
       heroImage={{

@@ -16,6 +16,7 @@ export const metadata: Metadata = {
 export default function CoughPage() {
   return (
     <ConditionPageTemplate
+      slug="cough"
       title="Chronic cough"
       plainEnglishSummary="A cough that persists beyond eight weeks is considered chronic and warrants proper assessment. While the lungs and airways are sometimes responsible, a significant proportion of chronic coughs arise from conditions in the nose, sinuses, and throat — making ENT assessment an important part of the evaluation. Identifying the cause is the first step toward effective management."
             heroImageSlot={

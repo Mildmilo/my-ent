@@ -79,6 +79,7 @@ export const metadata: Metadata = {
 export default function SinusitisPage() {
   return (
     <ConditionPageTemplate
+      slug="sinusitis"
       title="Sinusitis"
       clinicalTerm="Rhinosinusitis"
       plainEnglishSummary="Sinusitis means inflammation in the lining of the sinuses. Many people notice blocked breathing, facial pressure, thick nasal discharge, or reduced smell. Some episodes settle with simple self-care, while ongoing or repeated symptoms may need specialist ENT review. The vast majority of cases do not require surgery."

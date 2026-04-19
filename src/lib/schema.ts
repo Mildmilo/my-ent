@@ -105,6 +105,61 @@ export function buildPhysicianSchema({
   }
 }
 
+interface MedicalConditionSchemaInput {
+  name: string
+  alternateName?: string
+  description: string
+  url: string
+}
+
+interface MedicalProcedureSchemaInput {
+  name: string
+  description: string
+  url: string
+  bodyLocation?: string
+  howPerformed?: string
+  preparation?: string
+  followup?: string
+}
+
+export function buildMedicalConditionSchema({
+  name,
+  alternateName,
+  description,
+  url,
+}: MedicalConditionSchemaInput) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalCondition',
+    name,
+    ...(alternateName ? { alternateName } : {}),
+    description,
+    url: `${SITE_URL}${url}`,
+  }
+}
+
+export function buildMedicalProcedureSchema({
+  name,
+  description,
+  url,
+  bodyLocation,
+  howPerformed,
+  preparation,
+  followup,
+}: MedicalProcedureSchemaInput) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalProcedure',
+    name,
+    description,
+    url: `${SITE_URL}${url}`,
+    ...(bodyLocation ? { bodyLocation } : {}),
+    ...(howPerformed ? { howPerformed } : {}),
+    ...(preparation ? { preparation } : {}),
+    ...(followup ? { followup } : {}),
+  }
+}
+
 export function buildNursePractitionerSchema({
   name,
   url,

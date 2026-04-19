@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 export default function StapesSurgeryPage() {
   return (
     <ProcedurePageTemplate
+      slug="stapes-surgery"
       title="Stapes Surgery"
       plainEnglishSummary="Stapes surgery restores hearing loss caused by otosclerosis — a condition in which abnormal bone growth fixes the stapes, the smallest bone in the body, preventing it from transmitting sound to the inner ear. The operation replaces the fixed stapes with a tiny prosthesis, restoring the sound conduction pathway. In appropriately selected patients, nine out of ten procedures result in significantly improved hearing, making this one of the most effective operations in all of surgery."
       heroImage={{

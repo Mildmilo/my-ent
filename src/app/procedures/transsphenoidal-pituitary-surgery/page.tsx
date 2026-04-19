@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 export default function TranssphenoidalPituitarySurgeryPage() {
   return (
     <ProcedurePageTemplate
+      slug="transsphenoidal-pituitary-surgery"
       title="Transsphenoidal pituitary surgery"
       plainEnglishSummary="Transsphenoidal pituitary surgery is an endoscopic approach through the nose to access selected pituitary lesions. It is planned jointly by ENT and neurosurgical teams, with treatment decisions guided by imaging, endocrine assessment, and the broader clinical picture."
       heroImage={{
