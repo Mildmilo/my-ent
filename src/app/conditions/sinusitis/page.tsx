@@ -141,7 +141,6 @@ export default function SinusitisPage() {
           },
         ],
       }}
-      sinusQuestionnaireCalloutHeading="Prepare for your appointment."
       relatedProcedures={[
         {
           title: 'Endoscopic sinus surgery (ESS)',

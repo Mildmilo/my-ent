@@ -3,6 +3,7 @@ User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /patient-portal/
+Disallow: /questionnaire/
 
 # Host
 Host: https://my-ent.com.au

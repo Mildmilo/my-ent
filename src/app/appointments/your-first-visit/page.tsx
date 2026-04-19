@@ -151,15 +151,9 @@ export default function YourFirstVisitPage() {
               <p className="myent-eyebrow">Pre-appointment</p>
               <h2 className="mt-3 text-3xl leading-tight">Nose or sinus concern?</h2>
               <p className="mt-4 text-base leading-relaxed text-neutral-500">
-                If you are attending My-ENT for a nose or sinus concern, our pre-appointment
-                questionnaire helps our clinical team prepare for your consultation. It takes most
-                patients four to six minutes to complete.
+                A pre-appointment questionnaire will be sent by email after your appointment is
+                confirmed.
               </p>
-              <div className="mt-6">
-                <Link className="myent-btn-primary w-fit" href="/appointments/sinus-assessment">
-                  Complete the sinus questionnaire
-                </Link>
-              </div>
             </article>
 
             <article className="myent-card">

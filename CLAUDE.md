@@ -210,6 +210,43 @@ The business card colour palette has been adopted as the website colour system:
 
 The My-ENT brand tagline: "Quality. Trust. Innovation."
 
+### Condition page template — current structure
+
+The `ConditionPageTemplate.tsx` component was upgraded during the sinusitis, nasal polyps, and blocked nose rebuild to support richer patient-informative content. All new condition pages must match this structure. The component accepts the following props:
+
+| Prop | Type | Notes |
+|---|---|---|
+| `title` | `string` | required |
+| `clinicalTerm` | `string?` | optional subtitle |
+| `plainEnglishSummary` | `string` | required — 1–2 sentences, no jargon |
+| `heroImageSlot` | `ReactNode?` | `<Image>` passed in from the page |
+| `symptoms` | `string[]` | required |
+| `symptomsNote` | `string?` | renders in muted `bg-neutral-50` callout below symptoms — use for diagnostic context, e.g. "The pattern of blockage tells you the cause" |
+| `causes` | `string[]` | required |
+| `causesCitation` | `string?` | italic reference line beneath causes |
+| `whenToSeekHelp` | `WhenToSeekHelp \| string` | union — structured object with `overview` + optional `warningSignsHeading` + `warningSigns[]` renders in a red-bordered callout; plain string form still supported for backwards compatibility |
+| `treatmentOverview` | `TreatmentOverview \| string` | union — structured object with `overview` + optional `treatments[]` array of `{heading, body}` blocks separated by `border-t` dividers; plain string form still supported |
+| `relatedProcedures` | `RelatedLink[]` | required |
+| `faqItems` | `FaqItem[]?` | collapsible accordion + JSON-LD FAQPage schema |
+| ~~`sinusQuestionnaireCalloutHeading`~~ | ~~`string?`~~ | **DEPRECATED — see Rule 10. Do not pass on any page.** |
+
+Type guards `isWhenToSeekHelpObject()` and `isTreatmentOverviewObject()` are defined in the template for runtime discrimination of the union types.
+
+All new condition pages MUST use the structured object form for both `whenToSeekHelp` and `treatmentOverview`. The string form exists for backwards compatibility during migration of the remaining pages.
+
+### Condition page content density standards
+
+The following minimum standards apply to every condition page:
+
+- **FAQ count for the five high-traffic conditions** — sinusitis, nasal polyps, blocked nose, hearing loss, tinnitus: 10–12 condition-specific FAQs.
+- **FAQ count for all other condition pages**: 8–10 condition-specific FAQs. This is an increase from the earlier 5–7 spec to match the depth of the high-traffic pages.
+- **Treatment blocks**: minimum 3, typically 4–6 per page, each 2–4 sentences.
+- **Warning signs in whenToSeekHelp.warningSigns[]**: minimum 3, typically 4–6 specific red flags.
+- **Symptoms list**: minimum 6, typically 8–10 items.
+- **Causes list**: minimum 4, typically 6–9 items.
+
+Every FAQ section must end with the verbatim AHPRA closer specified in Section 13 Priority 1.
+
 ### Condition page surgeon statement
 
 Use the following statement verbatim in a "Choosing your surgeon" card on every condition page via `ConditionPageTemplate.tsx`. Do not list individual surgeons on condition pages. This applies to all 23 condition pages without exception.
@@ -295,12 +332,61 @@ RULE 9 — JUSTINE OATES SCOPE OF PRACTICE. NON-NEGOTIABLE.
   When describing the nurse practitioner review pathway, always scope the
   wording to Dr Banks's patients only.
   NOTE ON QUESTIONNAIRE ROUTING: The sinus questionnaire system is available
-  to all four surgeons' patients. The clinician report destination email is
-  specified by reception at link generation — it is not hardcoded to
-  justineoates@my-ent.com.au. Justine's email is the default pre-fill for
-  Dr Banks's patients only. For other surgeons, reception enters a different
-  destination email. The questionnaire system itself does not violate Rule 9
-  provided the routing logic is dynamic and not hardcoded to Justine.
+  to all four surgeons' patients. Access is gated — questionnaires are sent
+  ONLY AFTER an appointment has been confirmed in Genie. They are never
+  accessible from public condition pages, not linked in navigation, not
+  indexable by search engines, and not offered as a pre-booking triage tool.
+  The rationale: patients who fill out questionnaires without a confirmed
+  appointment generate clinical load that is never converted, and can feel
+  they have "been seen" in some sense when they have not.
+
+  For Dr Catherine Banks's patients, the Resend send goes to BOTH
+  contact@my-ent.com.au AND justineoates@my-ent.com.au. Reception is included
+  for operational visibility and redundancy (holidays, theatre days, inbox
+  latency) — they do not review the clinical content. Justine remains the
+  clinical reviewer.
+
+  For patients of Dr Chan, Dr Huang, or Dr Reddy, the Resend send goes to
+  contact@my-ent.com.au only, plus whatever clinician email reception enters
+  at link generation. Justine's email does not appear in the routing for any
+  other surgeon's patients under any circumstance. The questionnaire
+  instrument itself is clinically valid for all four surgeons' patients; it
+  is the scope of Justine's involvement that is constrained, not the tool.
+
+  The questionnaire system does not violate Rule 9 provided (a) the public
+  page at /appointments/sinus-assessment is information-only with no
+  embedded form, (b) the actual questionnaire is token-gated and sent only
+  post-booking, and (c) the routing logic treats Justine's email as
+  Banks-patients-only.
+
+RULE 10 — QUESTIONNAIRE GATING. NON-NEGOTIABLE.
+  Pre-appointment questionnaires (SNOT-22, NOSE, TNSS, RQLQ, ESS, and any
+  future ear/vestibular/reflux questionnaires) are sent ONLY AFTER an
+  appointment has been confirmed in Genie. They are a clinical preparation
+  tool for confirmed patients, not a public triage service.
+
+  This means:
+    - No embedded questionnaire form anywhere on a public condition page.
+    - No "take the assessment" CTA on the homepage, conditions index, or
+      condition pages.
+    - No questionnaire link in the main navigation.
+    - /appointments/sinus-assessment is an INFORMATION-ONLY page that
+      explains "you will receive this questionnaire by email after your
+      appointment is confirmed." It contains no form and no direct link to
+      the live questionnaire.
+    - The live questionnaire lives at a token-gated URL accessible only
+      via the time-limited invitation link generated by reception.
+
+  The `sinusQuestionnaireCalloutHeading` prop on ConditionPageTemplate.tsx
+  is DEPRECATED. Do not pass it on any new condition page. Remove it from
+  sinusitis/page.tsx and nasal-polyps/page.tsx during the next cleanup
+  session. The prop itself can remain on the component during transition
+  but must not be rendered.
+
+  Rationale: questionnaires completed by patients who never attend generate
+  clinical load that is never converted, and can create a false sense of
+  having "been seen" when they have not. The confirmed appointment is the
+  trigger. No confirmed booking = no questionnaire.
 ```
 
 ---
@@ -373,7 +459,7 @@ Preferred surgeon: dropdown of all four surgeons plus Justine Oates (nurse pract
 
 The goal of the reception email is that reception can open it, read it once, and create the Genie booking without making a single outbound call. Every piece of information required for that booking must be present, clearly labelled, and in the same position every time so reception develops reading rhythm across repeated submissions.
 
-The email is generated automatically on form submission and sent to contact@my-ent.com.au. The sinus pre-appointment questionnaire clinician report is sent specifically to justineoates@my-ent.com.au. The questionnaire is accessed via direct link only — it is not linked from the main navigation and is not publicly discoverable by search engines. Referral letters and imaging reports are attached as separate files, clearly named. The patient receives an automatic acknowledgement email confirming receipt and advising that reception will be in contact within one business day to confirm the appointment.
+The email is generated automatically on form submission and sent to contact@my-ent.com.au. The sinus pre-appointment questionnaire clinician report is sent post-booking only — never triggered from a public page. For Dr Banks's patients, the report is sent to BOTH contact@my-ent.com.au AND justineoates@my-ent.com.au (reception cc'd for operational visibility; Justine as clinical reviewer). For patients of the other three surgeons, the report is sent to contact@my-ent.com.au and to whatever clinician email reception specifies at link generation — Justine's email does not appear in the routing for any non-Banks patient. The questionnaire is accessed via direct token-gated link only, generated by reception after appointment confirmation — it is not linked from the main navigation and is not publicly discoverable by search engines. Referral letters and imaging reports are attached as separate files, clearly named. The patient receives an automatic acknowledgement email confirming receipt and advising that reception will be in contact within one business day to confirm the appointment.
 
 The reception email must follow this exact structure:
 
@@ -825,16 +911,47 @@ export interface Condition {
   clinicalTerm?: string
   slug: string
   category: 'nose-sinuses' | 'ear' | 'throat' | 'paediatric'
-  publishingTier: 'C'                 // all condition pages are Tier C
+  publishingTier: 'C'                         // all condition pages are Tier C
   metaTitle: string
   metaDescription: string
-  heroSummary: string
+  plainEnglishSummary: string                 // formerly heroSummary
   symptoms: string[]
+  symptomsNote?: string                       // diagnostic context callout
   causes: string[]
-  whenToSeekHelp: string
-  treatmentOverview: string           // no outcome guarantees
-  relatedProcedures: string[]         // condition ids
-  relatedSurgeons: string[]           // surgeon ids
+  causesCitation?: string                     // italic reference line
+  whenToSeekHelp: WhenToSeekHelp | string     // union — structured or plain
+  treatmentOverview: TreatmentOverview | string  // union — structured or plain
+  relatedProcedures: RelatedLink[]
+  relatedSurgeons: string[]
+  faqItems?: FaqItem[]                        // accordion + JSON-LD schema
+  // heroImageSlot is a ReactNode rendered at the page level, not stored here
+  // sinusQuestionnaireCalloutHeading prop is DEPRECATED — see Rule 10
+}
+
+export interface WhenToSeekHelp {
+  overview: string
+  warningSignsHeading?: string
+  warningSigns?: string[]                     // red-bordered callout
+}
+
+export interface TreatmentOverview {
+  overview: string
+  treatments?: TreatmentBlock[]               // heading + body, border-t dividers
+}
+
+export interface TreatmentBlock {
+  heading: string
+  body: string
+}
+
+export interface RelatedLink {
+  id: string                                  // condition or procedure id
+  title: string
+}
+
+export interface FaqItem {
+  question: string
+  answer: string
 }
 
 export interface Procedure {
@@ -1114,8 +1231,11 @@ Read this file in full before building any component of the questionnaire. The s
 
 Critical rules that apply to the questionnaire without exception:
 - No EPOS classification, severity grade, instrument score, or management recommendation is ever displayed to the patient on any screen.
-- All clinical output appears exclusively in the structured clinician email sent to justineoates@my-ent.com.au.
-- The questionnaire is built at src/app/appointments/sinus-assessment/page.tsx.
+- All clinical output appears exclusively in the structured clinician email. For Dr Banks's patients, that email is sent to BOTH contact@my-ent.com.au AND justineoates@my-ent.com.au. For other surgeons' patients it is sent to contact@my-ent.com.au plus the clinician email reception specifies at link generation. Justine's email does not appear in the routing for any non-Banks patient (Rule 9).
+- The questionnaire URL architecture has two distinct pages:
+  1. `/appointments/sinus-assessment` — PUBLIC INFORMATION PAGE ONLY. Explains "after your appointment is confirmed, we will send you this questionnaire by email." No form, no direct link to the live questionnaire, no CTA to start. This is what patients find if they search or browse the site.
+  2. `/questionnaire/sinus` (or equivalent token-gated route) — the live token-gated questionnaire. Accessible only via the time-limited invitation link generated by reception post-booking. Not linked from anywhere public. Excluded from sitemap and robots.txt.
+- Per Rule 10, the questionnaire is sent only AFTER appointment confirmation in Genie. It is not a pre-booking triage tool.
 - The Privacy Policy at /privacy-policy must include the questionnaire data collection paragraph before the questionnaire goes live.
 
 ---
@@ -1124,7 +1244,7 @@ Critical rules that apply to the questionnaire without exception:
 
 The following items have been discussed and specified but not yet built. They are recorded here so future Claude Code sessions can pick them up precisely.
 
-**PDF clinical record generation.** The sinus questionnaire API route generates a clean clinical PDF document alongside the clinician email on every form submission. The PDF is a structured record of patient-reported data only — no severity grades, no triage flags, no clinical recommendations, and no management suggestions appear anywhere in the document. The PDF is attached to the clinician email sent to justineoates@my-ent.com.au and is never stored on the server and never sent to the patient. The PDF filename format is MyENT_Assessment_[Surname]_[DDMMYYYY].pdf so it is immediately identifiable when uploaded into Genie. The PDF is designed for manual upload into the patient's Genie clinical record.
+**PDF clinical record generation.** The sinus questionnaire API route generates a clean clinical PDF document alongside the clinician email on every form submission. The PDF is a structured record of patient-reported data only — no severity grades, no triage flags, no clinical recommendations, and no management suggestions appear anywhere in the document. The PDF is attached to the clinician email sent to the recipient(s) specified in the token record (for Dr Banks's patients: both contact@my-ent.com.au and justineoates@my-ent.com.au; for other surgeons: contact@my-ent.com.au plus the clinician email reception specified) and is never stored on the server and never sent to the patient. The PDF filename format is MyENT_Assessment_[Surname]_[DDMMYYYY].pdf so it is immediately identifiable when uploaded into Genie. The PDF is designed for manual upload into the patient's Genie clinical record.
 
 PDF contents in order: My-ENT header with address and patient details; provisional EPOS 2020 classification labelled "for clinical review only"; SNOT-22 presented in five validated subdomains (rhinological symptoms items 1-6, extranasal rhinological symptoms items 7-9, ear and facial symptoms items 10-11, psychological dysfunction items 12-18, sleep dysfunction items 19-22) with individual item scores and subdomain totals; overall SNOT-22 total; NOSE scale all five items with individual scores and total out of 100; TNSS if completed with individual scores and total; RQLQ if completed with mean score and domain scores; ESS if completed with individual scores and total; medical history summary; additional concerns verbatim; footer noting scores require clinical interpretation by the treating clinician. No severity grades appear in the PDF — severity grades and triage flags remain exclusively in the clinician email.
 
@@ -1134,13 +1254,13 @@ Library: @react-pdf/renderer — generates PDF server-side from React components
 
 Scope: The sinus pre-appointment questionnaire at /appointments/sinus-assessment is available as an option for all four My-ENT surgeons. Access is controlled by reception who generate the invitation link. The clinician report destination email is specified by reception at the time of link generation — it is not hardcoded. For Dr Catherine Banks's patients, justineoates@my-ent.com.au is the default pre-filled destination. For other surgeons' patients, reception enters the appropriate clinician email address manually. Rule 9 still applies to Justine specifically — her email only appears as the destination for Dr Banks's patients. The questionnaire instrument itself is clinically valid for all four surgeons' patients.
 
-Component 1 — Staff invitation page at /staff/send-questionnaire. Password protected via environment variable STAFF_PASSWORD. Not linked from public site, excluded from sitemap and robots.txt. Reception enters: patient full name, patient email, appointment date, clinician report email address (mandatory — pre-filled with justineoates@my-ent.com.au for Dr Banks's patients, manually entered for other surgeons), then clicks Send. System generates a unique six-digit numeric access code and URL token, stores in Vercel KV with 72-hour expiry, sends invitation email to patient automatically. Reception sees confirmation: "Questionnaire link sent to [email]. Link expires in 72 hours."
+Component 1 — Staff invitation page at /staff/send-questionnaire. Password protected via environment variable STAFF_PASSWORD. Not linked from public site, excluded from sitemap and robots.txt. Reception enters: patient full name, patient email, appointment date, surgeon (dropdown — determines routing), clinician report email address(es) (mandatory — for Dr Banks's patients, field is pre-filled with BOTH contact@my-ent.com.au AND justineoates@my-ent.com.au; for other surgeons, reception enters the appropriate clinician email address manually alongside contact@my-ent.com.au), then clicks Send. System generates a unique six-digit numeric access code and URL token, stores in Vercel KV with 72-hour expiry, sends invitation email to patient automatically. Reception sees confirmation: "Questionnaire link sent to [email]. Link expires in 72 hours."
 
 Component 2 — Patient invitation email. Sent from noreply@my-ent.com.au. Subject: "Pre-appointment questionnaire — Dr Catherine Banks — My-ENT." Body includes patient first name, purpose statement, access code displayed prominently, questionnaire link button, 72-hour expiry notice, practice contact details. Reply-to: justineoates@my-ent.com.au.
 
 Component 3 — Token validation on questionnaire page. No token present: display neutral message "This questionnaire is sent by invitation only. If you have been asked to complete a pre-appointment assessment, please use the link provided in your email from My-ENT. If you need assistance, please call us on 02 9247 1762." Token expired: display automated resend screen with single email field — checks email against KV database, generates new token if matched, sends new invitation email without staff involvement. Token valid: display six-digit code entry field before any clinical questions. Three incorrect attempts: "Incorrect code. Please call us on 02 9247 1762 and we will help you directly." Correct code: questionnaire proceeds with patient first name pre-populated from token record.
 
-Component 4 — Clinician report routing. On submission, structured clinician report email and PDF sent to the clinician email address specified by reception at link generation — stored in the token record in Vercel KV. This is not hardcoded. For Dr Banks's patients this will be justineoates@my-ent.com.au. For other surgeons' patients it will be whatever email reception entered. Subject line includes patient name and appointment date from token record.
+Component 4 — Clinician report routing. On submission, structured clinician report email and PDF sent to the clinician email address(es) specified by reception at link generation — stored in the token record in Vercel KV. This is not hardcoded. For Dr Banks's patients, the send goes to BOTH contact@my-ent.com.au AND justineoates@my-ent.com.au (reception cc'd for operational redundancy and visibility; Justine as the clinical reviewer). For other surgeons' patients, it goes to contact@my-ent.com.au plus whatever clinician email reception entered; Justine's email does not appear in the routing for any non-Banks patient under any circumstance (Rule 9). Subject line includes patient name and appointment date from token record.
 
 Environment variables required: STAFF_PASSWORD, KV_REST_API_URL, KV_REST_API_TOKEN, EMAIL_HOST, EMAIL_PORT, EMAIL_USER, EMAIL_PASS, SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, SMTP_FROM, EMAIL_TO (justineoates@my-ent.com.au).
 
@@ -1190,7 +1310,7 @@ The post-consultation email opt-in captured in the questionnaire consent screen 
 
 **SEO improvement priorities — implement before domain switch.**
 
-Priority 1 — Condition page FAQ sections with schema markup. The five highest-traffic conditions — sinusitis, nasal polyps, blocked nose, hearing loss, and tinnitus — each need an embedded FAQ section at the base of the page containing five to seven condition-specific questions and answers using @type:FAQPage schema markup. Every FAQ section must include this standard closing statement verbatim: "Individual surgeons within My-ENT may approach assessment and management differently based on their subspecialty training and clinical experience. Your surgeon will discuss the most appropriate pathway for your specific situation at your consultation." This statement is AHPRA-compliant and protects against any implication that a single answer applies universally across all four surgeons.
+Priority 1 — Condition page FAQ sections with schema markup. The five highest-traffic conditions — sinusitis, nasal polyps, blocked nose, hearing loss, and tinnitus — each need an embedded FAQ section at the base of the page containing 10 to 12 condition-specific questions and answers using @type:FAQPage schema markup. All other condition pages carry 8 to 10 FAQs at the same structural depth. Every FAQ section must include this standard closing statement verbatim: "Individual surgeons within My-ENT may approach assessment and management differently based on their subspecialty training and clinical experience. Your surgeon will discuss the most appropriate pathway for your specific situation at your consultation." This statement is AHPRA-compliant and protects against any implication that a single answer applies universally across all four surgeons.
 
 Priority 2 — Mobile optimisation. A systematic review of every key page at 375px width before the domain switch. Critical pages to review: homepage binary decision buttons (must be full-width and easily tappable), questionnaire instrument tables (likely to overflow on small screens), team cards, location section, navigation menu.
 
@@ -1205,14 +1325,15 @@ Priority 5 — Google Business Profile update. Immediately after domain switch: 
 **Pre-launch checklist before DNS switch:**
 1. Clinical sign-offs on all Tier C condition and procedure pages from Dr Banks
 2. Individual Tier B sign-offs from Dr Chan, Dr Huang, Dr Reddy, and Justine Oates on their profile pages
-3. End-to-end test of sinus questionnaire email delivery — confirm clinician report arrives at justineoates@my-ent.com.au in correct format
-4. Add sinus questionnaire to the Appointments dropdown in the navigation
-5. Confirm homepage and appointments page render correctly on mobile
-6. Connect custom domain my-ent.com.au in Vercel Settings → Domains
-7. Cancel Wix subscription after successful DNS propagation
+3. End-to-end test of sinus questionnaire email delivery — confirm clinician report arrives at BOTH contact@my-ent.com.au and justineoates@my-ent.com.au for Dr Banks's patients, and at contact@my-ent.com.au only for other surgeons' patients, in correct format
+4. Confirm /appointments/sinus-assessment is the information-only expectation-setting page (no embedded form, no direct questionnaire link). The live questionnaire remains accessible only via token-gated invitation link. Do NOT add the questionnaire to the Appointments dropdown in the navigation — Rule 10.
+5. Confirm the `sinusQuestionnaireCalloutHeading` prop has been removed from sinusitis/page.tsx and nasal-polyps/page.tsx
+6. Confirm homepage and appointments page render correctly on mobile
+7. Connect custom domain my-ent.com.au in Vercel Settings → Domains
+8. Cancel Wix subscription after successful DNS propagation
 
 **My Medical Story paediatric storybook app.** A separate standalone platform (mymedicalstory.com.au). Stack: Next.js, TypeScript, Tailwind CSS, Supabase, ElevenLabs, Vercel. Phase 1 story types: grommets, tonsillectomy, adenoidectomy, older child general. This is a separate project from the My-ENT website and is not built within this repository.
 
 ---
 
-*Last updated: April 2026 — Session 17 complete. Contact directory redesigned with Dr Banks listed first in private rooms section. Colour palette updated to business card blue-teal #4A7C8F. WCAG AA fix on eyebrow labels. Logo extracted from LOGO2.pdf — myent-logo-teal.png in use in navigation. git-push.sh helper script added to project root. 62 pages built. Pre-launch SEO priorities documented. Justine Oates scope of practice Rule 9 added. Token-based questionnaire access specification revised — Dr Banks patients only, reception-initiated, six-digit access code. This is the single source of truth for all project decisions. Update the date when this file changes.*
+*Last updated: April 2026 — Session 18 complete. Rule 10 — QUESTIONNAIRE GATING added as new non-negotiable rule: pre-appointment questionnaires are sent only after appointment confirmation in Genie, never accessible from public pages. Questionnaire routing updated: for Dr Banks's patients, clinician report sent to BOTH contact@my-ent.com.au and justineoates@my-ent.com.au (reception cc'd for operational redundancy; Justine as clinical reviewer); for other surgeons' patients, sent to contact@my-ent.com.au plus reception-specified clinician email only. `sinusQuestionnaireCalloutHeading` prop on ConditionPageTemplate.tsx deprecated; must be removed from sinusitis/page.tsx and nasal-polyps/page.tsx. `/appointments/sinus-assessment` repurposed from live questionnaire to information-only expectation-setting page; live questionnaire moves to separate token-gated URL. Condition interface rewritten to match the upgraded ConditionPageTemplate: `whenToSeekHelp` and `treatmentOverview` now support structured objects with warning signs and treatment blocks; new `symptomsNote` and `causesCitation` optional props. Condition page content density standards codified: 10–12 FAQs for the high-traffic five (sinusitis, nasal polyps, blocked nose, hearing loss, tinnitus), 8–10 FAQs for all other condition pages. Priority 1 SEO spec updated to match. Working through the remaining 21 condition pages in high-traffic-first order starting with Blocked Nose. Previous Session 17: Contact directory redesigned with Dr Banks listed first in private rooms section. Colour palette updated to business card blue-teal #4A7C8F. WCAG AA fix on eyebrow labels. Logo extracted from LOGO2.pdf — myent-logo-teal.png in use in navigation. git-push.sh helper script added to project root. Pre-launch SEO priorities documented. Justine Oates scope of practice Rule 9 added. Token-based questionnaire access specification revised. This is the single source of truth for all project decisions. Update the date when this file changes.*

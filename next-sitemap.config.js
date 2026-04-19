@@ -2,10 +2,10 @@
 module.exports = {
   siteUrl: 'https://my-ent.com.au',
   generateRobotsTxt: true,
-  exclude: ['/patient-portal', '/patient-portal/*'],
+  exclude: ['/patient-portal', '/patient-portal/*', '/questionnaire', '/questionnaire/*'],
   robotsTxtOptions: {
     policies: [
-      { userAgent: '*', allow: '/', disallow: ['/api/', '/patient-portal/'] },
+      { userAgent: '*', allow: '/', disallow: ['/api/', '/patient-portal/', '/questionnaire/'] },
     ],
   },
   transform: async (_config, pagePath) => {

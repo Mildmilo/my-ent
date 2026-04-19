@@ -1,3 +1,13 @@
+// ARCHITECTURAL GAP — Session 18
+// This route currently sends the clinician report to a single recipient (EMAIL_TO env var).
+// Rule 10 (Questionnaire Gating) and Rule 9 (Justine Oates Scope) require dual-recipient
+// routing once the token/KV system is built:
+//   - Dr Banks's patients: send to BOTH contact@my-ent.com.au AND justineoates@my-ent.com.au
+//   - Other surgeons' patients: send to contact@my-ent.com.au plus reception-specified clinician email
+// This routing logic is DEFERRED until the Vercel KV token system is implemented.
+// Do NOT add a surgeonName form field or routing logic to this route as an interim measure —
+// it will be replaced by token-record-based routing when the token system arrives.
+
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 

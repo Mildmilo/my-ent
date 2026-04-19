@@ -146,7 +146,6 @@ export default function NasalPolypsPage() {
           },
         ],
       }}
-      sinusQuestionnaireCalloutHeading="Prepare for your appointment."
       relatedProcedures={[
         {
           title: 'Endoscopic sinus surgery (ESS)',

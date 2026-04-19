@@ -148,7 +148,6 @@ export default function BlockedNosePage() {
           },
         ],
       }}
-      sinusQuestionnaireCalloutHeading="Prepare for your appointment."
       relatedProcedures={[
         {
           title: 'Septoplasty and turbinate reduction',
