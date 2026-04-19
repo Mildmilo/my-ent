@@ -40,7 +40,7 @@ export function ProcedurePageTemplate({
           <BreadcrumbNav sectionLabel="Procedures" pageTitle={title} />
           <p className="myent-eyebrow">Procedure</p>
           {heroImage ? (
-            <div className="relative mt-4 overflow-hidden rounded-[28px] border border-neutral-200 bg-neutral-800">
+            <div className="relative mt-4 overflow-hidden rounded-[28px] border border-neutral-200 bg-teal-800">
               <div className="absolute inset-0">
                 <Image
                   src={heroImage.src}

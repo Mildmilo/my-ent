@@ -93,7 +93,7 @@ export function ConditionPageTemplate({
           <BreadcrumbNav sectionLabel="Conditions" pageTitle={title} />
           <p className="myent-eyebrow">Condition</p>
           {heroImageSlot ? (
-            <div className="relative mt-8 h-56 overflow-hidden rounded-xl lg:h-[26rem]">
+            <div className="relative mt-8 h-56 overflow-hidden rounded-xl bg-teal-800 lg:h-[26rem]">
               {heroImageSlot}
               <div
                 aria-hidden="true"
