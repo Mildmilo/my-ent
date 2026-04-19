@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { buildMedicalClinicSchema } from '@/lib/schema'
 import { ConditionsGrid } from '@/components/homepage/ConditionsGrid'
 import { GpStrip } from '@/components/homepage/GpStrip'
 import { ReviewsStrip } from '@/components/homepage/ReviewsStrip'
@@ -110,6 +111,10 @@ const reviewStatus = [
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildMedicalClinicSchema()) }}
+      />
       <section className="myent-section bg-white">
         <div className="myent-container">
           <div className="max-w-4xl">

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import { buildPhysicianSchema } from '@/lib/schema'
 
 const biographyParagraphs: string[] = [
   'Subspecialties: Obstructive Sleep Apnoea and Snoring, Rhinology, Skull Base, Adult and Paediatric ENT.',
@@ -24,9 +25,27 @@ export const metadata: Metadata = {
 }
 
 export default function DrLyndonChanPage() {
+  const physicianSchema = buildPhysicianSchema({
+    name: 'Dr Lyndon Chan',
+    url: '/about/dr-lyndon-chan',
+    image: '/images/Team/dr-lyndon-chan-myent.jpg',
+    medicalSpecialty: ['Otolaryngology', 'Sleep Medicine'],
+    subspecialties: [
+      'Obstructive Sleep Apnoea and Snoring',
+      'Rhinology',
+      'Skull Base',
+      'Adult and Paediatric ENT',
+    ],
+    hospitals: ['Northern Beach Hospital'],
+  })
+
   return (
     <section className="myent-section">
       {/* TODO: TIER B — awaiting individual sign-off before publishing. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(physicianSchema) }}
+      />
       <div className="myent-container">
         <p className="myent-eyebrow">Team profile</p>
         <h1 className="mt-4 text-4xl lg:text-5xl">Dr Lyndon Chan</h1>

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import { buildNursePractitionerSchema } from '@/lib/schema'
 
 const biographyParagraphs: string[] = [
   'Role: Nurse practitioner for Dr Catherine Banks. Head and Neck / Rhinology Nurse Practitioner.',
@@ -19,10 +20,20 @@ export const metadata: Metadata = {
 }
 
 export default function JustineOatesPage() {
+  const personSchema = buildNursePractitionerSchema({
+    name: 'Justine Oates',
+    url: '/about/justine-oates',
+    image: '/images/Team/justine-oates-myent.jpg',
+  })
+
   return (
     <section className="myent-section">
       {/* TODO: TIER B — awaiting individual sign-off before publishing. */}
       {/* AHPRA REVIEW NEEDED: "One of only three" is a scarcity/comparative claim and must be explicitly approved before publish. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+      />
       <div className="myent-container">
         <p className="myent-eyebrow">Team profile</p>
         <h1 className="mt-4 text-4xl lg:text-5xl">Justine Oates</h1>

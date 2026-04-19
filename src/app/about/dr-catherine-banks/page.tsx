@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { surgeons } from '@/content/surgeons'
+import { buildPhysicianSchema } from '@/lib/schema'
 
 const biographyParagraphs: string[] = [
   'Qualifications: MBChB, FRACS (ORL-HNS).',
@@ -45,10 +46,35 @@ function getRequiredSurgeonBySlug(slug: string) {
 const drCatherineBanks = getRequiredSurgeonBySlug('dr-catherine-banks')
 
 export default function DrCatherineBanksPage() {
+  const physicianSchema = buildPhysicianSchema({
+    name: 'Dr Catherine Banks',
+    url: '/about/dr-catherine-banks',
+    image: '/images/Team/dr-catherine-banks-myent.jpg',
+    medicalSpecialty: ['Otolaryngology', 'Rhinology'],
+    subspecialties: [
+      'Rhinology',
+      'Skull Base Surgery',
+      'Adult and Paediatric ENT',
+      'General ENT',
+    ],
+    hospitals: [
+      'Prince of Wales Hospital',
+      'Sydney Hospital',
+      'Sydney Eye Hospital',
+      'Sydney Children\'s Hospital Randwick',
+      'St Luke\'s Private',
+      'Prince of Wales Private',
+    ],
+  })
+
   return (
     <section className="myent-section">
       {/* TODO: TIER B — awaiting individual sign-off before publishing. */}
       {/* AHPRA REVIEW NEEDED: "First Australasian surgeon" is a comparative-first claim and must be explicitly approved before publish. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(physicianSchema) }}
+      />
       <div className="myent-container">
         <p className="myent-eyebrow">Team profile</p>
         <h1 className="mt-4 text-4xl lg:text-5xl">Dr Catherine Banks</h1>

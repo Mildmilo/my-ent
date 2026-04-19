@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import { buildPhysicianSchema } from '@/lib/schema'
 
 const biographyParagraphs: string[] = [
   'Subspecialties: Otology, General and Paediatric ENT.',
@@ -22,9 +23,28 @@ export const metadata: Metadata = {
 }
 
 export default function DrJuneHuangPage() {
+  const physicianSchema = buildPhysicianSchema({
+    name: 'Dr June Huang',
+    url: '/about/dr-june-huang',
+    image: '/images/Team/dr-june-huang-myent.jpg',
+    medicalSpecialty: ['Otolaryngology', 'Otology'],
+    subspecialties: ['Otology', 'General and Paediatric ENT'],
+    hospitals: [
+      'St Luke\'s Hospital',
+      'Norwest Private Hospital',
+      'Lakeview Private Hospital',
+      'Southern Highlands Hospital',
+      'Tamara Private Hospital',
+    ],
+  })
+
   return (
     <section className="myent-section">
       {/* TODO: TIER B — awaiting individual sign-off before publishing. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(physicianSchema) }}
+      />
       <div className="myent-container">
         <p className="myent-eyebrow">Team profile</p>
         <h1 className="mt-4 text-4xl lg:text-5xl">Dr June Huang</h1>
