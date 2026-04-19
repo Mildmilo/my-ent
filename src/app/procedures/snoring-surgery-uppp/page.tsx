@@ -4,9 +4,12 @@ import type { Metadata } from 'next'
 import { ProcedurePageTemplate } from '@/components/templates/ProcedurePageTemplate'
 
 export const metadata: Metadata = {
-  title: 'Snoring Surgery (UPPP) Sydney | Sleep Airway ENT Surgery | My-ENT',
+  title: 'Snoring Surgery (UPPP) Sydney | Sleep Airway ENT Surgery',
   description:
     'Snoring surgery (UPPP) information for Sydney patients, including candidacy, preoperative airway assessment, and practical recovery expectations.',
+  alternates: {
+    canonical: '/procedures/snoring-surgery-uppp',
+  },
 }
 
 export default function SnoringSurgeryUpppPage() {

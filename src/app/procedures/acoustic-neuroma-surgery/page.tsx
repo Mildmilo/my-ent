@@ -4,9 +4,12 @@ import type { Metadata } from 'next'
 import { ProcedurePageTemplate } from '@/components/templates/ProcedurePageTemplate'
 
 export const metadata: Metadata = {
-  title: 'Acoustic Neuroma Surgery Sydney | Vestibular Schwannoma | My-ENT',
+  title: 'Acoustic Neuroma Surgery Sydney | Vestibular Schwannoma',
   description:
     'Acoustic neuroma (vestibular schwannoma) assessment and surgical management in Sydney. My-ENT specialist otology and skull base, 135 Macquarie Street.',
+  alternates: {
+    canonical: '/procedures/acoustic-neuroma-surgery',
+  },
 }
 
 export default function AcousticNeuromaSurgeryPage() {

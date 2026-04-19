@@ -5,9 +5,12 @@ import Image from 'next/image'
 import { ConditionPageTemplate } from '@/components/templates/ConditionPageTemplate'
 
 export const metadata: Metadata = {
-  title: 'Wax Impaction Treatment Sydney | Ear Cleaning | My-ENT',
+  title: 'Wax Impaction Treatment Sydney | Ear Cleaning',
   description:
     'Wax impaction information for Sydney patients, including blocked hearing symptoms, safe ear wax removal options, and ENT review timing at My-ENT.',
+  alternates: {
+    canonical: '/conditions/wax-impaction',
+  },
 }
 
 export default function WaxImpactionPage() {

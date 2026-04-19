@@ -2,9 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Finding the Right Contact | ENT Sydney | My-ENT',
+  title: 'Finding the Right Contact | ENT Sydney',
   description:
     'Contact details for My-ENT Macquarie Street rooms, other private consulting locations, and public hospital contacts in Sydney.',
+  alternates: {
+    canonical: '/contact/finding-the-right-contact',
+  },
 }
 
 

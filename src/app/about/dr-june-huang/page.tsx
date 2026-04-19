@@ -13,9 +13,12 @@ const biographyParagraphs: string[] = [
 const confirmedPublicAppointments: string[] = ['St George Hospital']
 
 export const metadata: Metadata = {
-  title: 'Dr June Huang | My-ENT',
+  title: 'Dr June Huang',
   description:
     'Verified profile for Dr June Huang including otology and ENT scope, fellowship training, and confirmed public tertiary hospital appointments.',
+  alternates: {
+    canonical: '/about/dr-june-huang',
+  },
 }
 
 export default function DrJuneHuangPage() {

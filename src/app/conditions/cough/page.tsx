@@ -5,9 +5,12 @@ import Image from 'next/image'
 import { ConditionPageTemplate } from '@/components/templates/ConditionPageTemplate'
 
 export const metadata: Metadata = {
-  title: 'Chronic Cough Sydney | ENT Cough Specialist | My-ENT',
+  title: 'Chronic Cough Sydney | ENT Cough Specialist',
   description:
     'Chronic cough information for Sydney patients — common ENT-related causes, symptoms, when to seek specialist review, and management options at My-ENT.',
+  alternates: {
+    canonical: '/conditions/cough',
+  },
 }
 
 export default function CoughPage() {

@@ -20,9 +20,12 @@ const confirmedPublicAppointments: string[] = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Dr Rithvik Reddy | My-ENT',
+  title: 'Dr Rithvik Reddy',
   description:
     'Verified profile for Dr Rithvik Reddy including otology and lateral skull base scope, fellowship training, and confirmed public tertiary hospital appointments.',
+  alternates: {
+    canonical: '/about/dr-rithvik-reddy',
+  },
 }
 
 export default function DrRithvikReddyPage() {

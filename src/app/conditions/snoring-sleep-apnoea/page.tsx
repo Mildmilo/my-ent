@@ -5,9 +5,12 @@ import Image from 'next/image'
 import { ConditionPageTemplate } from '@/components/templates/ConditionPageTemplate'
 
 export const metadata: Metadata = {
-  title: 'Snoring and Sleep Apnoea Sydney | Sleep Specialist ENT | My-ENT',
+  title: 'Snoring and Sleep Apnoea Sydney | Sleep Specialist ENT',
   description:
     'Snoring and sleep apnoea information for Sydney patients — symptoms, causes, when to seek specialist review, and treatment options at My-ENT.',
+  alternates: {
+    canonical: '/conditions/snoring-sleep-apnoea',
+  },
 }
 
 export default function SnoringAndSleepApnoeaPage() {

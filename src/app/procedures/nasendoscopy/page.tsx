@@ -4,9 +4,12 @@ import type { Metadata } from 'next'
 import { ProcedurePageTemplate } from '@/components/templates/ProcedurePageTemplate'
 
 export const metadata: Metadata = {
-  title: 'Nasendoscopy Sydney | Nasal and Throat Endoscopic Assessment | My-ENT',
+  title: 'Nasendoscopy Sydney | Nasal and Throat Endoscopic Assessment',
   description:
     'Nasendoscopy information for Sydney patients, including what this in-clinic scope examination assesses and how findings guide ENT treatment plans.',
+  alternates: {
+    canonical: '/procedures/nasendoscopy',
+  },
 }
 
 export default function NasendoscopyPage() {

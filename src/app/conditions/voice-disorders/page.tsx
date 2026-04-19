@@ -5,9 +5,12 @@ import Image from 'next/image'
 import { ConditionPageTemplate } from '@/components/templates/ConditionPageTemplate'
 
 export const metadata: Metadata = {
-  title: 'Voice Disorders Sydney | Hoarse Voice Specialist ENT | My-ENT',
+  title: 'Voice Disorders Sydney | Hoarse Voice Specialist ENT',
   description:
     'Voice disorder information for Sydney patients — symptoms of dysphonia, causes, when to seek specialist ENT review, and treatment options at My-ENT.',
+  alternates: {
+    canonical: '/conditions/voice-disorders',
+  },
 }
 
 export default function VoiceDisordersPage() {

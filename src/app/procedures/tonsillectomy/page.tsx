@@ -4,9 +4,12 @@ import type { Metadata } from 'next'
 import { ProcedurePageTemplate } from '@/components/templates/ProcedurePageTemplate'
 
 export const metadata: Metadata = {
-  title: 'Tonsillectomy Sydney | ENT Throat Surgery | My-ENT',
+  title: 'Tonsillectomy Sydney | ENT Throat Surgery',
   description:
     'Tonsillectomy information for Sydney patients and families, including when surgery may be discussed, perioperative planning, and expected recovery stages.',
+  alternates: {
+    canonical: '/procedures/tonsillectomy',
+  },
 }
 
 export default function TonsillectomyPage() {

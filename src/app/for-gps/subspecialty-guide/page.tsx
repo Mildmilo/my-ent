@@ -43,9 +43,12 @@ const guideItems: GuideItem[] = [
 ]
 
 export const metadata: Metadata = {
-  title: 'GP Subspecialty Guide Sydney | ENT Referrals | My-ENT',
+  title: 'GP Subspecialty Guide Sydney | ENT Referrals',
   description:
     'Subspecialty guide for GPs in Sydney with surgeon scope, clinical focus areas, and verified public tertiary hospital appointments.',
+  alternates: {
+    canonical: '/for-gps/subspecialty-guide',
+  },
 }
 
 export default function GpSubspecialtyGuidePage() {

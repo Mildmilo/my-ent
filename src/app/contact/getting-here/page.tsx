@@ -2,9 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Getting to My-ENT | Parking & Transport | 135 Macquarie Street Sydney',
+  title: 'Getting to My-ENT | Parking & Transport | Macquarie Street Sydney',
   description:
     'Directions, parking and public transport options for My-ENT at 135 Macquarie Street, Sydney CBD. Train, metro, light rail, bus and nearby car parks.',
+  alternates: {
+    canonical: '/contact/getting-here',
+  },
 }
 
 export default function GettingHerePage() {

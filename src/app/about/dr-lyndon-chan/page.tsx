@@ -15,9 +15,12 @@ const biographyParagraphs: string[] = [
 const confirmedPublicAppointments: string[] = ['Northern Beach Hospital', 'Wollongong Hospital']
 
 export const metadata: Metadata = {
-  title: 'Dr Lyndon Chan | My-ENT',
+  title: 'Dr Lyndon Chan',
   description:
     'Verified profile for Dr Lyndon Chan including fellowship pathway, subspecialty scope, and confirmed public tertiary hospital appointments.',
+  alternates: {
+    canonical: '/about/dr-lyndon-chan',
+  },
 }
 
 export default function DrLyndonChanPage() {

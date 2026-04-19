@@ -5,9 +5,12 @@ import Image from 'next/image'
 import { ConditionPageTemplate } from '@/components/templates/ConditionPageTemplate'
 
 export const metadata: Metadata = {
-  title: 'Hearing Loss in Children Sydney | Paediatric ENT | My-ENT',
+  title: 'Hearing Loss in Children Sydney | Paediatric ENT',
   description:
     'Paediatric hearing loss information for Sydney parents, including warning signs, causes, hearing test pathways, and specialist treatment options at My-ENT.',
+  alternates: {
+    canonical: '/conditions/paediatric-hearing-loss',
+  },
 }
 
 export default function PaediatricHearingLossPage() {

@@ -5,9 +5,12 @@ import Image from 'next/image'
 import { ConditionPageTemplate } from '@/components/templates/ConditionPageTemplate'
 
 export const metadata: Metadata = {
-  title: 'Tonsillitis in Children Sydney | Paediatric ENT | My-ENT',
+  title: 'Tonsillitis in Children Sydney | Paediatric ENT',
   description:
     'Paediatric tonsillitis information for Sydney parents, covering recurrent symptoms, specialist ENT review timing, and tonsillectomy pathways at My-ENT.',
+  alternates: {
+    canonical: '/conditions/paediatric-tonsillitis',
+  },
 }
 
 export default function PaediatricTonsillitisPage() {

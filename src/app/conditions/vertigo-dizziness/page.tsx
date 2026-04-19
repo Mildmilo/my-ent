@@ -5,9 +5,12 @@ import Image from 'next/image'
 import { ConditionPageTemplate } from '@/components/templates/ConditionPageTemplate'
 
 export const metadata: Metadata = {
-  title: 'Vertigo and Dizziness Assessment Sydney | ENT Review | My-ENT',
+  title: 'Vertigo and Dizziness Assessment Sydney | ENT Review',
   description:
     'Vertigo and dizziness information for Sydney patients, including warning signs, inner-ear causes, and specialist ENT assessment pathways at My-ENT.',
+  alternates: {
+    canonical: '/conditions/vertigo-dizziness',
+  },
 }
 
 export default function VertigoDizzinessPage() {

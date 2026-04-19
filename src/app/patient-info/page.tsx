@@ -2,9 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Patient Info | My-ENT Sydney',
+  title: 'Patient Info',
   description:
     'Patient information hub for pre-operative preparation, post-operative care, FAQs, and resources at My-ENT.',
+  alternates: {
+    canonical: '/patient-info',
+  },
 }
 
 interface PatientInfoLink {

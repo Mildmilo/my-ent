@@ -2,9 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Your First Visit | My-ENT',
+  title: 'Your First Visit',
   description:
     'Prepare for your first My-ENT appointment with referral, documentation, arrival, and follow-up guidance for patients and families.',
+  alternates: {
+    canonical: '/appointments/your-first-visit',
+  },
 }
 
 interface VisitChecklistItem {

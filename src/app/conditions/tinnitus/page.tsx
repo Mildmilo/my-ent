@@ -38,9 +38,12 @@ const tinnitusFaqItems = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Tinnitus Specialist Sydney | Ringing in Ears | My-ENT',
+  title: 'Tinnitus Specialist Sydney | Ringing in Ears',
   description:
     'Tinnitus information for Sydney patients, including common triggers, assessment steps, and practical management pathways through specialist ENT review.',
+  alternates: {
+    canonical: '/conditions/tinnitus',
+  },
 }
 
 export default function TinnitusPage() {

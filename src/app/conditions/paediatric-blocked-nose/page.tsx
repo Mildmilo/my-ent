@@ -5,9 +5,12 @@ import Image from 'next/image'
 import { ConditionPageTemplate } from '@/components/templates/ConditionPageTemplate'
 
 export const metadata: Metadata = {
-  title: 'Blocked Nose in Children Sydney | Paediatric ENT | My-ENT',
+  title: 'Blocked Nose in Children Sydney | Paediatric ENT',
   description:
     'Nasal obstruction information for parents of children in Sydney — causes, symptoms, when to seek specialist review, and paediatric treatment options at My-ENT.',
+  alternates: {
+    canonical: '/conditions/paediatric-blocked-nose',
+  },
 }
 
 export default function PaediatricBlockedNosePage() {

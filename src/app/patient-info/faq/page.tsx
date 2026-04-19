@@ -2,9 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Patient FAQ | My-ENT Sydney',
+  title: 'Patient FAQ',
   description:
     'Answers to common patient questions about appointments, referrals, fees, and what to expect before and after your ENT procedure at My-ENT.',
+  alternates: {
+    canonical: '/patient-info/faq',
+  },
 }
 
 interface FaqItem {

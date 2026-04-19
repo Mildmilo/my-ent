@@ -68,9 +68,12 @@ const sinusitisFaqItems = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Sinusitis Treatment Sydney | Sinus Specialist | My-ENT',
+  title: 'Sinusitis Treatment Sydney | Sinus Specialist',
   description:
     'Sinusitis information for Sydney patients, including common symptoms, when to seek specialist review, and practical treatment pathways at My-ENT.',
+  alternates: {
+    canonical: '/conditions/sinusitis',
+  },
 }
 
 export default function SinusitisPage() {

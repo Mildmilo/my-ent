@@ -4,9 +4,12 @@ import type { Metadata } from 'next'
 import { ProcedurePageTemplate } from '@/components/templates/ProcedurePageTemplate'
 
 export const metadata: Metadata = {
-  title: 'Wax Microsuction Sydney | Ear Wax Removal Procedure | My-ENT',
+  title: 'Wax Microsuction Sydney | Ear Wax Removal Procedure',
   description:
     'Wax microsuction information for Sydney patients, including when specialist ear cleaning is appropriate and what to expect during and after treatment.',
+  alternates: {
+    canonical: '/procedures/wax-microsuction',
+  },
 }
 
 export default function WaxMicrosuctionPage() {

@@ -2,9 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Fees and Medicare | My-ENT',
+  title: 'Fees and Medicare',
   description:
     'Understand specialist consultation fees, Medicare rebate requirements, and how referrals work before your My-ENT appointment.',
+  alternates: {
+    canonical: '/appointments/fees-and-medicare',
+  },
 }
 
 interface FeePoint {

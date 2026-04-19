@@ -5,9 +5,12 @@ import Image from 'next/image'
 import { ConditionPageTemplate } from '@/components/templates/ConditionPageTemplate'
 
 export const metadata: Metadata = {
-  title: 'Swallowing Problems Sydney | Dysphagia Specialist ENT | My-ENT',
+  title: 'Swallowing Problems Sydney | Dysphagia Specialist ENT',
   description:
     'Swallowing problem information for Sydney patients — symptoms of dysphagia, causes, when to seek specialist ENT review, and assessment options at My-ENT.',
+  alternates: {
+    canonical: '/conditions/swallowing-problems',
+  },
 }
 
 export default function SwallowingProblemsPage() {

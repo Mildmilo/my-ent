@@ -4,9 +4,12 @@ import type { Metadata } from 'next'
 import { ProcedurePageTemplate } from '@/components/templates/ProcedurePageTemplate'
 
 export const metadata: Metadata = {
-  title: 'Adenoidectomy Sydney | Paediatric ENT Surgery | My-ENT',
+  title: 'Adenoidectomy Sydney | Paediatric ENT Surgery',
   description:
     'Adenoidectomy information for Sydney families, including when enlarged adenoids may need surgery, what happens on the day, and recovery guidance.',
+  alternates: {
+    canonical: '/procedures/adenoidectomy',
+  },
 }
 
 export default function AdenoidectomyPage() {

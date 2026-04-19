@@ -4,9 +4,12 @@ import type { Metadata } from 'next'
 import { ProcedurePageTemplate } from '@/components/templates/ProcedurePageTemplate'
 
 export const metadata: Metadata = {
-  title: 'Transsphenoidal Pituitary Surgery Sydney | Endoscopic Skull Base | My-ENT',
+  title: 'Transsphenoidal Pituitary Surgery Sydney | Endoscopic Skull Base',
   description:
     'Transsphenoidal pituitary surgery information for Sydney patients, including team-based planning, surgical pathway details, and follow-up expectations.',
+  alternates: {
+    canonical: '/procedures/transsphenoidal-pituitary-surgery',
+  },
 }
 
 export default function TranssphenoidalPituitarySurgeryPage() {

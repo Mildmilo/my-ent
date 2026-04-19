@@ -4,6 +4,7 @@ Allow: /
 Disallow: /api/
 Disallow: /patient-portal/
 Disallow: /questionnaire/
+Disallow: /staff/
 
 # Host
 Host: https://my-ent.com.au

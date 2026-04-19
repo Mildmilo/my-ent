@@ -3,9 +3,12 @@ import type { Metadata } from 'next'
 import { ChangeAppointmentRequestForm } from './ChangeAppointmentRequestForm'
 
 export const metadata: Metadata = {
-  title: 'Change or Cancel an Appointment | My-ENT',
+  title: 'Change or Cancel an Appointment',
   description:
     'Submit an appointment change or cancellation request to My-ENT reception and receive confirmation within one business day.',
+  alternates: {
+    canonical: '/appointments/changes',
+  },
 }
 
 export default function AppointmentChangesPage() {

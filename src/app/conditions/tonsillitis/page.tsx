@@ -5,9 +5,12 @@ import Image from 'next/image'
 import { ConditionPageTemplate } from '@/components/templates/ConditionPageTemplate'
 
 export const metadata: Metadata = {
-  title: 'Tonsillitis Treatment Sydney | Throat Specialist | My-ENT',
+  title: 'Tonsillitis Treatment Sydney | Throat Specialist',
   description:
     'Tonsillitis information for Sydney patients — symptoms, causes, when to seek specialist review, and treatment options including tonsillectomy at My-ENT.',
+  alternates: {
+    canonical: '/conditions/tonsillitis',
+  },
 }
 
 export default function TonsillitisPage() {

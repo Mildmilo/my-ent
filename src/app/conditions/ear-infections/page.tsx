@@ -5,9 +5,12 @@ import Image from 'next/image'
 import { ConditionPageTemplate } from '@/components/templates/ConditionPageTemplate'
 
 export const metadata: Metadata = {
-  title: 'Ear Infections Treatment Sydney | Ear Specialist | My-ENT',
+  title: 'Ear Infections Treatment Sydney | Ear Specialist',
   description:
     'Ear infection information for Sydney patients, including common symptoms, when specialist review is needed, and practical treatment pathways at My-ENT.',
+  alternates: {
+    canonical: '/conditions/ear-infections',
+  },
 }
 
 export default function EarInfectionsPage() {

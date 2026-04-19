@@ -3,9 +3,12 @@ import Link from 'next/link'
 import { AppointmentRequestClient } from './AppointmentRequestClient'
 
 export const metadata: Metadata = {
-  title: 'Request an Appointment Sydney | ENT Booking Request Form | My-ENT',
+  title: 'Request an Appointment Sydney | ENT Booking Request Form',
   description:
     'Submit a structured My-ENT appointment request with referral, clinical details, and preferences so reception can confirm your booking pathway quickly.',
+  alternates: {
+    canonical: '/appointments',
+  },
 }
 
 export default function AppointmentsPage() {

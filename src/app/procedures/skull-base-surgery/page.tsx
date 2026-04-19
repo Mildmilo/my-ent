@@ -4,9 +4,12 @@ import type { Metadata } from 'next'
 import { ProcedurePageTemplate } from '@/components/templates/ProcedurePageTemplate'
 
 export const metadata: Metadata = {
-  title: 'Skull Base Surgery Sydney | Endoscopic ENT-Neurosurgical Care | My-ENT',
+  title: 'Skull Base Surgery Sydney | Endoscopic ENT-Neurosurgical Care',
   description:
     'Skull base surgery information for Sydney patients, including multidisciplinary assessment, procedural planning, and coordinated recovery follow-up.',
+  alternates: {
+    canonical: '/procedures/skull-base-surgery',
+  },
 }
 
 export default function SkullBaseSurgeryPage() {

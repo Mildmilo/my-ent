@@ -4,9 +4,12 @@ import type { Metadata } from 'next'
 import { ConditionPageTemplate } from '@/components/templates/ConditionPageTemplate'
 
 export const metadata: Metadata = {
-  title: 'Skull Base Conditions Sydney | Skull Base Surgeon | My-ENT',
+  title: 'Skull Base Conditions Sydney | Skull Base Surgeon',
   description:
     'Skull base conditions information for Sydney patients, including anterior skull base and pituitary conditions, warning signs, and endoscopic pathways.',
+  alternates: {
+    canonical: '/conditions/skull-base-conditions',
+  },
 }
 
 export default function SkullBaseConditionsPage() {

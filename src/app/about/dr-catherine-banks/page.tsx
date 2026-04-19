@@ -24,9 +24,12 @@ const confirmedPublicAppointments: string[] = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Dr Catherine Banks | My-ENT',
+  title: 'Dr Catherine Banks | Rhinology & Paediatric ENT Sydney',
   description:
-    'Verified profile for Dr Catherine Banks including qualifications, subspecialty scope, and confirmed public tertiary hospital appointments.',
+    'ENT surgeon and rhinologist in Sydney CBD. Fellowship-trained in rhinology and skull base. Paediatric and general ENT care. GP referral required.',
+  alternates: {
+    canonical: '/about/dr-catherine-banks',
+  },
 }
 
 function getRequiredSurgeonBySlug(slug: string) {

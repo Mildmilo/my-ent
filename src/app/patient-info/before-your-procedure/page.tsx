@@ -2,9 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Before Your Procedure | My-ENT Sydney',
+  title: 'Before Your Procedure',
   description:
     'General pre-operative preparation for ENT procedures at My-ENT, including fasting, medications, transport, and home recovery planning.',
+  alternates: {
+    canonical: '/patient-info/before-your-procedure',
+  },
 }
 
 interface PreparationCard {

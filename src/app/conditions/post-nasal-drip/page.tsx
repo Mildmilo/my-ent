@@ -5,9 +5,12 @@ import Image from 'next/image'
 import { ConditionPageTemplate } from '@/components/templates/ConditionPageTemplate'
 
 export const metadata: Metadata = {
-  title: 'Post-Nasal Drip Sydney | Sinus and Throat Specialist | My-ENT',
+  title: 'Post-Nasal Drip Sydney | Sinus and Throat Specialist',
   description:
     'Post-nasal drip information for Sydney patients, covering sinus and throat symptoms, key causes, and specialist ENT treatment pathways at My-ENT.',
+  alternates: {
+    canonical: '/conditions/post-nasal-drip',
+  },
 }
 
 export default function PostNasalDripPage() {

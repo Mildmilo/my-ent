@@ -4,9 +4,12 @@ import type { Metadata } from 'next'
 import { ProcedurePageTemplate } from '@/components/templates/ProcedurePageTemplate'
 
 export const metadata: Metadata = {
-  title: 'Septoplasty and Turbinate Reduction Sydney | Nasal Airway Surgery | My-ENT',
+  title: 'Septoplasty and Turbinate Reduction Sydney | Nasal Airway Surgery',
   description:
     'Septoplasty and turbinate reduction information for Sydney patients, including when surgery may be considered, preparation, and practical recovery planning.',
+  alternates: {
+    canonical: '/procedures/septoplasty-turbinate-reduction',
+  },
 }
 
 export default function SeptoplastyTurbinateReductionPage() {

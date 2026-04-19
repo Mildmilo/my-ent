@@ -4,9 +4,12 @@ import type { Metadata } from 'next'
 import { ProcedurePageTemplate } from '@/components/templates/ProcedurePageTemplate'
 
 export const metadata: Metadata = {
-  title: 'Myringoplasty Sydney | Eardrum Repair Surgery | My-ENT',
+  title: 'Myringoplasty Sydney | Eardrum Repair Surgery',
   description:
     'Myringoplasty information for Sydney patients, including when eardrum repair may be advised, perioperative planning, and postoperative ear care.',
+  alternates: {
+    canonical: '/procedures/myringoplasty',
+  },
 }
 
 export default function MyringoplastyPage() {

@@ -5,9 +5,12 @@ import Image from 'next/image'
 import { ConditionPageTemplate } from '@/components/templates/ConditionPageTemplate'
 
 export const metadata: Metadata = {
-  title: 'Reflux and LPR Sydney | Silent Reflux ENT Specialist | My-ENT',
+  title: 'Reflux and LPR Sydney | Silent Reflux ENT Specialist',
   description:
     'Reflux and laryngopharyngeal reflux (LPR) information for Sydney patients — symptoms, causes, when to seek ENT review, and treatment options at My-ENT.',
+  alternates: {
+    canonical: '/conditions/reflux-lpr',
+  },
 }
 
 export default function RefluxLprPage() {

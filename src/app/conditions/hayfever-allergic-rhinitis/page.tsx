@@ -68,9 +68,12 @@ const hayfeverFaqItems = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Hayfever Treatment Sydney | Allergic Rhinitis Specialist | My-ENT',
+  title: 'Hayfever Treatment Sydney | Allergic Rhinitis Specialist',
   description:
     'Hayfever and allergic rhinitis information for Sydney patients — causes, triggers, nasal sprays, immunotherapy, and when to see a specialist at My-ENT.',
+  alternates: {
+    canonical: '/conditions/hayfever-allergic-rhinitis',
+  },
 }
 
 export default function HayfeverAllergicRhinitisPage() {

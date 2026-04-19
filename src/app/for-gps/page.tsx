@@ -46,9 +46,12 @@ const verifiedPublicAppointments: Array<{ surgeon: string; appointments: string 
 ]
 
 export const metadata: Metadata = {
-  title: 'For GPs Sydney | ENT Referral Hub | My-ENT',
+  title: 'For GPs Sydney | ENT Referral Hub',
   description:
     'Referral hub for GPs in Sydney with surgeon subspecialty scope, urgent referral instructions, and practical referral process guidance.',
+  alternates: {
+    canonical: '/for-gps',
+  },
 }
 
 export default function ForGpsHubPage() {

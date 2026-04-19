@@ -10,9 +10,12 @@ const biographyParagraphs: string[] = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Justine Oates | My-ENT',
+  title: 'Justine Oates | Nurse Practitioner Sydney',
   description:
     'Verified profile for Justine Oates including role, qualifications, and nurse practitioner pathway responsibilities.',
+  alternates: {
+    canonical: '/about/justine-oates',
+  },
 }
 
 export default function JustineOatesPage() {

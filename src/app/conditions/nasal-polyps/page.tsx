@@ -68,9 +68,12 @@ const nasalPolypsFaqItems = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Nasal Polyps Treatment Sydney | Sinus Specialist | My-ENT',
+  title: 'Nasal Polyps Treatment Sydney | Sinus Specialist',
   description:
     'Nasal polyps information for Sydney patients — symptoms, causes, when surgery is needed, and biologic treatment options including Dupixent and Nucala at My-ENT.',
+  alternates: {
+    canonical: '/conditions/nasal-polyps',
+  },
 }
 
 export default function NasalPolypsPage() {

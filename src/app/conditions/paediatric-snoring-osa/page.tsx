@@ -5,9 +5,12 @@ import Image from 'next/image'
 import { ConditionPageTemplate } from '@/components/templates/ConditionPageTemplate'
 
 export const metadata: Metadata = {
-  title: 'Snoring and Sleep Apnoea in Children Sydney | Paediatric ENT | My-ENT',
+  title: 'Snoring and Sleep Apnoea in Children Sydney | Paediatric ENT',
   description:
     'Paediatric snoring and sleep apnoea information for Sydney parents, including breathing warning signs, ENT assessment, and treatment pathways at My-ENT.',
+  alternates: {
+    canonical: '/conditions/paediatric-snoring-osa',
+  },
 }
 
 export default function PaediatricSnoringOsaPage() {

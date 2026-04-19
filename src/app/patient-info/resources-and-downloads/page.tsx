@@ -2,9 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Resources and Downloads | My-ENT Sydney',
+  title: 'Resources and Downloads',
   description:
     'Downloadable patient and GP support resources from My-ENT, including pre-operative instructions and referral guidance.',
+  alternates: {
+    canonical: '/patient-info/resources-and-downloads',
+  },
 }
 
 export default function ResourcesAndDownloadsPage() {

@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: 'Contact My-ENT | Macquarie Street Sydney',
   description:
     'Contact My-ENT at 135 Macquarie Street, Sydney for bookings and enquiries, with map, hours, and urgent care guidance.',
+  alternates: {
+    canonical: '/contact',
+  },
 }
 
 const openingHours: string[] = [

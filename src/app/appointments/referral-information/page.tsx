@@ -2,9 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'GP Referral Information | My-ENT',
+  title: 'GP Referral Information',
   description:
     'Understand referral requirements, referral submission options, and what to include so My-ENT reception can process your booking pathway efficiently.',
+  alternates: {
+    canonical: '/appointments/referral-information',
+  },
 }
 
 export default function ReferralInformationPage() {

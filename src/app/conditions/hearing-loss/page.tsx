@@ -38,9 +38,12 @@ const hearingLossFaqItems = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Hearing Loss Assessment Sydney | ENT Specialist | My-ENT',
+  title: 'Hearing Loss Assessment Sydney | ENT Specialist',
   description:
     'Hearing loss information for Sydney patients, including warning signs, when urgent review is needed, and specialist management pathways at My-ENT.',
+  alternates: {
+    canonical: '/conditions/hearing-loss',
+  },
 }
 
 export default function HearingLossPage() {

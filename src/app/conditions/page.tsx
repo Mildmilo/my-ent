@@ -181,9 +181,12 @@ const categories: ConditionCategory[] = [
 ]
 
 export const metadata: Metadata = {
-  title: 'ENT Conditions Explained | Nose, Ear, Throat, Paediatric | My-ENT Sydney',
+  title: 'ENT Conditions Explained | Nose, Ear, Throat, Paediatric',
   description:
     'Explore ENT conditions treated at My-ENT in Sydney, including sinusitis, hearing loss, tinnitus, tonsillitis, and paediatric ENT care pathways.',
+  alternates: {
+    canonical: '/conditions',
+  },
 }
 
 export default function ConditionsIndexPage() {

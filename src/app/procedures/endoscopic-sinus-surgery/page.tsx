@@ -4,9 +4,12 @@ import type { Metadata } from 'next'
 import { ProcedurePageTemplate } from '@/components/templates/ProcedurePageTemplate'
 
 export const metadata: Metadata = {
-  title: 'Endoscopic Sinus Surgery Sydney | ESS Surgeon | My-ENT',
+  title: 'Endoscopic Sinus Surgery Sydney | ESS Surgeon',
   description:
     'Endoscopic sinus surgery (ESS) information for Sydney patients, including when ESS is considered, how surgery is performed, and recovery planning at My-ENT.',
+  alternates: {
+    canonical: '/procedures/endoscopic-sinus-surgery',
+  },
 }
 
 export default function EndoscopicSinusSurgeryPage() {

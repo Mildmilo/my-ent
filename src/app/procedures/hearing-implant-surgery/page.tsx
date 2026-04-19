@@ -4,9 +4,12 @@ import type { Metadata } from 'next'
 import { ProcedurePageTemplate } from '@/components/templates/ProcedurePageTemplate'
 
 export const metadata: Metadata = {
-  title: 'Hearing Implant Surgery Sydney | BAHA & Cochlear Implants | My-ENT',
+  title: 'Hearing Implant Surgery Sydney | BAHA & Cochlear Implants',
   description:
     'Bone-anchored hearing aids (BAHA) and cochlear implants for conductive, mixed, and sensorineural hearing loss. My-ENT specialist otology, 135 Macquarie Street Sydney.',
+  alternates: {
+    canonical: '/procedures/hearing-implant-surgery',
+  },
 }
 
 export default function HearingImplantSurgeryPage() {

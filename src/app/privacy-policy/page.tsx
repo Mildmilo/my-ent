@@ -1,9 +1,12 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | My-ENT',
+  title: 'Privacy Policy',
   description:
     'Read how My-ENT collects, uses, stores, protects, and shares personal information, and how to request access or corrections.',
+  alternates: {
+    canonical: '/privacy-policy',
+  },
 }
 
 interface PolicySection {

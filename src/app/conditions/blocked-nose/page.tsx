@@ -68,9 +68,12 @@ const blockedNoseFaqItems = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Blocked Nose Treatment Sydney | Nasal Obstruction Specialist | My-ENT',
+  title: 'Blocked Nose Treatment Sydney | Nasal Obstruction Specialist',
   description:
     'Blocked nose causes and treatment for Sydney patients — deviated septum, turbinate hypertrophy, rhinitis, and when surgery helps. My-ENT, 135 Macquarie Street.',
+  alternates: {
+    canonical: '/conditions/blocked-nose',
+  },
 }
 
 export default function BlockedNosePage() {

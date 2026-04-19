@@ -4,9 +4,12 @@ import type { Metadata } from 'next'
 import { ProcedurePageTemplate } from '@/components/templates/ProcedurePageTemplate'
 
 export const metadata: Metadata = {
-  title: 'Grommets Sydney | Ear Ventilation Tubes | My-ENT',
+  title: 'Grommets Sydney | Ear Ventilation Tubes',
   description:
     'Grommets information for Sydney children and adults, including indications for middle ear ventilation procedures, what to expect, and follow-up care.',
+  alternates: {
+    canonical: '/procedures/grommets',
+  },
 }
 
 export default function GrommetsPage() {

@@ -4,9 +4,12 @@ import type { Metadata } from 'next'
 import { ProcedurePageTemplate } from '@/components/templates/ProcedurePageTemplate'
 
 export const metadata: Metadata = {
-  title: 'Microlaryngoscopy Sydney | Voice and Throat Procedure | My-ENT',
+  title: 'Microlaryngoscopy Sydney | Voice and Throat Procedure',
   description:
     'Microlaryngoscopy information for Sydney patients, including indications for laryngeal assessment and treatment, perioperative planning, and follow-up care.',
+  alternates: {
+    canonical: '/procedures/microlaryngoscopy',
+  },
 }
 
 export default function MicrolaryngoscopyPage() {

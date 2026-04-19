@@ -35,9 +35,12 @@ const teamCards: TeamCard[] = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Our Surgeons Sydney | ENT Team Profiles | My-ENT',
+  title: 'Our Surgeons Sydney | ENT Team Profiles',
   description:
     'Meet the My-ENT surgeons and nurse practitioner in Sydney, with profile pages for rhinology, otology, paediatric ENT, and skull base expertise.',
+  alternates: {
+    canonical: '/about/our-surgeons',
+  },
 }
 
 export default function OurSurgeonsPage() {

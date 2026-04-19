@@ -4,9 +4,12 @@ import type { Metadata } from 'next'
 import { ProcedurePageTemplate } from '@/components/templates/ProcedurePageTemplate'
 
 export const metadata: Metadata = {
-  title: 'Stapes Surgery Sydney | Stapedectomy & Stapedotomy | My-ENT',
+  title: 'Stapes Surgery Sydney | Stapedectomy & Stapedotomy',
   description:
     'Stapes surgery (stapedotomy and stapedectomy) for otosclerosis-related conductive hearing loss. Fellowship-trained otology at My-ENT, 135 Macquarie Street Sydney.',
+  alternates: {
+    canonical: '/procedures/stapes-surgery',
+  },
 }
 
 export default function StapesSurgeryPage() {

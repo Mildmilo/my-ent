@@ -2,9 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'After Your Procedure | My-ENT Sydney',
+  title: 'After Your Procedure',
   description:
     'General post-operative guidance after ENT surgery at My-ENT, including normal recovery expectations and when to seek urgent care.',
+  alternates: {
+    canonical: '/patient-info/after-your-procedure',
+  },
 }
 
 interface GuidanceCard {

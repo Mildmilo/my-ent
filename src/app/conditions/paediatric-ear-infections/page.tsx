@@ -5,9 +5,12 @@ import Image from 'next/image'
 import { ConditionPageTemplate } from '@/components/templates/ConditionPageTemplate'
 
 export const metadata: Metadata = {
-  title: 'Paediatric Ear Infections Sydney | Children\'s ENT | My-ENT',
+  title: 'Paediatric Ear Infections Sydney | Children\'s ENT',
   description:
     'Paediatric ear infections information for Sydney parents, covering symptoms, hearing impact, specialist review timing, and grommets pathways at My-ENT.',
+  alternates: {
+    canonical: '/conditions/paediatric-ear-infections',
+  },
 }
 
 export default function PaediatricEarInfectionsPage() {

@@ -2,9 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Sinus Assessment Questionnaire | My-ENT Sydney',
+  title: 'Sinus Assessment Questionnaire',
   description:
     'Information about the My-ENT sinus assessment questionnaire — what it covers, when you will receive it, and how it helps your surgeon prepare for your consultation.',
+  alternates: {
+    canonical: '/appointments/sinus-assessment',
+  },
 }
 
 export default function SinusAssessmentInfoPage() {

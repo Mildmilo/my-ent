@@ -15,9 +15,22 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'ENT Surgeons Sydney | Rhinology & Skull Base | My-ENT',
+  metadataBase: new URL('https://www.my-ent.com.au'),
+  title: {
+    default: 'ENT Surgeons Sydney | Rhinology & Skull Base | My-ENT',
+    template: '%s | My-ENT',
+  },
   description:
     'My-ENT supports referral-ready patients with appointment requests, referral upload guidance, and practical first-visit information in Sydney.',
+  openGraph: {
+    type: 'website',
+    siteName: 'My-ENT',
+    locale: 'en_AU',
+    url: 'https://www.my-ent.com.au',
+  },
+  alternates: {
+    canonical: '/',
+  },
 }
 
 interface RootLayoutProps {

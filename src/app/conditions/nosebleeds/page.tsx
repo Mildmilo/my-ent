@@ -5,9 +5,12 @@ import Image from 'next/image'
 import { ConditionPageTemplate } from '@/components/templates/ConditionPageTemplate'
 
 export const metadata: Metadata = {
-  title: 'Nosebleeds Treatment Sydney | Epistaxis Specialist | My-ENT',
+  title: 'Nosebleeds Treatment Sydney | Epistaxis Specialist',
   description:
     'Nosebleed and epistaxis information for Sydney patients, including common causes, when to seek specialist review, and treatment pathways at My-ENT.',
+  alternates: {
+    canonical: '/conditions/nosebleeds',
+  },
 }
 
 export default function NosebleedsPage() {

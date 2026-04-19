@@ -4,9 +4,12 @@ import type { Metadata } from 'next'
 import { ProcedurePageTemplate } from '@/components/templates/ProcedurePageTemplate'
 
 export const metadata: Metadata = {
-  title: 'Sleep Endoscopy (DISE) Sydney | Snoring and Sleep Apnoea Assessment | My-ENT',
+  title: 'Sleep Endoscopy (DISE) Sydney | Snoring and Sleep Apnoea Assessment',
   description:
     'Sleep endoscopy (DISE) information for Sydney patients, including why this airway assessment is used and how it supports personalised treatment planning.',
+  alternates: {
+    canonical: '/procedures/sleep-endoscopy-dise',
+  },
 }
 
 export default function SleepEndoscopyDisePage() {

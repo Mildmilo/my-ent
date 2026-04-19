@@ -59,9 +59,12 @@ const teamCards: TeamMemberCard[] = [
 ]
 
 export const metadata: Metadata = {
-  title: 'About My-ENT | Our Team, Locations, and Practice | My-ENT Sydney',
+  title: 'About My-ENT | Our Team, Locations, and Practice',
   description:
     'Learn about My-ENT — our ENT surgeons, nurse practitioner, clinic locations, and research activity in Sydney.',
+  alternates: {
+    canonical: '/about',
+  },
 }
 
 export default function AboutIndexPage() {

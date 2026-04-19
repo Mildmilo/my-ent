@@ -133,9 +133,12 @@ const categories: ProcedureCategory[] = [
 ]
 
 export const metadata: Metadata = {
-  title: 'ENT Procedures and Surgery | Nose, Ear, Throat | My-ENT Sydney',
+  title: 'ENT Procedures and Surgery | Nose, Ear, Throat',
   description:
     'Browse all 16 ENT procedures performed at My-ENT in Sydney. Patient-focused guides covering sinus surgery, ear procedures, tonsillectomy, and more.',
+  alternates: {
+    canonical: '/procedures',
+  },
 }
 
 export default function ProceduresIndexPage() {

@@ -30,9 +30,12 @@ const trustSignalRows: Array<{ surgeon: string; appointments: string }> = [
 ]
 
 export const metadata: Metadata = {
-  title: 'GP Resources Sydney | Referral Pathways | My-ENT',
+  title: 'GP Resources Sydney | Referral Pathways',
   description:
     'Practical GP resources for My-ENT referrals in Sydney, including urgent pathway instructions, referral checklist, and verified public appointments.',
+  alternates: {
+    canonical: '/for-gps/gp-resources',
+  },
 }
 
 export default function GpResourcesPage() {
