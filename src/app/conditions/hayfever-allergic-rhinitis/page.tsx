@@ -8,57 +8,57 @@ const hayfeverFaqItems = [
   {
     question: 'What is the difference between hayfever and allergic rhinitis?',
     answer:
-      'They are the same condition. Hayfever is the common name used when symptoms are triggered by seasonal pollen exposure — typically in spring and summer. Allergic rhinitis is the clinical term that covers both seasonal reactions (pollen-driven) and perennial reactions that occur year-round, triggered by dust mites, pet dander, mould spores, or other indoor allergens. Many patients have both seasonal and perennial components.',
+      'They are essentially the same condition. Hayfever is the common term most people use, particularly when symptoms are triggered by seasonal pollen exposure. Allergic rhinitis is the medical term and includes both seasonal symptoms and year-round symptoms caused by triggers such as house dust mite, pet dander, or mould. Many patients have both seasonal and perennial components.',
   },
   {
     question: 'How common is hayfever in Australia?',
     answer:
-      'Extremely common. According to the Australian Institute of Health and Welfare, around 6.1 million Australians — approximately one in four people — had allergic rhinitis in 2022. Prevalence has been rising steadily, up from 16% in 2001 to 24% in 2022. Australia has one of the highest rates of allergic rhinitis in the world, driven in part by high grass pollen loads particularly in spring and early summer.',
+      'Very common. According to the Australian Institute of Health and Welfare, around 6.1 million Australians — approximately one in four people — had allergic rhinitis in 2022. This makes allergic rhinitis one of the most common chronic allergic conditions in Australia.',
   },
   {
     question: 'What are the most common triggers of hayfever in Sydney?',
     answer:
-      'In Sydney and the NSW coastal strip, the most significant seasonal trigger is ryegrass pollen, which peaks in October through December. Other important pollen triggers include wattle (Acacia) in late winter and spring, and Paterson\'s Curse, which has spread into rural NSW. Year-round triggers include house dust mite — which thrives in Sydney\'s warm, humid coastal climate — cat and dog dander, mould spores, and cockroach allergen. Pollen counts on the NSW east coast are generally lower than Victoria because the Great Dividing Range provides some protection from westerly winds carrying inland pollen.',
+      'In Sydney, common triggers include grass pollen during spring and early summer, as well as year-round exposure to house dust mite, pet dander, mould, and cockroach allergen. Some patients are also sensitive to weed pollens. House dust mite is a particularly important perennial trigger in Sydney\'s humid coastal environment. Wattle is often blamed for spring symptoms, but allergy testing less commonly confirms it as the main cause.',
   },
   {
     question: 'Can hayfever affect asthma?',
     answer:
-      'Yes — the connection is well established and clinically important. The nose and lungs share the same mucosal airway, and inflammation in one area commonly drives inflammation in the other — a concept called the unified airway. Poorly controlled allergic rhinitis is a recognised risk factor for worsening asthma control, and treating hayfever effectively often leads to improved asthma outcomes. In Australia, ryegrass pollen is also a specific trigger for thunderstorm asthma — a phenomenon where pollen grains rupture in thunderstorm conditions and release particles small enough to penetrate deep into the airways, causing acute severe asthma. Patients with seasonal hayfever who also have asthma should be aware of this risk and ensure their asthma preventer therapy is optimised before the pollen season.',
+      'Yes — the link is well established and clinically important. The nose and lungs are part of the same airway, and inflammation in one area often affects the other. Poorly controlled allergic rhinitis can worsen asthma control, and treating hayfever properly often helps asthma symptoms as well. In Australia, grass pollen is also associated with thunderstorm asthma, where storm conditions break pollen into very small particles that can reach deep into the lungs and trigger severe asthma attacks. Patients with asthma and seasonal hayfever should make sure their asthma treatment is optimised before pollen season.',
   },
   {
     question: 'What is the difference between seasonal and perennial allergic rhinitis?',
     answer:
-      'Seasonal allergic rhinitis causes symptoms at the same time each year, corresponding to specific pollen seasons — typically spring and early summer for grass pollen, and late winter for wattle. Symptoms clear when the season ends. Perennial allergic rhinitis causes symptoms throughout the year because the triggering allergens — most commonly house dust mite, pet dander, and mould — are present continuously in the home environment. Many patients in Sydney have both: a perennial baseline driven by dust mite, with a seasonal flare driven by spring grass pollen.',
+      'Seasonal allergic rhinitis causes symptoms at particular times of year, usually when certain pollens are present. Perennial allergic rhinitis causes symptoms throughout the year because triggers such as house dust mite, pet dander, or mould are present more continuously in the environment. Many patients have a year-round baseline with seasonal flares on top of that.',
   },
   {
     question: 'What nasal spray is best for hayfever in Australia?',
     answer:
-      'Intranasal corticosteroid sprays are the evidence-based first-line treatment for moderate to persistent hayfever — more effective than oral antihistamines alone for nasal congestion and post-nasal drip. Australian options include mometasone furoate (Nasonex), budesonide (Rhinocort), and fluticasone furoate (Avamys). Several of these are available without prescription at Australian pharmacies. They work best when used consistently — maximum effect develops over one to two weeks of daily use. For intermittent or mild symptoms, a non-sedating oral antihistamine such as cetirizine, loratadine, or fexofenadine is appropriate. Eye drops (sodium cromoglycate or ketotifen) can be added when eye symptoms are prominent.',
+      'Intranasal corticosteroid sprays are the evidence-based first-line treatment for moderate or persistent hayfever. They are generally more effective than oral antihistamines alone for nasal blockage and ongoing nasal symptoms. Common Australian options include mometasone furoate (Nasonex), budesonide (Rhinocort), and fluticasone furoate (Avamys). They work best when used consistently, and the full benefit may take one to two weeks to develop. For some patients, a combined corticosteroid-antihistamine nasal spray may also be appropriate. For mild or intermittent symptoms, a non-sedating oral antihistamine such as cetirizine, loratadine, or fexofenadine may be enough. Eye drops can be added when eye symptoms are prominent.',
   },
   {
     question: 'Are antihistamine tablets enough to treat hayfever?',
     answer:
-      'For mild or intermittent symptoms — such as sneezing and watery eyes on high pollen days — a non-sedating antihistamine tablet (cetirizine, loratadine, or fexofenadine) is appropriate and effective. However, for persistent or moderate-to-severe hayfever, particularly when nasal congestion is prominent, antihistamine tablets alone are usually insufficient. Current ARIA 2024 guidelines and ASCIA 2024 recommendations support intranasal corticosteroid sprays as the more effective option for persistent symptoms, either alone or combined with an antihistamine. Older sedating antihistamines such as promethazine impair learning and concentration and are not recommended during the day.',
+      'For mild or occasional symptoms — especially sneezing, itch, or watery eyes — a non-sedating antihistamine tablet may be appropriate and effective. However, for persistent or more troublesome hayfever, particularly when nasal blockage is a major issue, antihistamine tablets alone are often not enough. In those situations, an intranasal corticosteroid spray is usually more effective. Older sedating antihistamines such as promethazine can cause drowsiness and are best avoided during the day.',
   },
   {
     question: 'What is allergen immunotherapy and is it available in Australia?',
     answer:
-      'Allergen immunotherapy — also called desensitisation — is the only treatment that addresses the underlying immune mechanism of allergic rhinitis rather than just controlling symptoms. It involves regular, gradually increasing exposure to the specific allergens causing your symptoms, which over time retrains the immune system to become less reactive. In Australia it is available as subcutaneous injections (allergy shots given in a clinic) or sublingual preparations — daily tablets or drops placed under the tongue at home. TGA-approved sublingual tablets are available in Australia for grass pollen and house dust mite. A full course typically takes three to five years. Benefits have been shown to persist for five to eight years after completing treatment. Allergen immunotherapy for allergic rhinitis must be initiated by a clinical immunologist or allergist — your rhinologist or GP can assess whether you are a candidate and refer you to the appropriate specialist.',
+      'Allergen immunotherapy — sometimes called desensitisation — is the only treatment that aims to modify the underlying allergic response rather than simply control symptoms. It works by exposing the immune system to carefully controlled amounts of the relevant allergen over time, with the goal of reducing sensitivity. In Australia it is available as subcutaneous injections given in a clinic, or as prescribed sublingual tablets for selected allergens such as grass pollen and house dust mite. Treatment usually continues for three to five years, and the benefits can persist for years after completion. Immunotherapy should be initiated and supervised by a clinical immunology or allergy specialist.',
   },
   {
     question: 'Can hayfever be cured?',
     answer:
-      'There is no permanent cure in the conventional sense. However, allergen immunotherapy (desensitisation) comes closest — a completed three to five year course substantially reduces sensitivity to the triggering allergen and can produce lasting benefit for several years after stopping treatment. For most patients, the goal of management is excellent symptom control that allows normal daily function and sleep, using the minimum treatment needed. Many patients find that consistent use of an intranasal corticosteroid spray before and through the pollen season — rather than reacting to symptoms after they develop — significantly reduces the overall burden of hayfever.',
+      'There is no guaranteed permanent cure. However, allergen immunotherapy can produce long-lasting improvement in carefully selected patients by reducing sensitivity to the relevant allergen. For most people, the goal is excellent symptom control that allows normal sleep, concentration, and daily function, using the minimum treatment needed.',
   },
   {
     question: 'Should I see an ENT or an allergist for hayfever?',
     answer:
-      'Both have a role, and in many patients both are involved. A rhinologist or ENT surgeon is particularly helpful when nasal obstruction is a significant symptom, when hayfever coexists with structural nasal problems such as a deviated septum or nasal polyps, or when symptoms are not adequately controlled with standard medications. An allergist or clinical immunologist is the appropriate specialist to initiate formal allergy testing, confirm specific allergen sensitivities, and prescribe allergen immunotherapy. Your GP is the right starting point for mild-to-moderate hayfever, and will refer you to the appropriate specialist based on how your symptoms respond to initial management.',
+      'Both may have a role. An ENT surgeon is particularly helpful when nasal blockage is prominent, when there may be structural problems such as a deviated septum or nasal polyps, or when symptoms are not settling with standard treatment. An allergist or clinical immunologist is the appropriate specialist for formal allergy testing, confirmation of allergen sensitivities, and consideration of allergen immunotherapy. Your GP is usually the best starting point and can help direct you to the right specialist.',
   },
   {
     question: 'Does hayfever get worse as you get older?',
     answer:
-      'For many people hayfever fluctuates significantly over a lifetime rather than consistently worsening. Some patients find symptoms improve in their 40s and 50s as immune reactivity naturally changes with age. Others find new sensitisations develop over time. Moving between climates or regions — for example relocating to Sydney from a different pollen zone — can also trigger the development of new sensitivities. Hayfever during pregnancy commonly worsens, typically in the second trimester. If symptoms that were previously well controlled become more difficult to manage, specialist review is worthwhile.',
+      'Symptoms often fluctuate over time rather than steadily worsening. Some people find their symptoms improve, while others develop new sensitivities or notice symptoms change after moving to a different environment or climate. Pregnancy can also make rhinitis symptoms worse. If symptoms that were previously manageable become more troublesome, it is worth seeking review.',
   },
   {
     question: 'Will every surgeon at My-ENT approach my condition the same way?',
@@ -68,12 +68,9 @@ const hayfeverFaqItems = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Hayfever Treatment Sydney | Allergic Rhinitis Specialist',
+  title: 'Hayfever Treatment Sydney | Allergic Rhinitis Specialist | My-ENT',
   description:
     'Hayfever and allergic rhinitis information for Sydney patients — causes, triggers, nasal sprays, immunotherapy, and when to see a specialist at My-ENT.',
-  alternates: {
-    canonical: '/conditions/hayfever-allergic-rhinitis',
-  },
 }
 
 export default function HayfeverAllergicRhinitisPage() {
@@ -82,7 +79,7 @@ export default function HayfeverAllergicRhinitisPage() {
       slug="hayfever-allergic-rhinitis"
       title="Hayfever & Allergic Rhinitis"
       clinicalTerm="Allergic rhinitis"
-      plainEnglishSummary="Hayfever — or allergic rhinitis — is the most common allergic condition in Australia, affecting approximately one in four people. It occurs when the immune system overreacts to airborne substances such as grass pollen, dust mite, or pet dander, causing nasal congestion, sneezing, runny nose, and itchy eyes. Symptoms can be seasonal, year-round, or both. Treatment ranges from nasal sprays and antihistamines through to allergen immunotherapy — the only treatment that addresses the underlying cause."
+      plainEnglishSummary="Hayfever — or allergic rhinitis — is a very common allergic condition in Australia, affecting around one in four people. It happens when the immune system overreacts to airborne allergens such as grass pollen, house dust mite, or pet dander, leading to symptoms such as sneezing, a runny or blocked nose, and itchy or watery eyes. Symptoms may be seasonal, present all year, or a combination of both. Treatment ranges from nasal sprays and antihistamines through to allergen immunotherapy, which can reduce sensitivity to the underlying trigger in selected patients."
       heroImageSlot={
         <Image
           src="/images/Conditions/hayfever-allergic-rhinitis-condition-myent.webp"
@@ -94,53 +91,108 @@ export default function HayfeverAllergicRhinitisPage() {
         />
       }
       symptoms={[
-        'Frequent sneezing, often in bursts — particularly on waking or on going outdoors during pollen season.',
+        'Frequent sneezing, often in bursts — particularly on waking or after exposure to outdoor pollen or other triggers.',
         'Runny nose with clear, watery discharge.',
-        'Nasal congestion or blockage — often worse in the morning, or on exposure to triggers.',
+        'Nasal congestion or blockage.',
         'Itchy nose, palate, or throat.',
-        'Itchy, red, or watery eyes — known as allergic conjunctivitis, which commonly accompanies allergic rhinitis.',
+        'Itchy, red, or watery eyes — often occurring alongside allergic rhinitis.',
         'Post-nasal drip causing throat clearing, mild cough, or a sensation of mucus at the back of the throat.',
-        'Fatigue and reduced concentration — particularly during pollen season when symptoms are at their peak.',
+        'Fatigue and reduced concentration when symptoms are poorly controlled.',
         'Worsening of asthma symptoms in patients with coexisting asthma.',
       ]}
-      symptomsNote="Symptoms that occur at the same time each year — typically spring and early summer in Sydney — suggest a seasonal pollen trigger. Symptoms present throughout the year, particularly in the morning or after time at home, suggest a perennial trigger such as house dust mite. Both patterns can coexist in the same patient."
+      symptomsNote="Symptoms that occur at similar times each year suggest a seasonal pollen trigger. Symptoms present throughout the year — particularly at home or on waking — may suggest perennial triggers such as house dust mite or pet dander. Many patients have a mixture of both."
       causes={[
-        'Grass pollen — the dominant seasonal trigger in Sydney and coastal NSW. Ryegrass pollen peaks from October through December. Pollen counts are generally lower on the NSW east coast than Victoria due to the protection of the Great Dividing Range.',
-        'House dust mite — the most common year-round trigger in Sydney, which thrives in the warm, humid coastal climate. Mite allergen is found in bedding, carpets, soft furnishings, and soft toys.',
-        'Cat and dog dander — a major perennial trigger for patients with household pets. Allergen from cats in particular is highly sticky and persists in homes long after the animal is removed.',
-        'Wattle (Acacia) pollen — a significant trigger in late winter and early spring across NSW.',
-        'Mould spores — common in damp environments and after wet weather. A particular issue in bathrooms, under-house spaces, and older Sydney homes.',
-        'Cockroach allergen — relevant in urban environments and recognised as a trigger particularly in inner-city Sydney.',
-        'Paterson\'s Curse — an introduced weed spreading through rural NSW that produces highly allergenic pollen.',
+        'Grass pollen — an important seasonal trigger in Sydney, usually during spring and early summer.',
+        'House dust mite — a major year-round trigger in Sydney, particularly in bedding, carpets, and soft furnishings.',
+        'Cat and dog dander — an important perennial trigger for sensitised patients.',
+        'Mould spores — more common in damp indoor environments and after wet weather.',
+        'Cockroach allergen — relevant in some urban environments.',
+        'Weed pollens — a trigger for some patients.',
       ]}
-      causesCitation="Australian Institute of Health and Welfare. Allergic rhinitis (hay fever). 2026. ASCIA Allergic Rhinitis Clinical Update 2024. ARIA Guidelines 2024–2025 Revision. Rhinology. 2025."
-      whenToSeekHelp="See your GP if hayfever symptoms are affecting sleep, work, school, or daily function despite using over-the-counter antihistamines or nasal sprays. Specialist ENT review is appropriate when nasal congestion is a dominant symptom, when hayfever coexists with structural nasal problems such as polyps or a deviated septum, or when symptoms remain poorly controlled despite adequate medical treatment. Allergy specialist review is appropriate to confirm specific sensitisations and consider allergen immunotherapy. If you have asthma alongside hayfever, ensure your asthma preventer is reviewed before the grass pollen season — particularly given the risk of thunderstorm asthma in Sydney during spring."
+      causesCitation="Australian Institute of Health and Welfare. Allergic rhinitis (hay fever). ASCIA Allergic Rhinitis Clinical Update 2024. ARIA 2024 update."
+      whenToSeekHelp="See your GP if hayfever symptoms are affecting sleep, work, school, or day-to-day function despite appropriate over-the-counter treatment. ENT review is helpful when nasal blockage is a major symptom, when there may be structural nasal problems such as a deviated septum or polyps, or when symptoms remain poorly controlled despite medical therapy. Allergy specialist review is appropriate when specific allergen confirmation or allergen immunotherapy is being considered. If you have asthma as well as hayfever, your asthma treatment should be reviewed before pollen season."
       treatmentOverview={{
         overview:
-          'Treatment is stepped according to symptom severity and frequency, following ASCIA 2024 and ARIA 2024–2025 guidelines. The goal is to achieve excellent symptom control that allows normal daily function, using the minimum treatment needed. Starting treatment before the pollen season begins — rather than reacting to symptoms after they develop — produces significantly better control.',
+          'Treatment is guided by symptom severity and frequency. The goal is good symptom control with the least treatment needed. Starting treatment before a known pollen season can improve control in patients with predictable seasonal symptoms.',
         treatments: [
           {
             heading: 'Allergen avoidance',
-            body: 'Reducing exposure to identified triggers is a useful adjunct to medication, though it rarely achieves adequate control on its own. Practical measures for Sydney patients include: checking the daily pollen count at AusPollen.org.au and staying indoors on high-count days; keeping windows closed during peak pollen hours (morning); showering after outdoor activities during pollen season; encasing mattresses and pillows in dust mite-proof covers; washing bedding weekly in hot water (above 55°C); removing carpets in bedrooms where dust mite is the primary trigger; and limiting household pets for sensitised patients.',
+            body: 'Reducing exposure to known triggers can help, although it is rarely enough on its own. Practical measures may include monitoring local pollen forecasts at auspollen.org.au, keeping windows closed on high pollen days, showering after time outdoors during pollen season, using dust mite covers on pillows and mattresses, washing bedding weekly in hot water above 60°C, and reducing indoor dampness or mould exposure where relevant.',
           },
           {
             heading: 'Intranasal corticosteroid sprays',
-            body: 'The evidence-based first-line treatment for moderate-to-persistent hayfever. More effective than antihistamine tablets alone for nasal congestion and post-nasal drip. Australian options available at pharmacies include mometasone furoate (Nasonex), budesonide (Rhinocort), and fluticasone furoate (Avamys). Use daily, starting one to two weeks before the expected pollen season for best results. Maximum effect develops with consistent use — do not stop when symptoms improve. Saline nasal irrigation before the spray improves penetration. These sprays are safe for long-term use.',
+            body: 'These are the evidence-based first-line treatment for moderate or persistent hayfever. They are generally more effective than antihistamine tablets alone for nasal blockage and ongoing nasal symptoms. Common Australian options include mometasone furoate (Nasonex), budesonide (Rhinocort), and fluticasone furoate (Avamys). They work best when used regularly and may take one to two weeks to reach full effect. Saline irrigation beforehand may help improve comfort and penetration.',
           },
           {
             heading: 'Antihistamine tablets and nasal sprays',
-            body: 'Non-sedating oral antihistamines — cetirizine, loratadine, or fexofenadine — are effective for sneezing, runny nose, and eye symptoms, particularly for intermittent or mild hayfever. They work within one to two hours of taking. Intranasal antihistamines provide faster relief of nasal symptoms than oral tablets and can be used alongside intranasal corticosteroids for difficult-to-control symptoms. Avoid older sedating antihistamines (such as promethazine) during the day — they significantly impair driving and concentration.',
+            body: 'Non-sedating oral antihistamines such as cetirizine, loratadine, or fexofenadine can help with sneezing, itch, and runny nose, particularly in mild or intermittent disease. Intranasal antihistamines can provide relatively rapid relief and may be used alone or in combination with an intranasal corticosteroid depending on symptom pattern and severity.',
           },
           {
             heading: 'Eye drops',
-            body: 'When eye symptoms are prominent, topical eye drops can be added alongside nasal treatment. Sodium cromoglycate drops (available over the counter in Australia) are useful when started before the season. Ketotifen drops provide faster relief and combine antihistamine and mast cell stabilising effects. Wearing wraparound sunglasses outdoors during pollen season also reduces direct pollen exposure to the eyes.',
+            body: 'When eye symptoms are prominent, topical eye drops can be added. Options available in Australia include sodium cromoglycate and ketotifen. Simple measures such as wearing sunglasses outdoors may also reduce pollen exposure to the eyes.',
           },
           {
             heading: 'Allergen immunotherapy (desensitisation)',
-            body: 'The only treatment that addresses the underlying immune mechanism of allergic rhinitis. Recommended by ASCIA 2024 for patients with severe or inadequately controlled hayfever. Available in Australia as subcutaneous injections (given in a clinic) or TGA-approved sublingual daily tablets for grass pollen and house dust mite. A full course takes three to five years; benefits typically persist for five to eight years after completing treatment. Must be initiated by a clinical immunologist or allergist — your ENT surgeon or GP can assess candidacy and refer to the appropriate specialist.',
+            body: 'This is the only treatment that aims to modify the underlying allergic response. In Australia it is available as clinic-based injections or prescribed sublingual tablets for selected allergens such as grass pollen and house dust mite. Treatment typically runs for three to five years and should be initiated by a clinical immunology or allergy specialist.',
           },
         ],
       }}
+      extraContent={
+        <section className="myent-section border-t border-neutral-100 bg-neutral-50">
+          <div className="myent-container">
+            <h2 className="text-2xl text-neutral-800">Useful resources</h2>
+            <p className="mt-3 text-sm leading-relaxed text-neutral-500">
+              The following Australian organisations provide reliable, evidence-based patient information on hayfever and allergic rhinitis.
+            </p>
+            <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {[
+                {
+                  name: 'ASCIA — Allergic Rhinitis',
+                  description: 'Australia\'s peak allergy body. Patient information, treatment plans, and specialist locator.',
+                  href: 'https://www.allergy.org.au/patients/allergic-rhinitis-hay-fever-and-sinusitis',
+                },
+                {
+                  name: 'ASCIA — Allergen Immunotherapy',
+                  description: 'Information on desensitisation — how it works, who is eligible, and what to expect.',
+                  href: 'https://www.allergy.org.au/patients/allergy-treatments/allergen-immunotherapy',
+                },
+                {
+                  name: 'Allergy & Anaphylaxis Australia',
+                  description: 'Patient support organisation with practical guides on managing hayfever and allergic conditions.',
+                  href: 'https://allergyfacts.org.au/__interest/allergic-rhinitis/',
+                },
+                {
+                  name: 'AusPollen — Daily Pollen Forecast',
+                  description: 'National pollen monitoring network. Check daily pollen counts for Sydney and across Australia.',
+                  href: 'https://auspollen.edu.au',
+                },
+                {
+                  name: 'AIHW — Allergic Rhinitis Data',
+                  description: 'Australian Institute of Health and Welfare statistics on allergic rhinitis prevalence and trends.',
+                  href: 'https://www.aihw.gov.au/reports/chronic-respiratory-conditions/allergic-rhinitis-hay-fever',
+                },
+                {
+                  name: 'Healthdirect — Hayfever',
+                  description: 'Australian Government health information service — plain English overview of hayfever causes and management.',
+                  href: 'https://www.healthdirect.gov.au/hay-fever',
+                },
+              ].map((resource) => (
+                <a
+                  key={resource.href}
+                  href={resource.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="myent-card block hover:border-teal-200 transition-colors"
+                >
+                  <p className="text-sm font-medium text-teal-600">{resource.name}</p>
+                  <p className="mt-1.5 text-sm leading-relaxed text-neutral-500">{resource.description}</p>
+                  <p className="mt-2 text-xs text-neutral-400">External link ↗</p>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+      }
       relatedProcedures={[
         {
           title: 'Nasendoscopy',

@@ -43,6 +43,7 @@ interface ConditionPageTemplateProps {
   treatmentOverview: TreatmentOverview | string
   relatedProcedures: RelatedLink[]
   faqItems?: FaqItem[]
+  extraContent?: ReactNode
 }
 
 // DO NOT list individual surgeons on condition pages - see CLAUDE.md Section 2 for rationale.
@@ -71,6 +72,7 @@ export function ConditionPageTemplate({
   treatmentOverview,
   relatedProcedures,
   faqItems,
+  extraContent,
 }: ConditionPageTemplateProps) {
   const conditionSchema = buildMedicalConditionSchema({
     name: title,
@@ -279,6 +281,7 @@ export function ConditionPageTemplate({
           />
         </section>
       ) : null}
+      {extraContent}
     </>
   )
 }
