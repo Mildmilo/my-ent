@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
-
 const conditionAreaLabels: Record<string, string> = {
   'nose-sinuses': 'Nose and sinuses → Send SNOT-22, NOSE, and Allergy questionnaire Genie link',
   'ear-hearing': 'Ear and hearing → Send otology intake Genie link',
@@ -20,6 +18,7 @@ const surgeonLabels: Record<string, string> = {
 
 export async function POST(req: NextRequest) {
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY)
     const body = await req.json()
 
     const {
