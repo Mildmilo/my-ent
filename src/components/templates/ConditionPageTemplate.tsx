@@ -42,7 +42,6 @@ interface ConditionPageTemplateProps {
   whenToSeekHelp: WhenToSeekHelp | string
   treatmentOverview: TreatmentOverview | string
   relatedProcedures: RelatedLink[]
-  sinusQuestionnaireCalloutHeading?: string
   faqItems?: FaqItem[]
 }
 
@@ -71,7 +70,6 @@ export function ConditionPageTemplate({
   whenToSeekHelp,
   treatmentOverview,
   relatedProcedures,
-  sinusQuestionnaireCalloutHeading,
   faqItems,
 }: ConditionPageTemplateProps) {
   const conditionSchema = buildMedicalConditionSchema({
@@ -238,25 +236,6 @@ export function ConditionPageTemplate({
           </article>
 
           <div className="space-y-8">
-            {sinusQuestionnaireCalloutHeading ? (
-              <article className="myent-card border border-teal-200 bg-teal-50/60">
-                <p className="myent-eyebrow">Pre-appointment</p>
-                <h2 className="mt-3 font-serif text-2xl text-neutral-800">
-                  {sinusQuestionnaireCalloutHeading}
-                </h2>
-                <p className="mt-5 text-base leading-relaxed text-neutral-600">
-                  If you are attending My-ENT for a nose or sinus concern, our pre-appointment
-                  questionnaire helps our clinical team prepare for your consultation. It takes most
-                  patients four to six minutes to complete.
-                </p>
-                <div className="mt-6">
-                  <a className="myent-btn-primary" href="/appointments/sinus-assessment">
-                    Complete the sinus questionnaire
-                  </a>
-                </div>
-              </article>
-            ) : null}
-
             <article className="myent-card">
               <p className="myent-eyebrow">Choosing your surgeon</p>
               <h2 className="mt-3 font-serif text-2xl text-neutral-800">Choosing your surgeon</h2>
