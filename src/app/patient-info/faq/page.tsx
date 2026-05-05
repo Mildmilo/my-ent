@@ -47,7 +47,7 @@ const faqGroups: FaqGroup[] = [
       {
         question: 'How long is a first appointment?',
         answer:
-          'First specialist consultations typically last 30 to 45 minutes, depending on the complexity of your presenting concern. Please allow extra time for any in-room examination or hearing assessment that may be performed on the day.',
+          'First specialist consultations typically last 20 to 30 minutes. Follow-up appointments are usually 15 minutes. Please allow a little extra time on the day in case an in-room examination or hearing assessment is performed.',
       },
     ],
   },
