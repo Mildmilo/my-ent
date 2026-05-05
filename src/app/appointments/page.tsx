@@ -18,8 +18,11 @@ export default function AppointmentsPage() {
         <div className="myent-container">
           <p className="myent-eyebrow">Appointments</p>
           <h1 className="mt-4 text-4xl lg:text-5xl">You have come to the right place.</h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-neutral-600">
-            Complete the form below to request a consultation at My-ENT, 135 Macquarie Street, Sydney CBD. Reception will confirm your booking pathway — no follow-up calls for missing details.
+          <div className="mt-6 max-w-2xl rounded-lg border border-teal-100 bg-teal-50 px-5 py-4 text-sm leading-relaxed text-teal-800">
+            <span className="font-medium">A valid GP or specialist referral is required</span> to book an appointment at My-ENT. If you do not yet have a referral, please speak with your GP first — they can refer you directly to us.
+          </div>
+          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-neutral-600">
+            Complete the form below to request a consultation at My-ENT, 135 Macquarie Street, Sydney CBD. Our reception team will be in touch by SMS within one business day with a link to complete your patient registration.
           </p>
           <p className="mt-3 text-sm text-neutral-400">
             Booking for a different location?{' '}

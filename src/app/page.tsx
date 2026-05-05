@@ -129,6 +129,9 @@ export default function Home() {
                 {', 135 Macquarie Street, Sydney CBD — you are in the right place.'}
               </span>
             </p>
+            <p className="mt-3 text-sm text-neutral-500">
+              A referral from your GP or specialist is required to book an appointment with our surgeons.
+            </p>
             <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
               <Link
                 href="/appointments"

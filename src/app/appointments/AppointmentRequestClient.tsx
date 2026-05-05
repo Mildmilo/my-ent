@@ -23,6 +23,7 @@ interface FormState {
   preferredSurgeon: PreferredSurgeon
   referringDoctor: string
   briefReason: string
+  hasReferral: boolean
 }
 
 interface ErrorMap {
@@ -34,6 +35,7 @@ interface ErrorMap {
   patientType?: string
   conditionArea?: string
   preferredSurgeon?: string
+  hasReferral?: string
 }
 
 const initialFormState: FormState = {
@@ -47,6 +49,7 @@ const initialFormState: FormState = {
   preferredSurgeon: '',
   referringDoctor: '',
   briefReason: '',
+  hasReferral: false,
 }
 
 const conditionAreaLabels: Record<Exclude<ConditionArea, ''>, string> = {
@@ -105,6 +108,10 @@ function validate(form: FormState): ErrorMap {
 
   if (!form.preferredSurgeon) {
     errors.preferredSurgeon = 'Please select a preferred surgeon or choose no preference.'
+  }
+
+  if (!form.hasReferral) {
+    errors.hasReferral = 'Please confirm you have a current referral before submitting.'
   }
 
   return errors
@@ -443,6 +450,25 @@ export function AppointmentRequestClient() {
                 onChange={handleChange}
                 className="mt-1.5 block w-full rounded-lg border border-neutral-200 bg-white px-4 py-3 text-sm text-neutral-800 focus:outline-none focus:ring-2 focus:ring-teal-400"
               />
+            </div>
+
+            {/* Referral confirmation */}
+            <div className="rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-4">
+              <label className="flex cursor-pointer items-start gap-3">
+                <input
+                  type="checkbox"
+                  name="hasReferral"
+                  checked={form.hasReferral}
+                  onChange={(e) => setForm(prev => ({ ...prev, hasReferral: e.target.checked }))}
+                  className="mt-0.5 h-4 w-4 rounded border-neutral-300 accent-teal-500"
+                />
+                <span className="text-sm leading-relaxed text-neutral-700">
+                  <span className="font-medium">I confirm I have a current referral</span> from my GP or a specialist to see a My-ENT surgeon. I understand that a valid referral is required to book an appointment.
+                </span>
+              </label>
+              {errors.hasReferral && (
+                <p data-error className="mt-2 text-xs text-red-500">{errors.hasReferral}</p>
+              )}
             </div>
 
             {/* Server error */}
