@@ -102,11 +102,6 @@ const conditions: ConditionData[] = [
   },
 ]
 
-const reviewStatus = [
-  'Public-platform review excerpts are being compiled and verified.',
-  'Only verbatim, attributable reviews will be published once approved.',
-  'No edited testimonial copy is used on this page.',
-]
 
 export default function Home() {
   return (
@@ -217,10 +212,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <ReviewsStrip
-        summary="My-ENT publishes patient feedback with strict AHPRA-aligned review controls."
-        reviewStatus={reviewStatus}
-      />
+      <ReviewsStrip />
       <GpStrip />
     </>
   )
