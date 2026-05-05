@@ -107,7 +107,7 @@ Subspecialties: Complex Otology, Auditory Implants, Lateral Skull Base Surgery, 
 Qualifications: FRACS (Otolaryngology, Head and Neck Surgery).
 Fellowship: Advanced fellowship in Complex Otology, Auditory Implants and Lateral Skull Base Surgery, Guy's and St Thomas' NHS Trust, London. Executive Fellowship in Surgical Leadership and Innovation, King's College London.
 
-Consultant appointments: Sydney Children's Hospital; Liverpool Hospital (adult and paediatric).
+Consultant appointments: Prince of Wales Hospital; Sydney Children's Hospital; Liverpool Hospital (adult and paediatric).
 Training centres: Sydney Children's Hospital; Westmead Children's Hospital; John Hunter Children's Hospital — trained across all three major NSW paediatric centres.
 
 Clinical expertise (subspecialty): cochlear implantation; middle ear implants; paediatric hearing loss; chronic ear disease; exostoses; cholesteatoma; skull base tumours.
@@ -135,7 +135,7 @@ All four My-ENT surgeons hold public tertiary hospital appointments. These are v
 - Dr Catherine Banks — Prince of Wales Hospital; Sydney Hospital; Sydney Eye Hospital; Sydney Children's Hospital (Randwick)
 - Dr Lyndon Chan — Northern Beach Hospital; Wollongong Hospital
 - Dr June Huang — St George Hospital
-- Dr Rithvik Reddy — Prince of Wales Hospital; Sydney Hospital; Sydney Children's Hospital (Randwick); Liverpool Hospital
+- Dr Rithvik Reddy — Prince of Wales Hospital; Sydney Hospital; Sydney Eye Hospital; Sydney Children's Hospital (Randwick); Liverpool Hospital
 
 ### Other private consulting locations
 
@@ -228,6 +228,7 @@ The `ConditionPageTemplate.tsx` component was upgraded during the sinusitis, nas
 | `treatmentOverview` | `TreatmentOverview \| string` | union — structured object with `overview` + optional `treatments[]` array of `{heading, body}` blocks separated by `border-t` dividers; plain string form still supported |
 | `relatedProcedures` | `RelatedLink[]` | required |
 | `faqItems` | `FaqItem[]?` | collapsible accordion + JSON-LD FAQPage schema |
+| `extraContent` | `ReactNode?` | optional — rendered after the FAQ section and before the closing fragment. Used for condition-specific additional content such as external resource links or treatment protocols |
 | ~~`sinusQuestionnaireCalloutHeading`~~ | ~~`string?`~~ | **DEPRECATED — see Rule 10. Do not pass on any page.** |
 
 Type guards `isWhenToSeekHelpObject()` and `isTreatmentOverviewObject()` are defined in the template for runtime discrimination of the union types.
@@ -436,90 +437,20 @@ When a new patient arrives at the appointment request page, the flow must identi
 
 **Redirect elsewhere** — concern is outside My-ENT's scope (e.g. dental, ophthalmology). Briefly acknowledge the concern and suggest they return to their GP for an appropriate referral. Warm, not dismissive.
 
-### Appointment intake form — full field specification
+### Appointment intake form — current simplified form
 
-The practice does not use HotDoc. All appointment requests are handled through a structured intake form built into the site. The form is a multi-step single-page form divided into five sections. The submit button remains disabled until every mandatory field across all five sections is complete and both consent checkboxes are ticked. Fields are validated inline as the patient moves between sections, not only at final submission.
+The practice does not use HotDoc. All appointment requests are handled through a simplified structured intake form at /appointments, implemented as `AppointmentRequestClient.tsx` with API route at `/api/appointments/request/route.ts`. The form uses an SMS-first workflow — reception contacts the patient by SMS within one business day with a link to complete full patient registration.
 
-**Section 1 — Patient details (all fields mandatory)**
-Full legal name. Date of birth. Sex. Residential address (street, suburb, state, postcode). Mobile phone number. Email address. Medicare number and expiry date. Whether the patient is the person completing the form or whether a parent or guardian is completing on behalf of a child. If a parent or guardian: their relationship to the patient and their own name and contact details.
+**Form fields (all mandatory unless noted):**
+Full legal name (as on Medicare card). Date of birth. Mobile number (with confirmation field — Australian 04XX format validated). Email address (backup contact). Private or public patient. Condition area: Nose and sinuses / Ear and hearing / Throat and voice / Skull base / other. Preferred surgeon: dropdown of all four surgeons plus "No preference". Referring doctor and practice (optional). Brief reason for visit (optional, 2–3 sentences). Referral confirmation checkbox: "I confirm I have a current referral from my GP or a specialist to see a My-ENT surgeon."
 
-**Section 2 — Referring doctor details (GP fields mandatory; other treating doctors optional)**
-GP full name. GP practice name. GP practice address. GP practice phone number. GP practice fax number. GP email address (if available). Whether a formal referral letter has been issued — if yes, a file upload field accepting PDF, JPG, or PNG up to 10MB. Other treating doctors involved in the patient's care (name, specialty, and contact details) — this field is optional but prominently offered.
+**On submission — reception email via Resend:**
+Email sent to contact@my-ent.com.au. For Dr Banks's patients, also sent to justineoates@my-ent.com.au. Subject line: [APPOINTMENT REQUEST] — [Patient Name] — [Condition Area] — [Surgeon]. Patient sees confirmation screen advising SMS contact within one business day. No sensitive health data is persisted on the server beyond the transmission event.
 
-**Section 3 — Clinical information (all fields mandatory except prior specialist detail)**
-Symptom category: dropdown selecting from nose and sinuses, ear, throat, paediatric ENT, skull base, or other. Plain-English description of the presenting concern with a minimum character count of 50 to prevent one-word submissions. Duration of symptoms. Whether the patient has been seen by another ENT or specialist for this concern — if yes, by whom (mandatory if this option is selected). Whether the patient has had any relevant prior surgery.
+**Referral requirement messaging:**
+The homepage hero includes a referral requirement note: "A referral from your GP or specialist is required to book an appointment with our surgeons." The appointments page displays a teal banner: "A valid GP or specialist referral is required to book an appointment at My-ENT." The form includes a mandatory referral confirmation checkbox that must be ticked before submission.
 
-**Section 4 — Imaging and investigations (mandatory to indicate whether imaging exists)**
-Whether any relevant imaging has been performed: CT scan, MRI, other, or none. For each imaging study: date of study, facility where performed, and where the images or report are held (with the GP, at the imaging facility, or uploaded directly). File upload field for imaging reports in PDF format. Whether any pathology or audiometry results are available and where they are held.
-
-**Section 5 — Appointment preferences and consent (all fields mandatory)**
-Preferred surgeon: dropdown of all four surgeons plus Justine Oates (nurse practitioner) plus "no preference — next available." Preferred consulting location: Macquarie Street CBD, Prince of Wales Private, St Luke's Private, or no preference. Whether the concern is urgent, with a one-sentence plain-English explanation of what constitutes clinical urgency for ENT care. Preferred contact method for appointment confirmation: phone call or email. Availability notes such as days or times that are not possible (optional free text). A mandatory checkbox: "I have read and understood the Privacy Policy" with a hyperlink to /privacy-policy. A mandatory checkbox: "The information I have provided is accurate and complete to the best of my knowledge."
-
-**On submission — structured reception email**
-
-The goal of the reception email is that reception can open it, read it once, and create the Genie booking without making a single outbound call. Every piece of information required for that booking must be present, clearly labelled, and in the same position every time so reception develops reading rhythm across repeated submissions.
-
-The email is generated automatically on form submission and sent to contact@my-ent.com.au. The sinus pre-appointment questionnaire clinician report is sent post-booking only — never triggered from a public page. For Dr Banks's patients, the report is sent to BOTH contact@my-ent.com.au AND justineoates@my-ent.com.au (reception cc'd for operational visibility; Justine as clinical reviewer). For patients of the other three surgeons, the report is sent to contact@my-ent.com.au and to whatever clinician email reception specifies at link generation — Justine's email does not appear in the routing for any non-Banks patient. The questionnaire is accessed via direct token-gated link only, generated by reception after appointment confirmation — it is not linked from the main navigation and is not publicly discoverable by search engines. Referral letters and imaging reports are attached as separate files, clearly named. The patient receives an automatic acknowledgement email confirming receipt and advising that reception will be in contact within one business day to confirm the appointment.
-
-The reception email must follow this exact structure:
-
-**Subject line (auto-generated):**
-[NEW PATIENT REQUEST] — [Adult / Paediatric] — [Symptom Category] — [Patient Surname]
-
-Example: [NEW PATIENT REQUEST] — Paediatric — Ear — Thompson
-
-**Email body — fixed section order:**
-
-PATIENT DETAILS
-Name: [Full legal name]
-Date of birth: [DD/MM/YYYY]
-Sex: [Male / Female / Other]
-Address: [Full residential address]
-Mobile: [Mobile phone number]
-Email: [Email address]
-Medicare number: [Number and expiry]
-Form completed by: [Patient / Parent or guardian — if guardian: name and relationship]
-
-REFERRING DOCTOR
-GP name: [Full name]
-Practice: [Practice name]
-Address: [Practice address]
-Phone: [Practice phone]
-Fax: [Practice fax]
-GP email: [If provided]
-Referral letter: [Attached / Not yet available / Not applicable]
-Other treating doctors: [Name, specialty, contact — or "None provided"]
-
-CLINICAL INFORMATION
-Symptom category: [Nose and sinuses / Ear / Throat / Paediatric ENT / Skull base / Other]
-Presenting concern: [Patient's own words — minimum 50 characters]
-Duration: [Patient's response]
-Prior ENT or specialist review: [Yes — [name and details] / No]
-Prior relevant surgery: [Yes — [details] / No]
-
-IMAGING AND INVESTIGATIONS
-Imaging performed: [CT scan / MRI / Other / None]
-[For each study: date, facility, location of images/report]
-Imaging report: [Attached / Held with GP / Held at imaging facility]
-Pathology or audiometry: [Available — [location] / None]
-
-APPOINTMENT PREFERENCES
-Preferred surgeon: [Name / No preference — next available]
-Preferred location: [Macquarie Street CBD / Prince of Wales Private / St Luke's Private / No preference]
-Urgency: [Urgent — [reason] / Routine]
-Preferred contact for confirmation: [Phone / Email]
-Availability notes: [Patient's notes / None provided]
-
-CONSENT
-Privacy Policy accepted: Yes
-Information accuracy confirmed: Yes
-
----
-
-No sensitive health data is stored in the application database. All data transmits to reception by secure email and is not persisted on the server beyond the transmission event.
-
-**Australian Privacy Principles compliance**
-This form collects sensitive health information as defined under the Privacy Act 1988 (Cth). The following requirements apply without exception. The form must link to the practice Privacy Policy before submission. The Privacy Policy page (/privacy-policy) is a required page in the site and must be built as part of the Tier A administrative pages. Data collected is limited to the minimum necessary for booking an appointment. Form submissions must be transmitted over HTTPS. The reception email account must have appropriate access controls. Patient health information must not be used for any secondary purpose including marketing.
+**Email delivery:** Both the appointment form and sino-nasal questionnaire use Resend for email delivery. Environment variables: RESEND_API_KEY and EMAIL_TO set in Vercel.
 
 ### Appointments page — confirmed design
 
@@ -532,6 +463,10 @@ Headline: "Request an appointment" in font-serif text-3xl.
 A single line of small text: "Wrong location? Contact directory." where "Contact directory" is a teal underline link to /contact/finding-the-right-contact, styled as text-sm text-neutral-400.
 
 The booking request form follows immediately below. No pathway cards, no duplicate redirect statements, no "Tell us your current situation" section. The page does one thing: present the booking request form cleanly with a single unobtrusive escape route for misdirected patients.
+
+### Getting here page — confirmed design
+
+The getting here page at /contact/getting-here provides parking and transport information for patients visiting 135 Macquarie Street. Linked from the main navigation and contact page. Tier A administrative page.
 
 ### What happens outside Genie
 
@@ -1056,7 +991,10 @@ my-ent/
 │   │   │   ├── grommets/page.tsx                 ← Tier C
 │   │   │   ├── myringoplasty/page.tsx            ← Tier C
 │   │   │   ├── nasendoscopy/page.tsx             ← Tier C
-│   │   │   └── wax-microsuction/page.tsx         ← Tier C
+│   │   │   ├── wax-microsuction/page.tsx         ← Tier C
+│   │   │   ├── hearing-implant-surgery/page.tsx  ← Tier C
+│   │   │   ├── stapes-surgery/page.tsx           ← Tier C
+│   │   │   └── acoustic-neuroma-surgery/page.tsx ← Tier C
 │   │   │
 │   │   ├── appointments/
 │   │   │   ├── page.tsx                          ← Tier A  BUILT
@@ -1080,7 +1018,9 @@ my-ent/
 │   │   │
 │   │   ├── contact/
 │   │   │   ├── page.tsx                          ← Tier A  BUILT
-│   │   │   └── finding-the-right-contact/page.tsx ← Tier A  BUILT
+│   │   │   ├── finding-the-right-contact/page.tsx ← Tier A  BUILT
+│   │   │   └── getting-here/page.tsx             ← Tier A  BUILT
+│   │   ├── sino-nasal-outcome-test/page.tsx       ← Tier C  BUILT (questionnaire)
 │   │   └── privacy-policy/page.tsx               ← Tier A  BUILT
 │   │
 │   ├── components/
@@ -1221,22 +1161,40 @@ LCP < 2.5s, CLS < 0.1, INP < 200ms. Achieve via `next/image` with explicit dimen
 
 ---
 
-## 14. Sinus pre-appointment questionnaire
+## 14. Sino-nasal outcome test questionnaire
 
-The full build specification for the rhinology and nasal pre-appointment questionnaire is contained in a separate file:
+The sino-nasal questionnaire is live at `/sino-nasal-outcome-test` with API route at `/api/sino-nasal-outcome-test/route.ts`.
 
-**`SINUS_QUESTIONNAIRE_SPEC.md`** — located in the project root alongside this file.
+### Questionnaire structure
 
-Read this file in full before building any component of the questionnaire. The specification covers the complete nine-step instrument including the EPOS 2020 symptom classification component, all validated instruments (SNOT-22, NOSE, TNSS, RQLQ, ESS), the two-section output architecture (patient-facing confirmation only; full graded clinician email), session management, save-and-return functionality, and implementation notes for Claude Code.
+The questionnaire is a multi-stage client-side form (`'use client'`) with the following instruments:
+
+**SNOT-22 — Sino-Nasal Outcome Test (22 items, presented domain by domain):**
+- Rhinologic symptoms: 8 items (need to blow nose, nasal blockage, sneezing, runny nose, cough, post-nasal discharge, thick nasal discharge, decreased sense of smell and taste)
+- Ear and facial symptoms: 4 items (facial pressure/pain, ear fullness, dizziness, ear pain)
+- Sleep and function: 8 items (difficulty falling asleep, wake up at night, lack of a good night's sleep, wake up tired, fatigue, reduced productivity, reduced concentration, frustrated/restless/irritable)
+- Emotional impact: 2 items (sad, embarrassed)
+- Scale: 0 (no problem) to 5 (as bad as it can be). Total /110.
+- Top-5 chip selector: after completing all 22 items, patient selects their five most bothersome symptoms in rank order using tap-to-select chips grouped by domain.
+
+**TNSS — Total Nasal Symptom Score (4 items):**
+Nasal congestion, runny nose, sneezing, nasal itching. Scale: 0–3. Total /12.
+
+**NOSE — Nasal Obstruction Symptom Evaluation (5 items):**
+5 items × scale 0–4, multiplied by 5. Total /100. Score ≥45 flags surgical candidacy in the clinician email.
+
+### Email delivery
+
+On submission, a structured HTML email with domain scores, item detail, top-5 priorities, TNSS, and NOSE (with surgical candidacy flag if ≥45) is sent via Resend to contact@my-ent.com.au and justineoates@my-ent.com.au. Subject line includes patient name, surgeon, SNOT-22 total, and NOSE total. No scores or clinical interpretations are shown to the patient.
+
+### Image optimisation
+
+All 40 hero images across condition and procedure pages are pre-optimised to 1200×675 WebP at 85% quality. All use `priority={true}` for above-the-fold loading via next/image.
 
 Critical rules that apply to the questionnaire without exception:
-- No EPOS classification, severity grade, instrument score, or management recommendation is ever displayed to the patient on any screen.
-- All clinical output appears exclusively in the structured clinician email. For Dr Banks's patients, that email is sent to BOTH contact@my-ent.com.au AND justineoates@my-ent.com.au. For other surgeons' patients it is sent to contact@my-ent.com.au plus the clinician email reception specifies at link generation. Justine's email does not appear in the routing for any non-Banks patient (Rule 9).
-- The questionnaire URL architecture has two distinct pages:
-  1. `/appointments/sinus-assessment` — PUBLIC INFORMATION PAGE ONLY. Explains "after your appointment is confirmed, we will send you this questionnaire by email." No form, no direct link to the live questionnaire, no CTA to start. This is what patients find if they search or browse the site.
-  2. `/questionnaire/sinus` (or equivalent token-gated route) — the live token-gated questionnaire. Accessible only via the time-limited invitation link generated by reception post-booking. Not linked from anywhere public. Excluded from sitemap and robots.txt.
-- Per Rule 10, the questionnaire is sent only AFTER appointment confirmation in Genie. It is not a pre-booking triage tool.
-- The Privacy Policy at /privacy-policy must include the questionnaire data collection paragraph before the questionnaire goes live.
+- No severity grade, instrument score, or management recommendation is ever displayed to the patient on any screen.
+- All clinical output appears exclusively in the structured clinician email sent to contact@my-ent.com.au and justineoates@my-ent.com.au.
+- The Privacy Policy at /privacy-policy must include the questionnaire data collection paragraph.
 
 ---
 
@@ -1304,9 +1262,9 @@ The post-consultation email opt-in captured in the questionnaire consent screen 
 
 **Post-consultation condition information emails.** Patients who opt in during the questionnaire consent screen receive a single post-consultation email within 24 to 48 hours containing links to the relevant My-ENT condition and procedure pages. Content is informational only, AHPRA-compliant, and includes an unsubscribe mechanism compliant with the Australian Spam Act 2003.
 
-**Email environment variable naming — IMPORTANT.** Two API routes exist for email sending and use different environment variable naming conventions. The sinus questionnaire route uses EMAIL_HOST, EMAIL_PORT, EMAIL_USER, EMAIL_PASS, EMAIL_TO. The appointment changes route uses SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, SMTP_FROM. These must be standardised to a single naming convention before production deployment. A Claude Code session should align both routes to use the same variable names before configuring credentials in Vercel.
+**Email delivery — Resend.** All email sending (appointment requests and sino-nasal questionnaire) uses Resend. Sending domain: noreply@my-ent.com.au. Environment variables set in Vercel: RESEND_API_KEY, EMAIL_TO. The .env.local file must never be committed to GitHub — confirm it is listed in .gitignore as .env*.local.
 
-**Email configuration for questionnaire submission.** The questionnaire uses Nodemailer with Gmail SMTP for email delivery. A .env.local file is required locally and environment variables must be set in Vercel for production. Do not use contact@my-ent.com.au as the sending account while it is in active use by the practice manager. The recommended approach is either a dedicated noreply@my-ent.com.au Google Workspace account, or Resend as a dedicated email delivery service. Environment variables required: EMAIL_HOST, EMAIL_PORT, EMAIL_USER, EMAIL_PASS, EMAIL_TO (justineoates@my-ent.com.au). The .env.local file must never be committed to GitHub — confirm it is listed in .gitignore as .env*.local before adding credentials.
+**ReviewsStrip — verified Google reviews.** The homepage ReviewsStrip component displays 4 verified verbatim Google reviews (Jonah S, Richard Wong, Akemi, Craig Horwitz — 3 Dr Banks, 1 Dr Chan). CTA links to My-ENT practice GBP at share.google/tz9vSl0rRnMdv6DsG. Rating and review count removed from on-page text to avoid mismatch with linked profile. AHPRA compliance note at bottom. Component takes no props — reviews are hardcoded.
 
 **SEO improvement priorities — implement before domain switch.**
 
@@ -1320,20 +1278,19 @@ Priority 4 — FAQ schema markup on the FAQ page at /patient-info/faq. The exist
 
 Priority 5 — Google Business Profile update. Immediately after domain switch: submit sitemap to Google Search Console, update Google Business Profile website URL to my-ent.com.au, confirm NAP consistency — Suite 303, Level 3, BMA House, 135 Macquarie Street, Sydney CBD NSW 2000, 02 9247 1762 — exactly matching the website and Google Business Profile.
 
-**DNS domain switch guidance.** When connecting my-ent.com.au to Vercel, add only the Vercel-provided DNS records alongside the existing Google Workspace MX records. Do not delete or replace any existing DNS records. Google Workspace email accounts — catherinebanks@my-ent.com.au, lyndonchan@my-ent.com.au, justineoates@my-ent.com.au, contact@my-ent.com.au — are completely unaffected by the Vercel domain connection. Share a screenshot of current DNS settings before making any changes so the exact records to add can be confirmed. DNS propagation takes 15 minutes to a few hours. Cancel Wix immediately after propagation confirms the Vercel site is live.
+**DNS — current state.** Domain my-ent.com.au has been migrated from Crazy Domains to Cloudflare. Nameservers: aragorn.ns.cloudflare.com and collins.ns.cloudflare.com. Resend domain my-ent.com.au is verified with all 4 Resend DNS records added in Cloudflare. Google Workspace email accounts — catherinebanks@my-ent.com.au, lyndonchan@my-ent.com.au, justineoates@my-ent.com.au, contact@my-ent.com.au — remain operational via existing MX records. Vercel custom domain connected.
 
-**Pre-launch checklist before DNS switch:**
+**Pre-launch checklist — remaining items:**
 1. Clinical sign-offs on all Tier C condition and procedure pages from Dr Banks
 2. Individual Tier B sign-offs from Dr Chan, Dr Huang, Dr Reddy, and Justine Oates on their profile pages
-3. End-to-end test of sinus questionnaire email delivery — confirm clinician report arrives at BOTH contact@my-ent.com.au and justineoates@my-ent.com.au for Dr Banks's patients, and at contact@my-ent.com.au only for other surgeons' patients, in correct format
-4. Confirm /appointments/sinus-assessment is the information-only expectation-setting page (no embedded form, no direct questionnaire link). The live questionnaire remains accessible only via token-gated invitation link. Do NOT add the questionnaire to the Appointments dropdown in the navigation — Rule 10.
-5. Confirm the `sinusQuestionnaireCalloutHeading` prop has been removed from sinusitis/page.tsx and nasal-polyps/page.tsx
-6. Confirm homepage and appointments page render correctly on mobile
-7. Connect custom domain my-ent.com.au in Vercel Settings → Domains
-8. Cancel Wix subscription after successful DNS propagation
+3. End-to-end test of sino-nasal questionnaire email delivery — confirm report arrives at BOTH contact@my-ent.com.au and justineoates@my-ent.com.au
+4. Confirm homepage and appointments page render correctly on mobile
+5. Cancel Wix subscription (pending eFax fix — Wix currently hosts fax number)
+6. LinkedIn company page setup
+7. HealthLink registration (1800 125 036) for GP electronic referrals
 
 **My Medical Story paediatric storybook app.** A separate standalone platform (mymedicalstory.com.au). Stack: Next.js, TypeScript, Tailwind CSS, Supabase, ElevenLabs, Vercel. Phase 1 story types: grommets, tonsillectomy, adenoidectomy, older child general. This is a separate project from the My-ENT website and is not built within this repository.
 
 ---
 
-*Last updated: April 2026 — Session 18 complete. Rule 10 — QUESTIONNAIRE GATING added as new non-negotiable rule: pre-appointment questionnaires are sent only after appointment confirmation in Genie, never accessible from public pages. Questionnaire routing updated: for Dr Banks's patients, clinician report sent to BOTH contact@my-ent.com.au and justineoates@my-ent.com.au (reception cc'd for operational redundancy; Justine as clinical reviewer); for other surgeons' patients, sent to contact@my-ent.com.au plus reception-specified clinician email only. `sinusQuestionnaireCalloutHeading` prop on ConditionPageTemplate.tsx deprecated; must be removed from sinusitis/page.tsx and nasal-polyps/page.tsx. `/appointments/sinus-assessment` repurposed from live questionnaire to information-only expectation-setting page; live questionnaire moves to separate token-gated URL. Condition interface rewritten to match the upgraded ConditionPageTemplate: `whenToSeekHelp` and `treatmentOverview` now support structured objects with warning signs and treatment blocks; new `symptomsNote` and `causesCitation` optional props. Condition page content density standards codified: 10–12 FAQs for the high-traffic five (sinusitis, nasal polyps, blocked nose, hearing loss, tinnitus), 8–10 FAQs for all other condition pages. Priority 1 SEO spec updated to match. Working through the remaining 21 condition pages in high-traffic-first order starting with Blocked Nose. Previous Session 17: Contact directory redesigned with Dr Banks listed first in private rooms section. Colour palette updated to business card blue-teal #4A7C8F. WCAG AA fix on eyebrow labels. Logo extracted from LOGO2.pdf — myent-logo-teal.png in use in navigation. git-push.sh helper script added to project root. Pre-launch SEO priorities documented. Justine Oates scope of practice Rule 9 added. Token-based questionnaire access specification revised. This is the single source of truth for all project decisions. Update the date when this file changes.*
+*Last updated: May 2026 — Session 19 complete. Appointment form completely rebuilt as simplified SMS-first workflow at /appointments with AppointmentRequestClient.tsx and /api/appointments/request/route.ts; old multi-section form removed. Referral requirement messaging added to homepage hero and appointments page with mandatory referral confirmation checkbox. Sino-nasal questionnaire live at /sino-nasal-outcome-test with SNOT-22 (4 domains, chip selector for top-5), TNSS, and NOSE score; API route at /api/sino-nasal-outcome-test/route.ts sends HTML email report via Resend. DNS migrated from Crazy Domains to Cloudflare (aragorn.ns.cloudflare.com, collins.ns.cloudflare.com); Resend domain verified with all 4 DNS records. All email delivery now via Resend (RESEND_API_KEY and EMAIL_TO set in Vercel). Three new procedure pages: Hearing Implant Surgery, Stapes Surgery, Acoustic Neuroma Surgery (total 16 procedure pages). Condition pages expanded: Hayfever (Australian resources section via extraContent prop), Post-Nasal Drip (EPOS 2020/ICAR-RS-2021 evidence, structured whenToSeekHelp with warning signs), LPR/Reflux (2024 IFOS consensus, Dr Koufman Reflux Detox Program 11 tips via extraContent). extraContent?: ReactNode prop added to ConditionPageTemplate. ReviewsStrip replaced with 4 verified AHPRA-compliant verbatim Google reviews (4.8★/33 reviews). All 40 hero images pre-optimised to 1200×675 WebP at 85% quality. Getting here page live at /contact/getting-here. Dr Rithvik Reddy — Prince of Wales Hospital added to appointments. FAQ consultation duration updated to 20–30 min first visit, 15 min follow-up. ReviewsStrip CTA updated — links to My-ENT practice GBP at share.google/tz9vSl0rRnMdv6DsG; rating and review count removed from on-page text to avoid mismatch with linked profile. Pending: LinkedIn setup, Wix cancellation (awaiting eFax fix), HealthLink registration (1800 125 036). This is the single source of truth for all project decisions. Update the date when this file changes.*
