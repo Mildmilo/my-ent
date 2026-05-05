@@ -82,7 +82,7 @@ export default function HayfeverAllergicRhinitisPage() {
       plainEnglishSummary="Hayfever — or allergic rhinitis — is a very common allergic condition in Australia, affecting around one in four people. It happens when the immune system overreacts to airborne allergens such as grass pollen, house dust mite, or pet dander, leading to symptoms such as sneezing, a runny or blocked nose, and itchy or watery eyes. Symptoms may be seasonal, present all year, or a combination of both. Treatment ranges from nasal sprays and antihistamines through to allergen immunotherapy, which can reduce sensitivity to the underlying trigger in selected patients."
       heroImageSlot={
         <Image
-          src="/images/Conditions/hayfever-allergic-rhinitis-condition-myent.webp"
+          src="/images/Conditions/hayfever-allergic-rhinitis-condition-myent.png"
           alt="Patient with hayfever and allergic rhinitis seeking specialist care at My-ENT Sydney."
           width={1200}
           height={675}
